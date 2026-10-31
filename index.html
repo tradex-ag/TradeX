@@ -25,7 +25,7 @@
 <link rel="preload" href="/assets/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/geist-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"TradeX International AG","url":"https://tradexag.ch/","logo":"https://tradexag.ch/apple-touch-icon.png","email":"lars@tradexag.ch","founder":[{"@type":"Person","name":"Holger Albinski"},{"@type":"Person","name":"Lars Orlamünde","jobTitle":"Geschäftsführer"}],"address":{"@type":"PostalAddress","streetAddress":"Chaltenbodenstrasse 16","postalCode":"8834","addressLocality":"Schindellegi","addressCountry":"CH"}}
+{"@context":"https://schema.org","@type":"Organization","name":"TradeX International AG","url":"https://tradexag.ch/","logo":"https://tradexag.ch/apple-touch-icon.png","email":"lars@tradexag.ch","founder":{"@type":"Person","name":"Holger Albinski"},"employee":{"@type":"Person","name":"Lars Orlamünde","jobTitle":"Geschäftsführer"},"address":{"@type":"PostalAddress","streetAddress":"Chaltenbodenstrasse 16","postalCode":"8834","addressLocality":"Schindellegi","addressCountry":"CH"}}
 </script>
 <script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('tw-init')}catch(e){}</script>
 <style>
@@ -757,6 +757,11 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 @media (prefers-reduced-motion:reduce){.flip-inner,.flip .terminal{transition:none}}
 
 /* ---------- founders (corporate, 2026-10-31) ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.team-copy{grid-column:4 / span 4;display:flex;flex-direction:column;gap:16px;color:var(--graphite);line-height:1.6}
+.team-copy p{margin:0}
+.team-grid .team{grid-column:9 / span 4;margin:0}
+@media (max-width:960px){.team-copy,.team-grid .team{grid-column:1 / -1}}
 .founders{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
 .founders li{display:flex;flex-direction:column;gap:2px}
 .founders b{font-weight:600;font-size:15px;color:var(--ink)}
@@ -782,6 +787,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <ul class="nav-links">
       <li><a href="#expertise" data-nav data-en="Services">Leistungen</a></li>
       <li><a href="#vorgehen" data-nav data-en="Process">Vorgehen</a></li>
+      <li><a href="#team" data-nav>Team</a></li>
       <li><a href="#stack" data-nav data-en="Technology">Technologie</a></li>
       <li><a href="#zusammenarbeit" data-nav data-en="Working together">Zusammenarbeit</a></li>
       <li><a href="#faq" data-nav>FAQ</a></li>
@@ -803,9 +809,10 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 <nav class="mobile-menu" id="mobileMenu" hidden aria-label="Navigation">
   <a href="#expertise"><span data-en="Services">Leistungen</span> <span class="mono">01</span></a>
   <a href="#vorgehen"><span data-en="Process">Vorgehen</span> <span class="mono">02</span></a>
-  <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">03</span></a>
-  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">04</span></a>
-  <a href="#faq"><span>FAQ</span> <span class="mono">05</span></a>
+  <a href="#team"><span>Team</span> <span class="mono">03</span></a>
+  <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">04</span></a>
+  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">05</span></a>
+  <a href="#faq"><span>FAQ</span> <span class="mono">06</span></a>
   <a href="#check" class="nav-cta"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> →</a>
 </nav>
 
@@ -839,9 +846,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
           <span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span>
         </div>
         <ul class="founders" aria-label="Gründer" data-en-aria="Founders">
-          <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Co-founder">Eigentümer · Mitgründer</span></li>
-          <li><b>Rolf</b><span class="mono" data-en="Co-founder">Mitgründer</span></li>
-          <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director · Co-founder">Geschäftsführer · Mitgründer</span></li>
+          <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Founder">Inhaber · Gründer</span></li>
+          <li><b>Rolf</b><span class="mono" data-en="Founder">Gründer</span></li>
+          <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director">Geschäftsführer</span></li>
         </ul>
         <dl class="proof">
           <div><dt data-en="Since 2018">Seit 2018</dt><dd data-en="in e-commerce">im E-Commerce</dd></div>
@@ -1050,6 +1057,28 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <div class="why-item reveal d2"><span class="mono" data-en="Knowledge transfer">Wissenstransfer</span><p data-en="We bring the knowledge into your company instead of making you dependent.">Wir bringen das Wissen in Ihr Unternehmen, statt Sie abhängig zu machen.</p></div>
     </div>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="section team-sec" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mono"><i class="sq"></i><span>Team</span> <span class="path">/team</span></div>
+      <h2 class="reveal" data-en="One team.<br><span class='dim'>One network.</span>">Ein Team.<br><span class="dim">Ein Netzwerk.</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-copy reveal">
+        <p data-en="TradeX International AG works as a team: specialists for marketplaces, data and software, supported by a network of virtual assistants for day-to-day operations.">Die TradeX International AG arbeitet als Team: Spezialisten für Marktplätze, Daten und Software, unterstützt von einem Netzwerk aus Virtual Assistants für das Tagesgeschäft.</p>
+        <p data-en="Our managing director Lars Orlamünde leads the team and the assistant network, so every client has a fixed contact and the work runs to clear processes.">Unser Geschäftsführer Lars Orlamünde führt das Team und das Assistenz-Netzwerk. So hat jeder Kunde einen festen Ansprechpartner, und die Arbeit läuft nach klaren Abläufen.</p>
+      </div>
+      <ul class="team reveal d1">
+        <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Founder">Inhaber · Gründer</span></li>
+        <li><b>Rolf</b><span class="mono" data-en="Founder">Gründer</span></li>
+        <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director">Geschäftsführer</span><p data-en="Leads the team and the virtual assistant network. In e-commerce since 2018, MIT programme “Designing and Building AI Products and Services”.">Führt das Team und das Netzwerk aus Virtual Assistants. Seit 2018 im E-Commerce, MIT-Abschluss in «Designing and Building AI Products and Services».</p></li>
+        <li><b data-en="Virtual assistants">Virtual Assistants</b><span class="mono" data-en="Network">Netzwerk</span><p data-en="Handle recurring tasks in listings, product data, customer messages and reporting, managed by our managing director.">Übernehmen wiederkehrende Aufgaben in Listings, Produktdaten, Kundennachrichten und Reporting, gesteuert von unserer Geschäftsführung.</p></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -1396,7 +1425,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    ['ausgangslage','check','expertise','vorgehen','founder','engineering','stack','zusammenarbeit','faq','kontakt','top'].forEach(function(id){ var s = document.getElementById(id); if (s) navIO.observe(s); });
+    ['ausgangslage','check','expertise','vorgehen','team','engineering','stack','zusammenarbeit','faq','kontakt','top'].forEach(function(id){ var s = document.getElementById(id); if (s) navIO.observe(s); });
   }
 
   /* hero terminal */
