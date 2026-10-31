@@ -757,6 +757,10 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 @media (prefers-reduced-motion:reduce){.flip-inner,.flip .terminal{transition:none}}
 
 /* ---------- founders (corporate, 2026-10-31) ---------- */
+.founders{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
+.founders li{display:flex;flex-direction:column;gap:2px}
+.founders b{font-weight:600;font-size:15px;color:var(--ink)}
+.founders .mono{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .team{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--ink)}
 .team li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .team b{font-weight:600;font-size:18px;letter-spacing:-.01em}
@@ -778,7 +782,6 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <ul class="nav-links">
       <li><a href="#expertise" data-nav data-en="Services">Leistungen</a></li>
       <li><a href="#vorgehen" data-nav data-en="Process">Vorgehen</a></li>
-      <li><a href="#founder" data-nav data-en="About us">Über uns</a></li>
       <li><a href="#stack" data-nav data-en="Technology">Technologie</a></li>
       <li><a href="#zusammenarbeit" data-nav data-en="Working together">Zusammenarbeit</a></li>
       <li><a href="#faq" data-nav>FAQ</a></li>
@@ -800,10 +803,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 <nav class="mobile-menu" id="mobileMenu" hidden aria-label="Navigation">
   <a href="#expertise"><span data-en="Services">Leistungen</span> <span class="mono">01</span></a>
   <a href="#vorgehen"><span data-en="Process">Vorgehen</span> <span class="mono">02</span></a>
-  <a href="#founder"><span data-en="About us">Über uns</span> <span class="mono">03</span></a>
-  <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">04</span></a>
-  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">05</span></a>
-  <a href="#faq"><span>FAQ</span> <span class="mono">06</span></a>
+  <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">03</span></a>
+  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">04</span></a>
+  <a href="#faq"><span>FAQ</span> <span class="mono">05</span></a>
   <a href="#check" class="nav-cta"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> →</a>
 </nav>
 
@@ -836,6 +838,11 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
           <span class="contact-person"><img src="/assets/lars-avatar.jpg?v=2" width="240" height="240" alt="Lars Orlamünde" decoding="async"><span><b>Lars Orlamünde</b><span data-en="Managing Director, your contact">Geschäftsführer, Ihr Ansprechpartner</span></span></span>
           <span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span>
         </div>
+        <ul class="founders" aria-label="Gründer" data-en-aria="Founders">
+          <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Co-founder">Eigentümer · Mitgründer</span></li>
+          <li><b>Rolf</b><span class="mono" data-en="Co-founder">Mitgründer</span></li>
+          <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director · Co-founder">Geschäftsführer · Mitgründer</span></li>
+        </ul>
         <dl class="proof">
           <div><dt data-en="Since 2018">Seit 2018</dt><dd data-en="in e-commerce">im E-Commerce</dd></div>
           <div><dt data-en="9 brands">9 Marken</dt><dd data-en="we manage">betreuen wir</dd></div>
@@ -1043,46 +1050,6 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <div class="why-item reveal d2"><span class="mono" data-en="Knowledge transfer">Wissenstransfer</span><p data-en="We bring the knowledge into your company instead of making you dependent.">Wir bringen das Wissen in Ihr Unternehmen, statt Sie abhängig zu machen.</p></div>
     </div>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
-  </div>
-</section>
-
-<!-- ================= FOUNDER ================= -->
-<section class="section founder" id="founder">
-  <div class="wrap founder-grid">
-    <aside class="portrait-col">
-      <div class="portrait">
-        <img src="/assets/lars-schreibtisch-hoch.jpg?v=5" srcset="/assets/lars-schreibtisch-hoch-700.jpg?v=5 700w, /assets/lars-schreibtisch-hoch.jpg?v=5 1086w" sizes="(max-width: 960px) 100vw, 45vw" width="1086" height="1448" alt="Lars Orlamünde, Geschäftsführer der TradeX International AG, an seinem Schreibtisch" data-en-alt="Lars Orlamünde, Managing Director of TradeX International AG, at his desk">
-        <span class="vign" aria-hidden="true"></span>
-        <span class="shade" aria-hidden="true"></span>
-        <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-        <div class="ph-top mono" aria-hidden="true"><span class="rec"><i></i>Live</span><span data-en="office · b/w">Büro · s/w</span></div>
-        <div class="ph mono" aria-hidden="true"><span>Lars Orlamünde</span><span data-en="Managing Director">Geschäftsführer</span></div>
-      </div>
-      <dl class="spec">
-        <div><dt data-en="Company">Unternehmen</dt><dd>TradeX International AG</dd></div>
-        <div><dt data-en="Founders">Gründer</dt><dd>Holger Albinski, Rolf, Lars Orlamünde</dd></div>
-        <div><dt data-en="Owner">Eigentümer</dt><dd>Holger Albinski</dd></div>
-        <div><dt data-en="Managing Director">Geschäftsführer</dt><dd>Lars Orlamünde</dd></div>
-        <div><dt data-en="Headquarters">Sitz</dt><dd data-en="Schindellegi, Switzerland">Schindellegi, Schweiz</dd></div>
-        <div><dt data-en="Focus">Schwerpunkt</dt><dd data-en="Marketplace management, e-commerce strategy, engineering &amp; automation for brands">Marktplatz-Management, E-Commerce-Strategie, Engineering &amp; Automatisierung für Marken</dd></div>
-      </dl>
-    </aside>
-
-    <div class="founder-copy">
-      <div class="label mono"><i class="sq"></i><span data-en="About us">Über uns</span> <span class="path">/unternehmen</span></div>
-      <h2 class="reveal" data-en="Founded by operators.<br><span class='dim'>Driven by technology.</span>">Gegründet von Praktikern.<br><span class="dim">Angetrieben von Technologie.</span></h2>
-      <div class="founder-text reveal d1">
-        <p data-en="TradeX International AG was founded by Holger Albinski, Rolf and Lars Orlamünde. As an agency for brands, we look after marketplace businesses operationally, strategically and technically.">Die TradeX International AG wurde von Holger Albinski, Rolf und Lars Orlamünde gegründet. Als Agentur für Marken betreuen wir Marktplatz-Geschäfte operativ, strategisch und technisch.</p>
-        <p data-en="We run e-commerce businesses ourselves and build our own software. That is why we know the problems from the inside and solve them so they stay solved.">Wir betreiben selbst E-Commerce-Geschäfte und entwickeln eigene Software. Deshalb kennen wir die Probleme von innen und lösen sie so, dass sie gelöst bleiben.</p>
-        <p data-en="Our goal is for the knowledge to stay in your company instead of making you dependent on us.">Unser Ziel ist, dass das Wissen in Ihrem Unternehmen bleibt, statt Sie von uns abhängig zu machen.</p>
-      </div>
-      <ul class="team reveal d1">
-        <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Co-founder">Eigentümer · Mitgründer</span></li>
-        <li><b>Rolf</b><span class="mono" data-en="Co-founder">Mitgründer</span></li>
-        <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director · Co-founder">Geschäftsführer · Mitgründer</span><p data-en="In e-commerce since 2018, MIT programme “Designing and Building AI Products and Services”. Leads the day-to-day business and is your contact.">Seit 2018 im E-Commerce, MIT-Abschluss in «Designing and Building AI Products and Services». Führt das operative Geschäft und ist Ihr Ansprechpartner.</p></li>
-      </ul>
-      <div class="sec-cta" style="margin-top:0"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a></div>
-    </div>
   </div>
 </section>
 
