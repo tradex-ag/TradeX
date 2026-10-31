@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>TradeX International AG · Lars Orlamünde</title>
-<meta name="description" content="Lars Orlamünde, TradeX International AG: Marketplace Operations, E-Commerce-Strategie und Software Engineering. Ich entwickle, optimiere, analysiere und automatisiere Ihren Marktplatz-Handel.">
+<title>TradeX International AG · Agentur für Marken</title>
+<meta name="description" content="TradeX International AG, Agentur für Marken aus Schindellegi: Marktplatz-Management, E-Commerce-Strategie und Software Engineering. Wir entwickeln, optimieren, analysieren und automatisieren Ihren Marktplatz-Handel.">
 <link rel="canonical" href="https://tradexag.ch/">
 <meta name="theme-color" content="#111111">
 <meta name="robots" content="index,follow">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TradeX International AG">
 <meta property="og:url" content="https://tradexag.ch/">
-<meta property="og:title" content="TradeX International AG · Lars Orlamünde">
+<meta property="og:title" content="TradeX International AG · Agentur für Marken">
 <meta property="og:description" content="Marketplace Operations, E-Commerce-Strategie und Software Engineering aus der Schweiz.">
 <meta property="og:image" content="https://tradexag.ch/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 <link rel="preload" href="/assets/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/geist-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"TradeX International AG","url":"https://tradexag.ch/","logo":"https://tradexag.ch/apple-touch-icon.png","email":"lars@tradexag.ch","founder":{"@type":"Person","name":"Lars Orlamünde","jobTitle":"Founder & CEO"}}
+{"@context":"https://schema.org","@type":"Organization","name":"TradeX International AG","url":"https://tradexag.ch/","logo":"https://tradexag.ch/apple-touch-icon.png","email":"lars@tradexag.ch","founder":[{"@type":"Person","name":"Holger Albinski"},{"@type":"Person","name":"Lars Orlamünde","jobTitle":"Geschäftsführer"}],"address":{"@type":"PostalAddress","streetAddress":"Chaltenbodenstrasse 16","postalCode":"8834","addressLocality":"Schindellegi","addressCountry":"CH"}}
 </script>
 <script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('tw-init')}catch(e){}</script>
 <style>
@@ -755,6 +755,14 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 .cert-close{all:unset;cursor:pointer;color:#E9EAEB;font:inherit;font-size:11px;letter-spacing:.04em}
 .cert-close:hover,.cert-close:focus-visible{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){.flip-inner,.flip .terminal{transition:none}}
+
+/* ---------- founders (corporate, 2026-10-31) ---------- */
+.team{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid var(--ink)}
+.team li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.team b{font-weight:600;font-size:18px;letter-spacing:-.01em}
+.team .mono{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);align-self:center}
+.team p{grid-column:1 / -1;margin:4px 0 0;color:var(--graphite);line-height:1.55;max-width:44em}
+@media (max-width:560px){.team li{grid-template-columns:1fr}.team .mono{align-self:start}}
 </style>
 </head>
 <body>
@@ -770,9 +778,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <ul class="nav-links">
       <li><a href="#expertise" data-nav data-en="Services">Leistungen</a></li>
       <li><a href="#vorgehen" data-nav data-en="Process">Vorgehen</a></li>
-      <li><a href="#founder" data-nav data-en="About me">Über mich</a></li>
+      <li><a href="#founder" data-nav data-en="About us">Über uns</a></li>
       <li><a href="#stack" data-nav data-en="Technology">Technologie</a></li>
-      <li><a href="#zusammenarbeit" data-nav data-en="Work with me">Zusammenarbeit</a></li>
+      <li><a href="#zusammenarbeit" data-nav data-en="Working together">Zusammenarbeit</a></li>
       <li><a href="#faq" data-nav>FAQ</a></li>
     </ul>
     <div class="nav-right">
@@ -792,9 +800,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 <nav class="mobile-menu" id="mobileMenu" hidden aria-label="Navigation">
   <a href="#expertise"><span data-en="Services">Leistungen</span> <span class="mono">01</span></a>
   <a href="#vorgehen"><span data-en="Process">Vorgehen</span> <span class="mono">02</span></a>
-  <a href="#founder"><span data-en="About me">Über mich</span> <span class="mono">03</span></a>
+  <a href="#founder"><span data-en="About us">Über uns</span> <span class="mono">03</span></a>
   <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">04</span></a>
-  <a href="#zusammenarbeit"><span data-en="Work with me">Zusammenarbeit</span> <span class="mono">05</span></a>
+  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">05</span></a>
   <a href="#faq"><span>FAQ</span> <span class="mono">06</span></a>
   <a href="#check" class="nav-cta"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> →</a>
 </nav>
@@ -805,32 +813,32 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   <div class="gridlines" aria-hidden="true"><div class="wrap"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
   <div class="wrap">
     <div class="hero-meta mono">
-      <span><i class="sq"></i>Lars Orlamünde</span>
-      <span>TradeX International AG</span>
+      <span><i class="sq"></i>TradeX International AG</span>
+      <span data-en="Agency for brands">Agentur für Marken</span>
       <span>E-Commerce × Engineering</span>
       <span>tradexag.ch</span>
     </div>
 
-    <h1 class="hero-title" aria-label="Ich betreibe E-Commerce nicht nur. Ich entwickle, optimiere, analysiere und automatisiere ihn." data-en-aria="I don't just manage e-commerce. I engineer, optimise, analyse and automate it.">
-      <span class="l1" aria-hidden="true" data-en="I don’t just">Ich betreibe</span>
+    <h1 class="hero-title" aria-label="Wir betreiben E-Commerce nicht nur. Wir entwickeln, optimieren, analysieren und automatisieren ihn." data-en-aria="We don't just manage e-commerce. We engineer, optimise, analyse and automate it.">
+      <span class="l1" aria-hidden="true" data-en="We don’t just">Wir betreiben</span>
       <span class="l2" aria-hidden="true" data-en="manage <span class='nowrap'>e-commerce.</span>"><span class="nowrap">E-Commerce</span> nicht nur.</span>
-      <span class="l3" aria-hidden="true" data-en="I <span class='verb' id='verb'>engineer</span> it.<i class='caret'></i>">Ich <span class="verb" id="verb">entwickle</span> ihn.<i class="caret"></i></span>
+      <span class="l3" aria-hidden="true" data-en="We <span class='verb' id='verb'>engineer</span> it.<i class='caret'></i>">Wir <span class="verb" id="verb">entwickeln</span> ihn.<i class="caret"></i></span>
     </h1>
 
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="hero-sub" data-en="<span>Marketplace Operations.</span><span>E-Commerce Strategy.</span><span>Software Engineering.</span>"><span>Marktplatz-Management.</span><span>E-Commerce-Strategie.</span><span>Softwareentwicklung.</span></p>
-        <p class="lead" data-en="I get your marketplace business back on track: healthy accounts, product data that sells and workflows that run on their own. From someone who runs e-commerce himself and builds his own software.">Ich bringe Ihr Marktplatz-Geschäft auf Kurs: stabile Accounts, Produktdaten, die verkaufen, und Abläufe, die von selbst laufen. Von jemandem, der E-Commerce selbst betreibt und eigene Software entwickelt.</p>
+        <p class="lead" data-en="We are an agency for brands and get your marketplace business on track: healthy accounts, product data that sells and workflows that run on their own. From a team that runs e-commerce itself and builds its own software.">Wir sind eine Agentur für Marken und bringen Ihr Marktplatz-Geschäft auf Kurs: stabile Accounts, Produktdaten, die verkaufen, und Abläufe, die von selbst laufen. Von einem Team, das E-Commerce selbst betreibt und eigene Software entwickelt.</p>
         <div class="btns">
           <a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="hero-trust">
-          <span class="contact-person"><img src="/assets/lars-avatar.jpg?v=2" width="240" height="240" alt="Lars Orlamünde" decoding="async"><span><b>Lars Orlamünde</b><span data-en="You talk to me directly.">Sie sprechen direkt mit mir.</span></span></span>
+          <span class="contact-person"><img src="/assets/lars-avatar.jpg?v=2" width="240" height="240" alt="Lars Orlamünde" decoding="async"><span><b>Lars Orlamünde</b><span data-en="Managing Director, your contact">Geschäftsführer, Ihr Ansprechpartner</span></span></span>
           <span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span>
         </div>
         <dl class="proof">
           <div><dt data-en="Since 2018">Seit 2018</dt><dd data-en="in e-commerce">im E-Commerce</dd></div>
-          <div><dt data-en="9 brands">9 Marken</dt><dd data-en="I manage">betreue ich</dd></div>
+          <div><dt data-en="9 brands">9 Marken</dt><dd data-en="we manage">betreuen wir</dd></div>
           <div><button type="button" class="proof-mit" id="mitBtn" aria-controls="heroFlip" aria-expanded="false"><dt>MIT</dt><dd><span data-en="AI products, certified">KI-Produkte, zertifiziert</span> <span class="proof-see" aria-hidden="true">↗</span></dd></button></div>
         </dl>
       </div>
@@ -858,7 +866,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     </div>
 
     <div class="trust">
-      <span class="mono" data-en="Brands I manage">Marken, die ich betreue</span>
+      <span class="mono" data-en="Brands we manage">Marken, die wir betreuen</span>
       <ul>
         <li>RED LOON</li><li>VDP</li><li>KLARBEIT</li><li>MANUKA.PLUS</li><li>AUWALDBIO</li><li>BYODO</li><li>NATURES FINEST</li><li>HOTGEN</li><li>KAWOLA</li>
       </ul>
@@ -907,9 +915,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <div class="check-intro">
       <div class="label mono"><i class="sq"></i><span data-en="Marketplace check">Marktplatz-Check</span> <span class="path">/check</span></div>
       <h2 data-en="Where does your<br><span class='dim'>marketplace business stand?</span>">Wo steht Ihr<br><span class="dim">Marktplatz-Geschäft?</span></h2>
-      <p data-en="Three clicks, two minutes. At the end you see where things are stuck and can book a free call with me.">Drei Klicks, zwei Minuten. Am Ende sehen Sie, wo es hakt, und können ein kostenloses Gespräch mit mir vormerken.</p>
-      <span class="contact-person"><img src="/assets/lars-avatar.jpg?v=2" width="240" height="240" alt="Lars Orlamünde" loading="lazy" decoding="async"><span><b>Lars Orlamünde</b><span data-en="I read every request personally.">Ich lese jede Anfrage persönlich.</span></span></span>
-      <span class="mono trustline" data-en="Free · no obligation · your answers only go to me">Kostenlos · unverbindlich · Ihre Antworten gehen nur an mich</span>
+      <p data-en="Three clicks, two minutes. At the end you see where things are stuck and can book a free call with us.">Drei Klicks, zwei Minuten. Am Ende sehen Sie, wo es hakt, und können ein kostenloses Gespräch mit uns vormerken.</p>
+      <span class="contact-person"><img src="/assets/lars-avatar.jpg?v=2" width="240" height="240" alt="Lars Orlamünde" loading="lazy" decoding="async"><span><b>Lars Orlamünde</b><span data-en="Managing Director, reads every request personally">Geschäftsführer, liest jede Anfrage persönlich</span></span></span>
+      <span class="mono trustline" data-en="Free · no obligation · your answers stay with us">Kostenlos · unverbindlich · Ihre Antworten bleiben bei uns</span>
     </div>
     <div class="quiz" id="quiz">
       <div class="q-top"><span id="qPos"><span data-en="Question">Frage</span> <b id="qPosN">1</b> / 3</span><span data-en="Marketplace check">Marktplatz-Check</span></div>
@@ -930,12 +938,12 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
           <h3 data-en="Your assessment">Ihre Auswertung</h3>
           <p class="q-sum"><span data-en="Open points:">Offene Punkte:</span> <b class="q-num" id="qNum">0</b> · <span data-en="For each answer, a first step you can take yourself.">Zu jeder Antwort ein erster Schritt, den Sie selbst angehen können.</span></p>
           <ul class="q-eval" id="qGaps"><li data-for="q1:shop" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="Marketplaces are still untapped.">Marktplätze sind noch ungenutzt.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Search for your three bestsellers on Amazon and check the best-seller rank and number of reviews of existing offers. If other sellers are selling your own brand there, you lose not only revenue but also control over price and presentation.">Suchen Sie Ihre drei Bestseller auf Amazon und prüfen Sie Bestseller-Rang und Anzahl der Bewertungen der vorhandenen Angebote. Verkaufen dort andere Händler Ihre eigene Marke, verlieren Sie nicht nur Umsatz, sondern auch die Kontrolle über Preis und Darstellung.</span></p></li><li data-for="q1:one" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="One channel is a concentration risk.">Ein Kanal ist ein Klumpenrisiko.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Check which second marketplace fits your range. Use your existing master data as the basis, but map it to the new marketplace’s required attributes, otherwise items never go live. With only one channel, a suspension or rule change hits all of your marketplace revenue.">Prüfen Sie, welcher zweite Marktplatz zu Ihrem Sortiment passt. Nutzen Sie Ihre vorhandenen Stammdaten als Basis, aber ordnen Sie sie den Pflichtattributen des neuen Marktplatzes zu, sonst gehen Artikel gar nicht erst live. Mit nur einem Kanal trifft eine Sperrung oder Regeländerung Ihren ganzen Marktplatz-Umsatz.</span></p></li><li data-for="q1:many" data-open="0" hidden><span class="q-tag ok" data-en="Next lever">Nächster Hebel</span><b data-en="Several channels, several rulebooks.">Mehrere Kanäle, mehrere Regelwerke.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Keep prices and stock in one central place, push them out automatically and keep a small safety stock per channel. Every oversell becomes a cancellation, and Amazon tolerates less than 2.5% seller cancellations, Kaufland less than 1%.">Halten Sie Preise und Bestände an einer zentralen Stelle, spielen Sie sie automatisch aus und arbeiten Sie mit einem kleinen Sicherheitsbestand pro Kanal. Jeder Überverkauf wird zur Stornierung, und Amazon toleriert weniger als 2,5 % händlerseitige Stornos, Kaufland weniger als 1 %.</span></p></li><li data-for="q1:both" data-open="0" hidden><span class="q-tag ok" data-en="Next lever">Nächster Hebel</span><b data-en="Shop and marketplaces interact.">Shop und Marktplätze greifen ineinander.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Decide which items and prices run where, and build the marketplace fees into the price. Compare contribution margin 3 at product level to scale profitably. On Amazon, make sure your price is not clearly above your shop price, otherwise Amazon can take away your Buy Box.">Legen Sie fest, welche Artikel und Preise wo laufen, und preisen Sie die Marktplatzgebühren ein. Vergleichen Sie den Deckungsbeitrag 3 auf Produktebene, um profitabel zu skalieren. Achten Sie bei Amazon darauf, dass Ihr Preis dort nicht deutlich über Ihrem Shoppreis liegt, sonst kann Amazon Ihnen die Buy Box entziehen.</span></p></li><li data-for="q2:auto" data-open="0" hidden><span class="q-tag ok" data-en="Next lever">Nächster Hebel</span><b data-en="Your data foundation is automated.">Ihre Datenbasis ist automatisiert.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="The next lever is content: complete titles, bullet points and attributes per channel. Missing required attributes can block the listing altogether, missing optional ones cost visibility in filters and search.">Der nächste Hebel liegt im Inhalt: Titel, Bullet Points und Attribute je Kanal vervollständigen. Fehlende Pflichtattribute verhindern teils schon das Listing, fehlende optionale Attribute kosten Sichtbarkeit in Filtern und Suche.</span></p></li><li data-for="q2:mixed" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="Product data is partly handled by hand.">Produktdaten laufen teils von Hand.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Automate stock first, then the content. Automatic stock sync prevents overselling, which quickly leads to account warnings.">Automatisieren Sie zuerst den Bestand, dann die Texte. Ein automatischer Bestandsabgleich verhindert Überverkäufe, und die führen schnell zu Account-Warnungen.</span></p></li><li data-for="q2:manual" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="Product data comes from Excel.">Produktdaten kommen aus Excel.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Define a single source that all channels read from and maintain data only there. Several Excel versions without a clear current state are a typical source of errors in prices and stock.">Legen Sie eine einzige Quelle fest, aus der alle Kanäle lesen, und pflegen Sie nur noch dort. Mehrere Excel-Versionen ohne klaren Stand sind eine typische Fehlerquelle für Preise und Bestände.</span></p></li><li data-for="q3:team" data-open="0" hidden><span class="q-tag ok" data-en="Next lever">Nächster Hebel</span><b data-en="An experienced team is in place.">Ein erfahrenes Team ist da.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="For two weeks, write down every recurring manual task with its time and frequency. Automate first what happens often and hits prices or metrics when it goes wrong. That frees the team’s time for growth.">Notieren Sie zwei Wochen lang jede wiederkehrende Aufgabe, die von Hand erledigt wird, mit Zeitaufwand und Häufigkeit. Automatisieren Sie zuerst, was oft vorkommt und bei Fehlern Preise oder Kennzahlen trifft. So gewinnt das Team Zeit für Wachstum.</span></p></li><li data-for="q3:agency" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="The know-how sits with the agency.">Das Wissen liegt bei der Agentur.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Make sure seller and ad accounts are registered to your company and that you are the primary user. Give the agency access via user permissions instead of your password, and have the processes documented. An Amazon account cannot simply be transferred later.">Stellen Sie sicher, dass Verkäufer- und Werbekonten auf Ihre Firma laufen und Sie selbst der Hauptnutzer sind. Geben Sie der Agentur Zugriff über Nutzerberechtigungen statt über Ihr Passwort, und lassen Sie sich die Abläufe dokumentieren. Ein Amazon-Konto lässt sich später nicht einfach übertragen.</span></p></li><li data-for="q3:side" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="Marketplaces run on the side.">Marktplätze laufen nebenbei.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Check customer messages daily, because Amazon expects replies within 24 hours and Kaufland within 48 hours. Also block fixed time once a week for account health and metrics. That is where suspensions usually show up first.">Prüfen Sie Kundennachrichten täglich, denn Amazon erwartet Antworten binnen 24 Stunden und Kaufland binnen 48 Stunden. Blocken Sie zusätzlich einmal pro Woche feste Zeit für Account-Health und Kennzahlen. Dort kündigen sich Sperrungen meist zuerst an.</span></p></li><li data-for="q3:none" data-open="1" hidden><span class="q-tag open" data-en="Open point">Offener Punkt</span><b data-en="Nobody is responsible.">Niemand ist zuständig.</b><p><span class="q-first" data-en="First step:">Erster Schritt:</span> <span data-en="Name one responsible person and a deputy, even if only for a few hours a week. Marketplace response deadlines keep running during holidays and sick leave, and without ownership warnings and customer messages go unanswered.">Benennen Sie eine verantwortliche Person und eine Vertretung, auch wenn es nur wenige Stunden pro Woche sind. Die Antwortfristen der Marktplätze laufen auch bei Urlaub und Krankheit weiter, und ohne Zuständigkeit bleiben Warnungen und Kundennachrichten liegen.</span></p></li></ul>
-          <p class="q-offer" data-en="In a call I go through this with you on your actual account and tell you what I would do first. Free of charge, 30 minutes, directly with me.">Im Gespräch gehe ich das mit Ihnen an Ihrem echten Account durch und sage Ihnen, was ich zuerst angehen würde. Kostenlos, 30 Minuten, direkt mit mir.</p>
+          <p class="q-offer" data-en="In a call we go through this with you on your actual account and tell you what we would do first. Free of charge, 30 minutes.">Im Gespräch gehen wir das mit Ihnen an Ihrem echten Account durch und sagen Ihnen, was wir zuerst angehen würden. Kostenlos, 30 Minuten.</p>
           <button type="button" class="btn btn-primary q-next" data-go="4"><span data-en="Book a call">Gespräch vormerken</span> <span class="arr" aria-hidden="true">→</span></button>
         </div>
         <div class="q-step" data-step="4" hidden>
           <h3 data-en="When would a call suit you?">Wann passt Ihnen ein Gespräch?</h3>
-          <p class="q-sub" data-en="I will get back to you with concrete times.">Ich melde mich mit konkreten Terminvorschlägen.</p>
+          <p class="q-sub" data-en="We will get back to you with concrete times.">Wir melden uns mit konkreten Terminvorschlägen.</p>
           <p class="q-label" data-en="Week">Woche</p>
           <div class="q-row" data-q="week"><button type="button" class="q-opt" data-v="this" aria-pressed="false"><span data-en="This week">Diese Woche</span></button><button type="button" class="q-opt" data-v="next" aria-pressed="false"><span data-en="Next week">Nächste Woche</span></button><button type="button" class="q-opt" data-v="later" aria-pressed="false"><span data-en="Later">Später</span></button></div>
           <p class="q-label" data-en="Time of day">Tageszeit</p>
@@ -952,11 +960,11 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
             <div class="full"><button class="btn btn-primary" type="submit"><span data-en="Send request">Anfrage senden</span> <span class="arr" aria-hidden="true">→</span></button></div>
             <p class="form-note" id="formNote"></p>
           </form>
-          <p class="q-trust" data-en="Your details only go to me, Lars Orlamünde. No newsletter, no sharing with third parties.">Ihre Angaben gehen nur an mich, Lars Orlamünde. Kein Newsletter, keine Weitergabe an Dritte.</p>
+          <p class="q-trust" data-en="Your details go only to TradeX International AG. No newsletter, no sharing with third parties.">Ihre Angaben gehen nur an die TradeX International AG. Kein Newsletter, keine Weitergabe an Dritte.</p>
         </div>
         <div class="q-step q-done" data-step="6" hidden>
           <p class="q-sent" data-en="Almost done.">Fast geschafft.</p>
-          <p data-en="Your mail program has opened with the finished request. Please just press send. If nothing opened, write to me directly at <a href='mailto:lars@tradexag.ch'>lars@tradexag.ch</a>.">Ihr E-Mail-Programm hat sich mit der fertigen Anfrage geöffnet. Bitte nur noch absenden. Falls sich nichts geöffnet hat, schreiben Sie mir direkt an <a href="mailto:lars@tradexag.ch">lars@tradexag.ch</a>.</p>
+          <p data-en="Your mail program has opened with the finished request. Please just press send. If nothing opened, write to us directly at <a href='mailto:lars@tradexag.ch'>lars@tradexag.ch</a>.">Ihr E-Mail-Programm hat sich mit der fertigen Anfrage geöffnet. Bitte nur noch absenden. Falls sich nichts geöffnet hat, schreiben Sie uns direkt an <a href="mailto:lars@tradexag.ch">lars@tradexag.ch</a>.</p>
         </div>
       <div class="q-foot"><button type="button" class="q-back" id="qBack" hidden data-en="← Back">← Zurück</button></div>
     </div>
@@ -1006,10 +1014,10 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 
     <div class="statement">
       <div class="label mono"><i class="sq"></i><span data-en="Positioning">Positionierung</span></div>
-      <p class="statement-text reveal" data-en="I don’t see e-commerce only from a consultant’s perspective. <strong>I run e-commerce businesses myself and build the software I use to make processes more efficient.</strong>">Ich verstehe E-Commerce nicht nur aus der Beratungsperspektive. <strong>Ich betreibe selbst E-Commerce-Geschäfte und entwickle die Software, mit der ich Prozesse effizienter gestalte.</strong></p>
+      <p class="statement-text reveal" data-en="We don’t see e-commerce only from an agency’s perspective. <strong>We run e-commerce businesses ourselves and build the software we use to make processes more efficient.</strong>">Wir verstehen E-Commerce nicht nur aus der Agenturperspektive. <strong>Wir betreiben selbst E-Commerce-Geschäfte und entwickeln die Software, mit der wir Prozesse effizienter gestalten.</strong></p>
       <div class="statement-foot reveal d1">
-        <div><span class="mono" data-en="I don’t just solve problems.">Ich löse Probleme nicht nur.</span><p data-en="Every recurring task is a candidate for standardisation.">Jede wiederkehrende Aufgabe ist ein Kandidat für Standardisierung.</p></div>
-        <div><span class="mono" data-en="I build systems">Ich entwickle Systeme,</span><p data-en="so the same problems ideally never come back.">damit dieselben Probleme möglichst nicht erneut entstehen.</p></div>
+        <div><span class="mono" data-en="We don’t just solve problems.">Wir lösen Probleme nicht nur.</span><p data-en="Every recurring task is a candidate for standardisation.">Jede wiederkehrende Aufgabe ist ein Kandidat für Standardisierung.</p></div>
+        <div><span class="mono" data-en="We build systems">Wir entwickeln Systeme,</span><p data-en="so the same problems ideally never come back.">damit dieselben Probleme möglichst nicht erneut entstehen.</p></div>
       </div>
     </div>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
@@ -1024,15 +1032,15 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <h2 class="reveal" data-en="How we<br><span class='dim'>work together.</span>">So arbeiten wir<br><span class="dim">zusammen.</span></h2>
     </div>
     <ol class="steps">
-      <li class="reveal"><span class="mono">01</span><h3 data-en="Check &amp; call">Check &amp; Gespräch</h3><p data-en="Two minutes of check, then 30 minutes with me, free of charge. I tell you openly whether and how I can help.">Zwei Minuten Check, danach 30 Minuten mit mir, kostenlos. Ich sage Ihnen offen, ob und wie ich helfen kann.</p></li>
-      <li class="reveal d1"><span class="mono">02</span><h3 data-en="Analysis">Analyse</h3><p data-en="I look at accounts, data and workflows. You get a clear assessment with priorities.">Ich schaue mir Accounts, Daten und Abläufe an. Sie bekommen eine klare Einschätzung mit Prioritäten.</p></li>
-      <li class="reveal d2"><span class="mono">03</span><h3 data-en="Implementation">Umsetzung</h3><p data-en="I implement with you, with my team and my own systems. No slide decks that end up in a drawer.">Ich setze selbst mit um, mit meinem Team und meinen eigenen Systemen. Keine Folien, die in der Schublade landen.</p></li>
-      <li class="reveal d3"><span class="mono">04</span><h3 data-en="Anchor">Verankern</h3><p data-en="The knowledge stays in your company. If you wish, I keep running operations for you.">Das Wissen bleibt in Ihrem Unternehmen. Auf Wunsch betreue ich den Betrieb laufend weiter.</p></li>
+      <li class="reveal"><span class="mono">01</span><h3 data-en="Check &amp; call">Check &amp; Gespräch</h3><p data-en="Two minutes of check, then 30 minutes with us, free of charge. We tell you openly whether and how we can help.">Zwei Minuten Check, danach 30 Minuten mit uns, kostenlos. Wir sagen Ihnen offen, ob und wie wir helfen können.</p></li>
+      <li class="reveal d1"><span class="mono">02</span><h3 data-en="Analysis">Analyse</h3><p data-en="We look at accounts, data and workflows. You get a clear assessment with priorities.">Wir schauen uns Accounts, Daten und Abläufe an. Sie bekommen eine klare Einschätzung mit Prioritäten.</p></li>
+      <li class="reveal d2"><span class="mono">03</span><h3 data-en="Implementation">Umsetzung</h3><p data-en="We implement with you, with our team and our own systems. No slide decks that end up in a drawer.">Wir setzen selbst mit um, mit unserem Team und unseren eigenen Systemen. Keine Folien, die in der Schublade landen.</p></li>
+      <li class="reveal d3"><span class="mono">04</span><h3 data-en="Anchor">Verankern</h3><p data-en="The knowledge stays in your company. If you wish, we keep running operations for you.">Das Wissen bleibt in Ihrem Unternehmen. Auf Wunsch betreuen wir den Betrieb laufend weiter.</p></li>
     </ol>
     <div class="why">
-      <div class="why-item reveal"><span class="mono" data-en="Operator">Praktiker</span><p data-en="I run e-commerce businesses myself. I know the problems from the inside.">Ich betreibe selbst E-Commerce-Geschäfte. Ich kenne die Probleme von innen.</p></div>
-      <div class="why-item reveal d1"><span class="mono" data-en="Engineer">Entwickler</span><p data-en="I build the software that solves recurring problems for good.">Ich baue die Software, die wiederkehrende Probleme dauerhaft löst.</p></div>
-      <div class="why-item reveal d2"><span class="mono" data-en="No agency">Keine Agentur</span><p data-en="I bring the knowledge into your company instead of making you dependent.">Ich bringe das Wissen in Ihr Unternehmen, statt Sie abhängig zu machen.</p></div>
+      <div class="why-item reveal"><span class="mono" data-en="Operator">Praktiker</span><p data-en="We run e-commerce businesses ourselves. We know the problems from the inside.">Wir betreiben selbst E-Commerce-Geschäfte. Wir kennen die Probleme von innen.</p></div>
+      <div class="why-item reveal d1"><span class="mono" data-en="Engineer">Entwickler</span><p data-en="We build the software that solves recurring problems for good.">Wir bauen die Software, die wiederkehrende Probleme dauerhaft löst.</p></div>
+      <div class="why-item reveal d2"><span class="mono" data-en="Knowledge transfer">Wissenstransfer</span><p data-en="We bring the knowledge into your company instead of making you dependent.">Wir bringen das Wissen in Ihr Unternehmen, statt Sie abhängig zu machen.</p></div>
     </div>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
   </div>
@@ -1043,37 +1051,36 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   <div class="wrap founder-grid">
     <aside class="portrait-col">
       <div class="portrait">
-        <img src="/assets/lars-schreibtisch-hoch.jpg?v=5" srcset="/assets/lars-schreibtisch-hoch-700.jpg?v=5 700w, /assets/lars-schreibtisch-hoch.jpg?v=5 1086w" sizes="(max-width: 960px) 100vw, 45vw" width="1086" height="1448" alt="Lars Orlamünde, Founder &amp; CEO der TradeX International AG, an seinem Schreibtisch" data-en-alt="Lars Orlamünde, Founder &amp; CEO of TradeX International AG, at his desk">
+        <img src="/assets/lars-schreibtisch-hoch.jpg?v=5" srcset="/assets/lars-schreibtisch-hoch-700.jpg?v=5 700w, /assets/lars-schreibtisch-hoch.jpg?v=5 1086w" sizes="(max-width: 960px) 100vw, 45vw" width="1086" height="1448" alt="Lars Orlamünde, Geschäftsführer der TradeX International AG, an seinem Schreibtisch" data-en-alt="Lars Orlamünde, Managing Director of TradeX International AG, at his desk">
         <span class="vign" aria-hidden="true"></span>
         <span class="shade" aria-hidden="true"></span>
         <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
         <div class="ph-top mono" aria-hidden="true"><span class="rec"><i></i>Live</span><span data-en="office · b/w">Büro · s/w</span></div>
-        <div class="ph mono" aria-hidden="true"><span>Lars Orlamünde</span><span>Founder &amp; CEO</span></div>
+        <div class="ph mono" aria-hidden="true"><span>Lars Orlamünde</span><span data-en="Managing Director">Geschäftsführer</span></div>
       </div>
       <dl class="spec">
-        <div><dt>Name</dt><dd>Lars Orlamünde</dd></div>
-        <div><dt data-en="E-commerce">E-Commerce</dt><dd data-en="since 2018">seit 2018</dd></div>
-        <div><dt data-en="Continuing education">Weiterbildung</dt><dd>MIT · Designing and Building AI Products and Services</dd></div>
         <div><dt data-en="Company">Unternehmen</dt><dd>TradeX International AG</dd></div>
-        <div><dt data-en="Available for">Buchbar für</dt><dd data-en="Interim management, marketplace strategy, engineering &amp; automation">Interim Management, Marktplatzstrategie, Engineering &amp; Automatisierung</dd></div>
+        <div><dt data-en="Founders">Gründer</dt><dd>Holger Albinski, Rolf, Lars Orlamünde</dd></div>
+        <div><dt data-en="Owner">Eigentümer</dt><dd>Holger Albinski</dd></div>
+        <div><dt data-en="Managing Director">Geschäftsführer</dt><dd>Lars Orlamünde</dd></div>
+        <div><dt data-en="Headquarters">Sitz</dt><dd data-en="Schindellegi, Switzerland">Schindellegi, Schweiz</dd></div>
+        <div><dt data-en="Focus">Schwerpunkt</dt><dd data-en="Marketplace management, e-commerce strategy, engineering &amp; automation for brands">Marktplatz-Management, E-Commerce-Strategie, Engineering &amp; Automatisierung für Marken</dd></div>
       </dl>
     </aside>
 
     <div class="founder-copy">
-      <div class="label mono"><i class="sq"></i><span data-en="About me">Über mich</span> <span class="path">/founder</span></div>
-      <h2 class="reveal" data-en="Built by an operator.<br><span class='dim'>Driven by technology.</span>">Gebaut von einem Praktiker.<br><span class="dim">Angetrieben von Technologie.</span></h2>
+      <div class="label mono"><i class="sq"></i><span data-en="About us">Über uns</span> <span class="path">/unternehmen</span></div>
+      <h2 class="reveal" data-en="Founded by operators.<br><span class='dim'>Driven by technology.</span>">Gegründet von Praktikern.<br><span class="dim">Angetrieben von Technologie.</span></h2>
       <div class="founder-text reveal d1">
-        <p data-en="I came to e-commerce in 2018.">Ich bin 2018 zum E-Commerce gekommen.</p>
-        <p data-en="I quickly realised that my coding background helped me understand the Amazon algorithm and turn that understanding into revenue. Tools like Helium 10 made data visible at the time that simply had not been available before.">Schnell habe ich gemerkt, dass mir meine Coding-Erfahrung hilft, den Amazon-Algorithmus zu verstehen und daraus Umsatz zu machen. Tools wie Helium 10 machten damals Daten sichtbar, die es vorher so nicht gab.</p>
-        <p data-en="I trained companies in this knowledge, always with the goal of building it into the company itself instead of acting as a classic agency.">Dieses Wissen habe ich in Unternehmen geschult. Mein Ziel war immer, das Wissen ins Unternehmen zu bringen, statt als klassische Agentur aufzutreten.</p>
-        <p data-en="Because the systems were so complex, that was often a real challenge.">Wegen der Komplexität der Systeme war das oft eine grosse Herausforderung.</p>
-        <p data-en="Today’s technology opens up more possibilities than ever before. With my MIT programme “Designing and Building AI Products and Services” I deepened that knowledge.">Mit der heutigen Technologie ergeben sich mehr Möglichkeiten als je zuvor. Durch meinen Abschluss am MIT in «Designing and Building AI Products and Services» habe ich mein Wissen vertieft.</p>
-        <p data-en="Today I build AI-powered automation and simplify the complex processes of e-commerce.">Heute baue ich KI-gestützte Automatisierungen und vereinfache die komplexen Prozesse im E-Commerce.</p>
+        <p data-en="TradeX International AG was founded by Holger Albinski, Rolf and Lars Orlamünde. As an agency for brands, we look after marketplace businesses operationally, strategically and technically.">Die TradeX International AG wurde von Holger Albinski, Rolf und Lars Orlamünde gegründet. Als Agentur für Marken betreuen wir Marktplatz-Geschäfte operativ, strategisch und technisch.</p>
+        <p data-en="We run e-commerce businesses ourselves and build our own software. That is why we know the problems from the inside and solve them so they stay solved.">Wir betreiben selbst E-Commerce-Geschäfte und entwickeln eigene Software. Deshalb kennen wir die Probleme von innen und lösen sie so, dass sie gelöst bleiben.</p>
+        <p data-en="Our goal is for the knowledge to stay in your company instead of making you dependent on us.">Unser Ziel ist, dass das Wissen in Ihrem Unternehmen bleibt, statt Sie von uns abhängig zu machen.</p>
       </div>
-      <figure class="quote reveal">
-        <blockquote data-en="<span class='qm'>“</span>I don’t just advise businesses on technology. I build the systems they run on.<span class='qm'>”</span>"><span class="qm">«</span>Ich berate Unternehmen nicht nur zu Technologie. Ich baue die Systeme, mit denen sie arbeiten.<span class="qm">»</span></blockquote>
-        <figcaption class="mono"><span>Lars Orlamünde</span><span>Founder &amp; CEO</span></figcaption>
-      </figure>
+      <ul class="team reveal d1">
+        <li><b>Holger Albinski</b><span class="mono" data-en="Owner · Co-founder">Eigentümer · Mitgründer</span></li>
+        <li><b>Rolf</b><span class="mono" data-en="Co-founder">Mitgründer</span></li>
+        <li><b>Lars Orlamünde</b><span class="mono" data-en="Managing Director · Co-founder">Geschäftsführer · Mitgründer</span><p data-en="In e-commerce since 2018, MIT programme “Designing and Building AI Products and Services”. Leads the day-to-day business and is your contact.">Seit 2018 im E-Commerce, MIT-Abschluss in «Designing and Building AI Products and Services». Führt das operative Geschäft und ist Ihr Ansprechpartner.</p></li>
+      </ul>
       <div class="sec-cta" style="margin-top:0"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a></div>
     </div>
   </div>
@@ -1086,10 +1093,10 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <div class="label mono"><i class="sq"></i><span data-en="Engineering &amp; Automation">Engineering &amp; Automatisierung</span> <span class="path">/engineering</span></div>
       <h2 class="reveal" data-en="Efficiency<br>is <span class='dim'>engineered.</span>">Effizienz ist<br><span class="dim">Ingenieursarbeit.</span></h2>
       <div class="eng-text reveal d1">
-        <p data-en="I believe in processes that simply work.">Ich glaube an Prozesse, die einfach funktionieren.</p>
-        <p data-en="That is why I standardise and automate recurring tasks, from product data maintenance and quote preparation to day-to-day account management.">Deshalb standardisiere und automatisiere ich wiederkehrende Aufgaben – von der Produktdatenpflege über die Angebotserstellung bis zur operativen Account-Betreuung.</p>
-        <p data-en="My systems are built so that complex workflows become easy to operate.">Meine Systeme sind so aufgebaut, dass komplexe Abläufe einfach bedienbar werden.</p>
-        <p data-en="With my own software, AI assistants, my team and a specialised network, I create efficient structures without unnecessary overhead.">Mit eigenen Softwarelösungen, KI-Assistenten, meinem Team und einem spezialisierten Netzwerk schaffe ich effiziente Strukturen ohne unnötigen Overhead.</p>
+        <p data-en="We believe in processes that simply work.">Wir glauben an Prozesse, die einfach funktionieren.</p>
+        <p data-en="That is why we standardise and automate recurring tasks, from product data maintenance and quote preparation to day-to-day account management.">Deshalb standardisieren und automatisieren wir wiederkehrende Aufgaben – von der Produktdatenpflege über die Angebotserstellung bis zur operativen Account-Betreuung.</p>
+        <p data-en="Our systems are built so that complex workflows become easy to operate.">Unsere Systeme sind so aufgebaut, dass komplexe Abläufe einfach bedienbar werden.</p>
+        <p data-en="With our own software, AI assistants, our team and a specialised network, we create efficient structures without unnecessary overhead.">Mit eigenen Softwarelösungen, KI-Assistenten, unserem Team und einem spezialisierten Netzwerk schaffen wir effiziente Strukturen ohne unnötigen Overhead.</p>
       </div>
       <div class="eng-tasks reveal d2">
         <div><span data-en="Product data maintenance">Produktdatenpflege</span><span class="mono" data-en="automated">automatisiert</span></div>
@@ -1135,8 +1142,8 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 
   <div class="wrap goal">
     <div class="goal-head">
-      <div class="label mono"><i class="sq"></i><span data-en="My goal">Mein Ziel</span></div>
-      <p class="goal-text reveal" data-en="I simplify complex systems until <span class='hi'>anyone can operate them</span>, and I interpret reports so that <span class='hi'>management gets exactly what it needs to decide.</span>">Ich vereinfache komplexe Systeme so weit, dass <span class="hi">jeder sie bedienen kann</span>, und interpretiere Berichte so, dass <span class="hi">die Geschäftsführung genau die Informationen erhält, die sie für Entscheidungen braucht.</span></p>
+      <div class="label mono"><i class="sq"></i><span data-en="Our goal">Unser Ziel</span></div>
+      <p class="goal-text reveal" data-en="We simplify complex systems until <span class='hi'>anyone can operate them</span>, and we interpret reports so that <span class='hi'>management gets exactly what it needs to decide.</span>">Wir vereinfachen komplexe Systeme so weit, dass <span class="hi">jeder sie bedienen kann</span>, und interpretieren Berichte so, dass <span class="hi">die Geschäftsführung genau die Informationen erhält, die sie für Entscheidungen braucht.</span></p>
     </div>
     <div class="goal-pair">
       <article class="goal-item reveal">
@@ -1148,7 +1155,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <article class="goal-item reveal d1">
         <span class="mono" data-en="Reporting">Berichte</span>
         <h3 data-en="Reports that lead to decisions">Berichte, die zu Entscheidungen führen</h3>
-        <p data-en="I do not just pass on data. I interpret it and condense it into what management needs: where things stand, what has changed and what needs a decision.">Ich reiche keine Datenmengen weiter. Ich interpretiere sie und verdichte sie auf das, was die Geschäftsführung braucht: wo man steht, was sich verändert hat und was eine Entscheidung verlangt.</p>
+        <p data-en="We do not just pass on data. We interpret it and condense it into what management needs: where things stand, what has changed and what needs a decision.">Wir reichen keine Datenmengen weiter. Wir interpretieren sie und verdichten sie auf das, was die Geschäftsführung braucht: wo man steht, was sich verändert hat und was eine Entscheidung verlangt.</p>
         <div class="goal-flow mono" aria-hidden="true"><span data-en="raw data">rohe Daten</span><span class="ar">→</span><span data-en="interpretation">Interpretation</span><span class="ar">→</span><span class="em" data-en="decision">Entscheidung</span></div>
       </article>
     </div>
@@ -1160,10 +1167,10 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   <div class="wrap">
     <div class="sec-head">
       <div class="label mono"><i class="sq"></i><span data-en="Technology">Technologie</span> <span class="path">/stack</span></div>
-      <h2 class="reveal" data-en="Technology is part<br><span class='dim'>of my DNA.</span>">Technologie ist Teil<br><span class="dim">meiner DNA.</span></h2>
+      <h2 class="reveal" data-en="Technology is part<br><span class='dim'>of our DNA.</span>">Technologie ist Teil<br><span class="dim">unserer DNA.</span></h2>
     </div>
     <div class="stack-legend mono">
-      <span><i class="key used"></i><span data-en="Technologies I use">Eingesetzte Technologien</span></span>
+      <span><i class="key used"></i><span data-en="Technologies we use">Eingesetzte Technologien</span></span>
       <span><i class="key platform"></i><span data-en="Platform knowledge &amp; integrations">Plattformkenntnisse &amp; Integrationen</span></span>
     </div>
     <div class="stack-grid">
@@ -1205,7 +1212,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         </ul>
       </div>
     </div>
-    <p class="stack-note" data-en="Engineering and AI &amp; Automation list the technologies my team and I build with. Commerce lists the platforms and systems I know operationally and integrate with.">Entwicklung und KI &amp; Automatisierung beschreiben die Technologien, mit denen ich und mein Team selbst entwickeln. Commerce beschreibt die Plattformen und Systeme, die ich operativ kenne und anbinde.</p>
+    <p class="stack-note" data-en="Engineering and AI &amp; Automation list the technologies our team builds with. Commerce lists the platforms and systems we know operationally and integrate with.">Entwicklung und KI &amp; Automatisierung beschreiben die Technologien, mit denen unser Team selbst entwickelt. Commerce beschreibt die Plattformen und Systeme, die wir operativ kennen und anbinden.</p>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
   </div>
 </section>
@@ -1214,7 +1221,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 <section class="section work" id="zusammenarbeit">
   <div class="wrap">
     <div class="sec-head">
-      <div class="label mono"><i class="sq"></i><span data-en="Work with me">Zusammenarbeit</span> <span class="path">/zusammenarbeit</span></div>
+      <div class="label mono"><i class="sq"></i><span data-en="Working together">Zusammenarbeit</span> <span class="path">/zusammenarbeit</span></div>
       <h2 class="reveal" data-en="Expertise when<br><span class='dim'>you need it.</span>">Expertise, wenn<br><span class="dim">Sie sie brauchen.</span></h2>
     </div>
     <div class="models">
@@ -1222,13 +1229,13 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         <span class="mono"><span data-en="Model A">Modell A</span><span data-en="Project">Projekt</span></span>
         <h3 data-en="Consulting &amp;<br>Interim">Beratung &amp;<br>Interim</h3>
         <p data-en="Personal strategic and operational support on a project basis.">Persönliche strategische und operative Unterstützung auf Projektbasis.</p>
-        <dl><dt data-en="Format">Form</dt><dd data-en="In person, directly with me">Persönlich, direkt mit mir</dd><dt data-en="Scope">Rahmen</dt><dd data-en="Project basis">Projektbasis</dd></dl>
+        <dl><dt data-en="Format">Form</dt><dd data-en="In person, with a fixed contact">Persönlich, mit festem Ansprechpartner</dd><dt data-en="Scope">Rahmen</dt><dd data-en="Project basis">Projektbasis</dd></dl>
       </article>
       <article class="model reveal d1">
         <span class="mono"><span data-en="Model B">Modell B</span><span data-en="Ongoing">Laufend</span></span>
         <h3 data-en="Managed<br>Operations">Laufende<br>Betreuung</h3>
         <p data-en="Ongoing management and optimisation of marketplace businesses.">Laufende Betreuung und Optimierung von Marketplace-Geschäften.</p>
-        <dl><dt data-en="Format">Form</dt><dd data-en="Me and my team, with my own systems">Ich und mein Team, mit eigenen Systemen</dd><dt data-en="Scope">Rahmen</dt><dd data-en="Continuous">Kontinuierlich</dd></dl>
+        <dl><dt data-en="Format">Form</dt><dd data-en="Our team, with our own systems">Unser Team, mit eigenen Systemen</dd><dt data-en="Scope">Rahmen</dt><dd data-en="Continuous">Kontinuierlich</dd></dl>
       </article>
       <article class="model reveal d2">
         <span class="mono"><span data-en="Model C">Modell C</span><span data-en="Build">Entwicklung</span></span>
@@ -1250,12 +1257,12 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     </div>
     <div class="faq-list">
       <div class="faq-items">
-        <details class="reveal"><summary data-en="What does the first call cost?">Was kostet das Erstgespräch?</summary><p data-en="Nothing. 30 minutes, directly with me. Afterwards you decide whether to continue.">Nichts. 30 Minuten, direkt mit mir. Danach entscheiden Sie, ob es weitergeht.</p></details>
-        <details class="reveal"><summary data-en="Are you an agency?">Sind Sie eine Agentur?</summary><p data-en="No. I work with you personally, with my team and my own systems. My goal is for the knowledge to stay in your company instead of making you dependent.">Nein. Ich arbeite persönlich mit Ihnen, mit meinem Team und eigenen Systemen. Mein Ziel ist, dass das Wissen in Ihrem Unternehmen bleibt, statt Sie abhängig zu machen.</p></details>
+        <details class="reveal"><summary data-en="What does the first call cost?">Was kostet das Erstgespräch?</summary><p data-en="Nothing. 30 minutes with us. Afterwards you decide whether to continue.">Nichts. 30 Minuten mit uns. Danach entscheiden Sie, ob es weitergeht.</p></details>
+        <details class="reveal"><summary data-en="Are you an agency?">Sind Sie eine Agentur?</summary><p data-en="Yes, an agency for brands. Unlike many agencies, we implement ourselves, with our own systems, and make sure the knowledge stays in your company instead of making you dependent.">Ja, eine Agentur für Marken. Anders als viele Agenturen setzen wir selbst mit um, mit eigenen Systemen, und sorgen dafür, dass das Wissen in Ihrem Unternehmen bleibt, statt Sie abhängig zu machen.</p></details>
         <details class="reveal"><summary data-en="Isn’t it too early for us?">Ist das nicht zu früh für uns?</summary><p data-en="If you are just starting with marketplaces, this is a good moment. Mistakes in account setup and product data are easy to avoid at the start and hard to fix later.">Wenn Sie gerade erst mit Marktplätzen starten, ist das ein guter Zeitpunkt. Fehler im Account-Aufbau und in den Produktdaten lassen sich am Anfang leicht vermeiden und später nur mühsam beheben.</p></details>
-        <details class="reveal"><summary data-en="How much time do I need to invest?">Wie viel Zeit muss ich investieren?</summary><p data-en="Ideally, I train your team to run the marketplaces largely on its own and streamline the processes for efficiency. If your team is too small or already at capacity, I can also place a virtual assistant (VA) from my network with you.">Im Idealfall schule ich Ihr Team so weit, dass es die Marktplätze weitgehend selbst führt, und trimme die Abläufe auf Effizienz. Ist Ihr Team zu klein oder schon ausgelastet, kann ich Ihnen auch eine virtuelle Assistenz (VA) aus meinem Netzwerk vermitteln.</p></details>
-        <details class="reveal"><summary data-en="Who is this not worth it for?">Für wen lohnt es sich nicht?</summary><p data-en="If you only need one small thing, such as a single listing, or are looking for an advertising agency for campaigns. In that case I will tell you openly.">Wenn Sie nur eine einzelne Kleinigkeit brauchen, etwa ein Listing, oder eine Werbeagentur für Kampagnen suchen. Dann sage ich Ihnen das offen.</p></details>
-        <details class="reveal"><summary data-en="What happens to my answers from the check?">Was passiert mit meinen Angaben aus dem Check?</summary><p data-en="They only go to me and are used to prepare our call. No newsletter, no sharing with third parties.">Sie gehen nur an mich und dienen dazu, unser Gespräch vorzubereiten. Kein Newsletter, keine Weitergabe an Dritte.</p></details>
+        <details class="reveal"><summary data-en="How much time do we need to invest?">Wie viel Zeit müssen wir investieren?</summary><p data-en="Ideally, we train your team to run the marketplaces largely on its own and streamline the processes for efficiency. If your team is too small or already at capacity, we can also place a virtual assistant (VA) from our network with you.">Im Idealfall schulen wir Ihr Team so weit, dass es die Marktplätze weitgehend selbst führt, und trimmen die Abläufe auf Effizienz. Ist Ihr Team zu klein oder schon ausgelastet, können wir Ihnen auch eine virtuelle Assistenz (VA) aus unserem Netzwerk vermitteln.</p></details>
+        <details class="reveal"><summary data-en="Who is this not worth it for?">Für wen lohnt es sich nicht?</summary><p data-en="If you only need one small thing, such as a single listing, or are looking for an advertising agency for campaigns. In that case we will tell you openly.">Wenn Sie nur eine einzelne Kleinigkeit brauchen, etwa ein Listing, oder eine Werbeagentur für Kampagnen suchen. Dann sagen wir Ihnen das offen.</p></details>
+        <details class="reveal"><summary data-en="What happens to my answers from the check?">Was passiert mit meinen Angaben aus dem Check?</summary><p data-en="They only go to us and are used to prepare our call. No newsletter, no sharing with third parties.">Sie gehen nur an uns und dienen dazu, unser Gespräch vorzubereiten. Kein Newsletter, keine Weitergabe an Dritte.</p></details>
       </div>
       <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
     </div>
@@ -1277,20 +1284,21 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <h2 class="reveal" aria-label="Lassen Sie uns etwas Besseres, Effektiveres und Lukrativeres bauen." data-en-aria="Let’s build something better, more effective and more profitable."><span class="cl" aria-hidden="true" data-en="Let’s build<br>something">Lassen Sie uns<br>etwas</span> <span class="cw" aria-hidden="true"><span class="dim rot" id="cword">Besseres</span></span> <span class="cl" aria-hidden="true" data-en="">bauen.</span></h2>
     <div class="contact-grid">
       <div class="contact-main contact-alt">
-        <p data-en="Prefer to get in touch directly? Write or call me. Or take the check first, then our call is already prepared.">Lieber direkt? Schreiben Sie mir oder rufen Sie an. Oder machen Sie vorher den Check, dann ist unser Gespräch schon vorbereitet.</p>
+        <p data-en="Prefer to get in touch directly? Write or call us. Or take the check first, then our call is already prepared.">Lieber direkt? Schreiben Sie uns oder rufen Sie an. Oder machen Sie vorher den Check, dann ist unser Gespräch schon vorbereitet.</p>
         <div><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a></div>
       </div>
       <div class="contact-side"><span class="mono contact-side-label" data-en="Direct">Direkt</span>
       <dl class="contact-card">
         <div><dt data-en="Company">Firma</dt><dd>TradeX International AG</dd><span></span></div>
+        <div><dt data-en="Contact">Ansprechpartner</dt><dd data-en="Lars Orlamünde, Managing Director">Lars Orlamünde, Geschäftsführer</dd><span></span></div>
         <div><dt data-en="Email">E-Mail</dt><dd><a href="mailto:lars@tradexag.ch" id="mail">lars@tradexag.ch</a></dd><button class="copy" id="copyMail" type="button" data-en="Copy">Kopieren</button></div>
         <div><dt data-en="Phone">Telefon</dt><dd><a href="tel:+41772747579">+41 77 274 75 79</a></dd><span></span></div>
         <div><dt>GitHub</dt><dd><a href="https://github.com/tradex-ag" target="_blank" rel="noopener">github.com/tradex-ag</a></dd><span></span></div>
         <div><dt data-en="Location">Standort</dt><dd data-en="Schindellegi, Switzerland">Schindellegi, Schweiz</dd><span></span></div>
       </dl>
       <ol class="next-steps">
-        <li><span class="mono">01</span><span data-en="You take the check or write to me.">Sie machen den Check oder schreiben mir.</span></li>
-        <li><span class="mono">02</span><span data-en="I read it personally and get back to you with times.">Ich lese es persönlich und melde mich mit Terminvorschlägen.</span></li>
+        <li><span class="mono">01</span><span data-en="You take the check or write to us.">Sie machen den Check oder schreiben uns.</span></li>
+        <li><span class="mono">02</span><span data-en="We read it personally and get back to you with times.">Wir lesen es persönlich und melden uns mit Terminvorschlägen.</span></li>
         <li><span class="mono">03</span><span data-en="We talk for 30 minutes and decide together whether it fits.">Wir sprechen 30 Minuten und entscheiden gemeinsam, ob es passt.</span></li>
       </ol>
       </div>
@@ -1427,22 +1435,22 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   /* hero terminal */
   var term = document.getElementById('termBody'), flowNodes = document.querySelectorAll('#flow .node');
   var MODES = [
-    { verb:{de:'entwickle', en:'engineer'}, scope:'engineer',
+    { verb:{de:'entwickeln', en:'engineer'}, scope:'engineer',
       cmd:'tradex build integration --targets sp-api,mirakl,plentyone',
       lines:[['spec','requirements captured with the client',0],['api','sp-api & mirakl connectors built',0],['db','schema migrated · mariadb',1],['agent','llm assistant deployed',1],['test','integration tests passed',1],['review','approved by operator',2],['deploy','live · docker',2]],
       svc:{de:['Individuelle Software','API-Integrationen','Amazon SP-API','Mirakl-Anbindung','ERP-Anbindung','PlentyOne','Weclapp','Datenbanken','KI-Assistenten','Next.js · Node.js'],
            en:['Custom software','API integrations','Amazon SP-API','Mirakl integration','ERP integration','PlentyOne','Weclapp','Databases','AI assistants','Next.js · Node.js']} },
-    { verb:{de:'optimiere', en:'optimise'}, scope:'optimise',
+    { verb:{de:'optimieren', en:'optimise'}, scope:'optimise',
       cmd:'tradex optimise listings --channels amazon,temu,otto,kaufland,ebay',
       lines:[['data','catalog & stock synced',0],['validate','listings & attributes · 0 errors',1],['content','titles & bullets enriched · llm',1],['pricing','pricing rules applied',1],['health','account health checked',1],['review','approved by operator',2],['execution','pushed via sp-api & mirakl',2]],
       svc:{de:['Amazon Seller Central','Vendor Central','Account Health','Listing-Optimierung','Produktdaten','Temu','OTTO','Kaufland','eBay','Internationalisierung'],
            en:['Amazon Seller Central','Vendor Central','Account Health','Listing optimisation','Product data','Temu','OTTO','Kaufland','eBay','Internationalisation']} },
-    { verb:{de:'analysiere', en:'analyse'}, scope:'analyse',
+    { verb:{de:'analysieren', en:'analyse'}, scope:'analyse',
       cmd:'tradex analyse performance --channels all --period 90d',
       lines:[['data','sales, traffic & stock loaded',0],['market','market & competitor data analysed',0],['trend','trends & anomalies detected',1],['drivers','key revenue drivers identified',1],['options','decision options prepared',1],['review','checked by operator',2],['report','management summary generated',2]],
       svc:{de:['Marktdatenanalyse','Umsatz- & Bestandsanalyse','Wettbewerbsanalyse','Marktplatzstrategie','Interim Head of E-Commerce','Entscheidungsvorlagen','Reporting für die Geschäftsführung'],
            en:['Market data analysis','Sales & stock analysis','Competitor analysis','Marketplace strategy','Interim Head of E-Commerce','Decision papers','Management reporting']} },
-    { verb:{de:'automatisiere', en:'automate'}, scope:'automate',
+    { verb:{de:'automatisieren', en:'automate'}, scope:'automate',
       cmd:'tradex automate workflows --schedule daily',
       lines:[['trigger','new orders & product data detected',0],['agent','ai agents assigned to tasks',1],['quote','quotes drafted automatically',1],['data','product data maintained',1],['monitor','account health watched 24/7',1],['review','exceptions sent for approval',2],['execution','workflows completed · logged',2]],
       svc:{de:['KI-Agenten','Workflow-Automatisierung','Angebotserstellung','Produktdatenpflege','Account-Betreuung','Prozessoptimierung','Datenverarbeitung','Weniger manuelle Arbeit'],
