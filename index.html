@@ -755,6 +755,8 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 .cert-close{all:unset;cursor:pointer;color:#E9EAEB;font:inherit;font-size:11px;letter-spacing:.04em}
 .cert-close:hover,.cert-close:focus-visible{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){.flip-inner,.flip .terminal{transition:none}}
+.aseio-word{color:inherit;text-decoration:none}
+.aseio-word:hover{color:var(--accent)}
 
 /* ---------- founders (corporate, 2026-10-31) ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
@@ -884,6 +886,9 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <ul>
         <li>RED LOON</li><li>VDP</li><li>KLARBEIT</li><li>MANUKA.PLUS</li><li>AUWALDBIO</li><li>BYODO</li><li>NATURES FINEST</li><li>HOTGEN</li><li>KAWOLA</li>
       </ul>
+      <span class="trust-break" aria-hidden="true"></span>
+      <span class="mono" data-en="Own software solution">Eigene Softwarelösung</span>
+      <ul><li><a href="https://aseio.app" target="_blank" rel="noopener">ASEIO.APP <span aria-hidden="true">↗</span></a></li></ul>
     </div>
   </div>
 </section>
@@ -1208,8 +1213,29 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         </ul>
       </div>
     </div>
-    <p class="stack-note" data-en="Engineering and AI &amp; Automation list the technologies our team builds with. Commerce lists the platforms and systems we know operationally and integrate with.">Entwicklung und KI &amp; Automatisierung beschreiben die Technologien, mit denen unser Team selbst entwickelt. Commerce beschreibt die Plattformen und Systeme, die wir operativ kennen und anbinden.</p>
+    <p class="stack-note" data-en="Engineering and AI &amp; Automation list the technologies our team builds with. Commerce lists the platforms and systems we know operationally and integrate with. Many of these connections run in production in our software <a href='https://aseio.app' target='_blank' rel='noopener'>ASEIO</a>.">Entwicklung und KI &amp; Automatisierung beschreiben die Technologien, mit denen unser Team selbst entwickelt. Commerce beschreibt die Plattformen und Systeme, die wir operativ kennen und anbinden. Viele dieser Anbindungen laufen produktiv in unserer Software <a href="https://aseio.app" target="_blank" rel="noopener">ASEIO</a>.</p>
     <div class="sec-cta reveal"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span></div>
+  </div>
+</section>
+
+<!-- ================= ASEIO ================= -->
+<section class="aseio" id="software" aria-label="Eigene Software" data-en-aria="In-house software">
+  <div class="wrap aseio-grid">
+    <div class="aseio-id">
+      <span class="mono"><i class="sq"></i><span data-en="Built in-house">Eigenentwicklung</span></span>
+      <a class="aseio-word" href="https://aseio.app" target="_blank" rel="noopener">ASEIO</a>
+    </div>
+    <p class="aseio-text" data-en="Our own software platform for AI-supported product data optimisation and marketplace processes.<small>Born from years of marketplace practice: complex systems, made simple to operate and largely automated.</small>">Unsere eigene Softwareplattform für KI-gestützte Produktdatenoptimierung und Marketplace-Prozesse.<small>Entstanden aus der Praxis: komplexe Marktplatz-Systeme, einfach bedienbar und weitgehend automatisiert.</small></p>
+    <div class="diff" aria-label="Beispielhafte Produktdaten-Optimierung" data-en-aria="Example of product data optimisation">
+      <div class="diff-bar"><span>listing.diff</span><span data-en="example">beispiel</span></div>
+      <div class="diff-body">
+        <div class="diff-row rm"><span class="f">title</span><span class="s">−</span><span class="v" data-en="Headphones black BT">Kopfhörer schwarz BT</span></div>
+        <div class="diff-row add"><span class="f"></span><span class="s">+</span><span class="v" data-en="Wireless over-ear headphones, Bluetooth, black">Kabellose Over-Ear-Kopfhörer, Bluetooth, Schwarz</span></div>
+        <div class="diff-row add"><span class="f">bullets</span><span class="s">+</span><span class="v" data-en="complete per category guidelines">vollständig nach Kategorie-Vorgaben</span></div>
+        <div class="diff-row add"><span class="f">attrs</span><span class="s">+</span><span class="v" data-en="required attributes added">Pflichtattribute ergänzt</span></div>
+        <div class="diff-row"><span class="f">status</span><span class="s ok">●</span><span class="v" data-en="awaiting approval">zur Freigabe</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
