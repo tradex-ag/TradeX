@@ -760,8 +760,6 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 
 /* ---------- repos & skills (2026-11-01) ---------- */
 .hero-gh{color:inherit;border-bottom:1px solid var(--accent)}
-/* eight menu items need more room: burger menu up to 1380px */
-@media (max-width:1380px){.nav-links,.nav .nav-cta{display:none}.burger{display:inline-flex}}
 .hero-gh:hover{color:var(--ink)}
 .oss-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
 .oss-col{grid-column:span 6;min-width:0;scroll-margin-top:calc(var(--header-h) + 24px)}
@@ -819,8 +817,6 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
       <li><a href="#vorgehen" data-nav data-en="Process">Vorgehen</a></li>
       <li><a href="#team" data-nav>Team</a></li>
       <li><a href="#stack" data-nav data-en="Technology">Technologie</a></li>
-      <li><a href="#repos" data-nav>Repos</a></li>
-      <li><a href="#skills" data-nav>Skills</a></li>
       <li><a href="#zusammenarbeit" data-nav data-en="Working together">Zusammenarbeit</a></li>
       <li><a href="#faq" data-nav>FAQ</a></li>
     </ul>
@@ -843,10 +839,8 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   <a href="#vorgehen"><span data-en="Process">Vorgehen</span> <span class="mono">02</span></a>
   <a href="#team"><span>Team</span> <span class="mono">03</span></a>
   <a href="#stack"><span data-en="Technology">Technologie</span> <span class="mono">04</span></a>
-  <a href="#repos"><span>Repos</span> <span class="mono">05</span></a>
-  <a href="#skills"><span>Skills</span> <span class="mono">06</span></a>
-  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">07</span></a>
-  <a href="#faq"><span>FAQ</span> <span class="mono">08</span></a>
+  <a href="#zusammenarbeit"><span data-en="Working together">Zusammenarbeit</span> <span class="mono">05</span></a>
+  <a href="#faq"><span>FAQ</span> <span class="mono">06</span></a>
   <a href="#check" class="nav-cta"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> →</a>
 </nav>
 
@@ -1395,7 +1389,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
 <footer class="footer">
   <div class="wrap mono">
     <span>© 2026 TradeX International AG</span>
-    <nav aria-label="Rechtliches" data-en-aria="Legal"><a href="/impressum.html" data-en="Legal notice">Impressum</a><a href="/datenschutz.html" data-en="Privacy">Datenschutz</a><a href="https://github.com/tradex-ag" target="_blank" rel="noopener">GitHub</a><a href="#top" data-en="Back to top ↑">Nach oben ↑</a></nav>
+    <nav aria-label="Rechtliches" data-en-aria="Legal"><a href="/impressum.html" data-en="Legal notice">Impressum</a><a href="/datenschutz.html" data-en="Privacy">Datenschutz</a><a href="#repos">Repos</a><a href="#skills">Skills</a><a href="https://github.com/tradex-ag" target="_blank" rel="noopener">GitHub</a><a href="#top" data-en="Back to top ↑">Nach oben ↑</a></nav>
   </div>
 </footer>
 
@@ -1513,7 +1507,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    ['ausgangslage','check','expertise','vorgehen','team','engineering','stack','repos','skills','zusammenarbeit','faq','kontakt','top'].forEach(function(id){ var s = document.getElementById(id); if (s) navIO.observe(s); });
+    ['ausgangslage','check','expertise','vorgehen','team','engineering','stack','zusammenarbeit','faq','kontakt','top'].forEach(function(id){ var s = document.getElementById(id); if (s) navIO.observe(s); });
   }
 
   /* hero terminal */
