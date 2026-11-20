@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SupportX · Open-Source-Support für Marktplatz-Händler</title>
+<meta name="description" content="SupportX ist ein selbst gehosteter Support-Posteingang für Marktplatz-Händler: Kundenmails und Marktplatz-Nachrichten an einem Ort, die Bestellung aus weclapp im Fall, KI-Entwürfe mit Prüfung. Open Source unter AGPLv3.">
+<style>
+@font-face{font-family:Geist;src:url(fonts/geist-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Geist;src:url(fonts/geist-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Geist;src:url(fonts/geist-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{
+  --white:#fff;--paper:#f8f9fa;--ink:#111;--graphite:#303030;--line:#e8e8e8;--muted:#6a6e73;--soft:#a4a8ad;
+  --ink-line:#2a2a2a;--ink-muted:#9a9da1;--accent:#d52b1e;--success:#1f7a4d;--warning:#9a6400;
+  --sans:Geist,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(16px,4vw,48px);--max:1240px;--r-s:2px;--r-m:4px;
+  --duration-quick:150ms;--duration-fast:250ms;--ease-smooth-out:cubic-bezier(.22,1,.36,1);
+  --z-sticky:50;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.6 var(--sans)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-.04em}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.04em}
+h3{font-size:20px;line-height:1.3;letter-spacing:-.02em}
+p{margin:0;text-wrap:pretty}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--muted)}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--accent)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--graphite);max-width:62ch}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:var(--z-sticky);background:rgb(255 255 255 / .92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.08em;text-decoration:none;font-size:15px}
+.brand i{width:10px;height:10px;background:var(--accent)}
+nav.links{display:flex;gap:24px;margin-left:auto;font-size:15px}
+nav.links a{text-decoration:none;color:var(--graphite)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:var(--r-s);font:500 16px var(--sans);text-decoration:none;white-space:nowrap;border:1px solid var(--ink);transition:background-color var(--duration-quick),transform var(--duration-quick) var(--ease-smooth-out)}
+.btn:active{transform:scale(.96)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--graphite)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--paper)}
+.btn-s{height:40px;padding:0 16px;font-size:15px}
+.btn svg{width:18px;height:18px}
+@media (max-width:860px){nav.links{display:none}.top .btn-s{margin-left:auto}}
+
+/* Hero */
+.hero{padding:96px 0 64px}
+.hero h1{max-width:16ch;margin:24px 0}
+.hero h1 span{color:var(--soft)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px;color:var(--muted)}
+.facts span::before{content:"✓";color:var(--success);margin-right:8px;font-family:var(--sans)}
+.shot{border-radius:var(--r-m);outline:1px solid rgb(0 0 0 / .1);outline-offset:-1px;box-shadow:0 1px 2px rgb(0 0 0 / .04),0 12px 32px -12px rgb(0 0 0 / .18);background:var(--paper);overflow:hidden}
+.hero .shot{margin:64px 0 0}
+figure{margin:0}
+figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+
+/* Channel strip */
+.channels{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);padding:32px 0}
+.channels .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px}
+.channels .mono{color:var(--muted)}
+.channels ul{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;margin:0;padding:0;font-weight:500;color:var(--graphite)}
+
+section.block{padding:112px 0}
+.head{max-width:760px;margin-bottom:56px}
+.head h2{margin:16px 0 20px}
+
+/* Feature rows */
+.row{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:1px solid var(--ink)}
+.row.flip{grid-template-columns:7fr 5fr}
+.row.flip .text{order:2}
+.row .text h3{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.03em;margin:12px 0 16px}
+.row .text p{color:var(--graphite)}
+.row ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:var(--graphite);font-size:16px}
+.row li{padding-left:20px;position:relative}
+.row li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--ink)}
+.row .tall{max-width:360px;margin:0 auto}
+@media (max-width:900px){.row,.row.flip{grid-template-columns:1fr;gap:32px}.row.flip .text{order:0}}
+
+/* Feature list */
+.list{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.list div{padding:28px 28px 32px 0;border-bottom:1px solid var(--line)}
+.list div:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.list h3{font-size:17px;margin-bottom:8px}
+.list p{font-size:15px;color:var(--muted)}
+@media (max-width:900px){.list{grid-template-columns:1fr 1fr}.list div:not(:nth-child(3n+1)){padding-left:0;border-left:0}.list div:nth-child(2n){padding-left:24px;border-left:1px solid var(--line)}}
+@media (max-width:600px){.list{grid-template-columns:1fr}.list div:nth-child(2n){padding-left:0;border-left:0}}
+
+/* Design */
+.paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.themes figure{margin:0}
+@media (max-width:900px){.themes{grid-template-columns:1fr}}
+.design-how{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:72px;align-items:start}
+@media (max-width:900px){.design-how{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:8px;padding:20px 0;border-bottom:1px solid var(--line);color:var(--graphite)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:4px}
+.steps b{color:var(--ink);font-weight:600}
+pre.code{margin:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r-m);padding:20px;font:400 13px/1.7 var(--mono);color:var(--graphite);overflow-x:auto}
+pre.code .k{color:var(--muted)}
+
+/* Dark self-host */
+.dark{background:var(--ink);color:#fff}
+.dark .lead,.dark p{color:#d0d3da}
+.dark .eyebrow{color:var(--ink-muted)}
+.dark .grid2{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+@media (max-width:900px){.dark .grid2{grid-template-columns:1fr;gap:40px}}
+.term{border:1px solid var(--ink-line);border-radius:var(--r-m);overflow:hidden;background:#0b0b0b}
+.term .bar{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid var(--ink-line)}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:#2f2f2f}
+.term pre{margin:0;padding:20px;font:400 14px/1.8 var(--mono);color:#e8e8e8;overflow-x:auto}
+.term .c{color:var(--ink-muted)}
+.term .p{color:var(--accent)}
+.dark ul.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.dark ul.checks li{padding-left:28px;position:relative;color:#d0d3da}
+.dark ul.checks li::before{content:"✓";position:absolute;left:0;color:#fff}
+.dark a{color:#fff}
+
+/* Editions */
+.editions{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r-m)}
+.ed{padding:32px;display:flex;flex-direction:column;gap:16px}
+.ed+.ed{border-left:1px solid var(--line)}
+.ed.main{background:var(--paper)}
+.ed .price{font-size:32px;font-weight:600;letter-spacing:-.03em}
+.ed .price small{font-size:15px;font-weight:400;color:var(--muted);letter-spacing:0}
+.ed ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px;color:var(--graphite);flex:1}
+.ed li{padding-left:24px;position:relative}
+.ed li::before{content:"✓";position:absolute;left:0;color:var(--success)}
+.ed .btn{width:100%}
+.tag{display:inline-block;align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:var(--r-s);padding:3px 8px;color:var(--muted);background:var(--white)}
+@media (max-width:900px){.editions{grid-template-columns:1fr}.ed+.ed{border-left:0;border-top:1px solid var(--line)}}
+
+/* Status */
+.status{width:100%;border-collapse:collapse;font-size:15px}
+.status th{text-align:left;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 16px 12px 0;border-bottom:1px solid var(--ink)}
+.status td{padding:14px 16px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--graphite)}
+.status td:first-child{color:var(--ink);font-weight:500}
+.chip{display:inline-block;font:500 11px var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-s);white-space:nowrap}
+.chip.live{color:var(--success);background:#e9f4ee}
+.chip.test{color:var(--warning);background:#fbf3e3}
+.chip.off{color:var(--muted);background:var(--paper)}
+.tablewrap{overflow-x:auto}
+
+/* FAQ */
+.faq{border-top:1px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-weight:500;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--muted);transition:transform var(--duration-fast) var(--ease-smooth-out)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--graphite);max-width:70ch}
+
+/* CTA + footer */
+.final{text-align:left;padding:112px 0;border-top:1px solid var(--line)}
+.final h2{max-width:18ch;margin:16px 0 20px}
+footer{border-top:1px solid var(--line);padding:40px 0 56px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+footer a{text-decoration:none;color:var(--graphite)}
+footer a:hover{color:var(--ink)}
+.by{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><i aria-hidden="true"></i>SUPPORTX</a>
+    <nav class="links" aria-label="Seitennavigation">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#design">Eigenes Design</a>
+      <a href="#selbst-hosten">Selbst hosten</a>
+      <a href="#editionen">Editionen</a>
+      <a href="#stand">Stand</a>
+    </nav>
+    <a class="btn btn-primary btn-s" href="https://github.com/tradex-ag/SupportX">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <span class="mono eyebrow">Open Source · AGPLv3 · selbst gehostet</span>
+    <h1>Ein Posteingang für alle Marktplätze. <span>Mit der Bestellung im Fall.</span></h1>
+    <p class="lead">SupportX sammelt Kundenmails und Marktplatz-Nachrichten an einem Ort, sucht die passende Bestellung in weclapp und schreibt einen Antwortentwurf, der nur belegte Fakten nennt. Ein Mensch prüft und sendet. Läuft auf Ihrem Server, sieht aus wie Ihre Marke, der Code liegt offen.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://github.com/tradex-ag/SupportX">Code auf GitHub</a>
+      <a class="btn btn-line" href="https://tradexag.ch/termin/">Gehostete Version anfragen</a>
+    </div>
+    <div class="facts mono">
+      <span>Kostenlos selbst hosten</span><span>Design frei anpassbar</span><span>Daten bleiben bei Ihnen</span>
+    </div>
+    <figure class="shot" style="margin-bottom:0">
+      <img src="img/posteingang.webp" width="2400" height="1500" alt="SupportX Posteingang: links die Liste der Anfragen mit Kanal, Anliegen und Frist, rechts ein Amazon-Fall mit Kundennachricht, Verlauf und der zugeordneten Bestellung aus weclapp">
+    </figure>
+    <figcaption>Posteingang mit geöffnetem Amazon-Fall. Echte Oberfläche, Demo-Installation mit erfundenen Kunden und Bestellungen.</figcaption>
+  </div>
+</section>
+
+<div class="channels">
+  <div class="wrap">
+    <span class="mono">Kanäle</span>
+    <ul>
+      <li>Microsoft 365</li><li>Amazon</li><li>eBay</li><li>Kaufland</li><li>Shop Apotheke</li><li>DocMorris</li><li>Shopify</li><li>OTTO</li><li>Douglas</li><li>MediaMarkt/Saturn</li><li>Conrad</li><li>Decathlon</li>
+    </ul>
+    <span class="mono">Auftragsdaten: weclapp</span>
+  </div>
+</div>
+
+<section class="block" id="funktionen">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow">Funktionen</span>
+      <h2>Weniger suchen, sicherer antworten.</h2>
+      <p class="lead">Händler auf mehreren Marktplätzen beantworten dieselben Fragen in fünf Portalen und suchen dazu die Bestellung in der Warenwirtschaft. SupportX legt beides nebeneinander.</p>
+    </div>
+
+    <div class="row">
+      <div class="text">
+        <span class="mono muted">Bestellung im Fall</span>
+        <h3>Die Bestellung findet sich selbst.</h3>
+        <p>SupportX liest Bestellnummern aus der Nachricht und sucht sie nur lesend in weclapp. Positionen, Lieferungen, alle Pakete mit Trackinglink, Rechnungen und Retouren stehen direkt neben der Kundenfrage.</p>
+        <ul>
+          <li>Ergebnis immer sichtbar: eindeutig, unklar, nicht gefunden</li>
+          <li>Paketstatus von DHL auf Klick, Gewichtsabgleich je Lieferung</li>
+          <li>Kundenhistorie aus früheren Fällen</li>
+        </ul>
+      </div>
+      <figure class="shot tall" style="margin:0 auto"><img src="img/bestellung.webp" width="768" height="1640" loading="lazy" alt="Bestellkarte in SupportX mit weclapp-Auftrag, Positionen, zwei Lieferungen, Gewichtsprüfung, Rechnung und DHL-Zustellstatus"></figure>
+    </div>
+
+    <div class="row flip">
+      <div class="text">
+        <span class="mono muted">Antworten</span>
+        <h3>Erst entscheiden, dann schreibt SupportX.</h3>
+        <p>Ein Klick auf „Kunde hat recht“, „Erst nachfragen“ oder „Rechnung senden“ erzeugt den Entwurf, per Claude oder aus festen Vorlagen. Eine Prüfung auf dem Server blockt unbelegte Fakten, fremde Links und Zusagen wie „Erstattung erledigt“, solange nichts erledigt ist.</p>
+        <ul>
+          <li>Senden mit einem Klick, höchstens eine Antwort je Kundennachricht</li>
+          <li>Antwort geht über den Weg, auf dem die Frage kam</li>
+          <li>Versand bleibt aus, bis er je Kanal geprüft und freigeschaltet ist</li>
+        </ul>
+      </div>
+      <figure class="shot" style="margin:0"><img src="img/antwort.webp" width="2400" height="1500" loading="lazy" alt="Antwortbereich in SupportX mit Entscheidungsknöpfen, Entwurfstext, Anhang, belegten Fakten und dem gelben Hinweis, warum Senden noch gesperrt ist"></figure>
+    </div>
+
+    <div class="row">
+      <div class="text">
+        <span class="mono muted">Auswertung</span>
+        <h3>Sehen, wo es klemmt.</h3>
+        <p>Antwortzeit, eingehaltene Fristen, Anliegen je Kanal und Probleme je Artikel aus weclapp. So fällt auf, welcher Artikel öfter beschädigt ankommt oder falsch geliefert wird.</p>
+      </div>
+      <figure class="shot" style="margin:0"><img src="img/auswertung.webp" width="2400" height="1500" loading="lazy" alt="Auswertungsseite mit Antwortzeit, Anliegen, Kanälen und Problemen je Artikel"></figure>
+    </div>
+
+    <div class="list" style="margin-top:56px">
+      <div><h3>Fristen-Ampel</h3><p>Antwortfrist je Marktplatz, Amazon 24 Stunden. Was zuerst abläuft, steht oben.</p></div>
+      <div><h3>Textbausteine</h3><p>Platzhalter wie {Bestellnummer} oder {Trackinglink} füllt SupportX aus weclapp, ohne KI-Kosten.</p></div>
+      <div><h3>Rechnung senden</h3><p>Holt das Rechnungs-PDF der Bestellung aus weclapp und hängt es an die Antwort.</p></div>
+      <div><h3>Erstattungsliste</h3><p>Jede Erstattung einmal je Bestellung, bis die Gutschrift in weclapp angelegt ist.</p></div>
+      <div><h3>Amazon aus dem Fall</h3><p>Falsches Angebot beenden oder eine Erstattung auslösen, immer mit Bestätigung, nie automatisch.</p></div>
+      <div><h3>Telefon-Hotline</h3><p>Ein Sprachagent beantwortet Lieferstatus und Rechnung, erst nach Abgleich mit weclapp.</p></div>
+      <div><h3>Weiterleiten</h3><p>Mails an Lieferanten oder Spediteure weitergeben, Marktplatz-Relays ohne E-Mail-Adressen.</p></div>
+      <div><h3>Team</h3><p>Rollen Inhaber, Bearbeiter, Leser. Sichtbar, wer einen Fall gerade offen hat.</p></div>
+      <div><h3>Arbeitsbereiche</h3><p>Mehrere Händlerkonten sauber getrennt, Zugangsdaten verschlüsselt auf dem Server.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="design">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow">Eigenes Design</span>
+      <h2>Sieht aus wie Ihr Shop, nicht wie unser Produkt.</h2>
+      <p class="lead">Name, Logo, Farben, Schriften und Eckenradius stehen in einer Datei, nicht im Code. Ein Update überschreibt sie nicht. Wer mehr will, ändert den Quellcode: Er liegt offen.</p>
+    </div>
+    <div class="themes">
+      <figure><div class="shot"><img src="img/posteingang.webp" width="2400" height="1500" loading="lazy" alt="SupportX im Standard-Design: Schwarz, Weiß, rotes Signal"></div><figcaption>Standard</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-gruen.webp" width="2400" height="1500" loading="lazy" alt="Dieselbe Oberfläche als „Kundenservice“ in Grün mit runderen Ecken"></div><figcaption>„Kundenservice“ in Grün, Radius 8</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-blau.webp" width="2400" height="1500" loading="lazy" alt="Dieselbe Oberfläche als „Apotheken-Service“ in Blau mit stark gerundeten Ecken"></div><figcaption>„Apotheken-Service“ in Blau, Radius 14</figcaption></figure>
+    </div>
+    <div class="design-how">
+      <div>
+        <ol class="steps">
+          <li><span><b>In der Oberfläche:</b> Einstellungen → Design, Vorlage <code>DESIGN.md</code> herunterladen, Farben ändern, hochladen. Die ganze Seite zeigt sofort eine Vorschau.</span></li>
+          <li><span><b>Logo hochladen:</b> PNG, JPG oder WebP, steht dann oben links statt des Namens.</span></li>
+          <li><span><b>Für die ganze Installation:</b> eine <code>theme.json</code> auf den Server legen, eigene Schriftdateien daneben.</span></li>
+          <li><span><b>Aus einem Screenshot:</b> Screenshot Ihrer Website an Claude geben und daraus eine theme.json schreiben lassen.</span></li>
+        </ol>
+        <p class="muted" style="font-size:15px;margin-top:20px">Schlecht lesbare Farbpaare nimmt SupportX nicht an. Fremde Schriftserver lädt es bewusst nicht, damit keine Kundendaten an Dritte gehen.</p>
+      </div>
+      <pre class="code" aria-label="Beispiel theme.json"><span class="k">// theme/theme.json</span>
+{
+  "productName": "Kundenservice",
+  "logo": "logo.svg",
+  "colors": {
+    "background": "#f4f7f2",
+    "text": "#1f2a1c",
+    "primary": "#2f6b2a",
+    "accent": "#2f6b2a"
+  },
+  "fonts": { "sans": "\"Helvetica Neue\", Arial" },
+  "radius": 8
+}</pre>
+    </div>
+  </div>
+</section>
+
+<section class="block dark" id="selbst-hosten">
+  <div class="wrap grid2">
+    <div>
+      <span class="mono eyebrow">Selbst hosten</span>
+      <h2 style="margin:16px 0 20px">Die Demo startet mit einem Befehl.</h2>
+      <p class="lead">Die Demo startet mit erfundenen Daten und lokalen Stellvertretern für weclapp und Microsoft. Für den Betrieb gibt es ein Docker-Compose-Setup für einen Server mit automatischem HTTPS.</p>
+      <ul class="checks">
+        <li>Ihr Microsoft-Tenant, Ihr weclapp, Ihr KI-Schlüssel, Ihr Server</li>
+        <li>Für Amazon und eBay eine eigene Entwickler-App (SP-API, eBay Developer Program)</li>
+        <li>PostgreSQL, Node.js, TypeScript, React</li>
+        <li>Ohne KI nutzbar: feste deutsche Vorlagen statt Claude</li>
+        <li>Anleitung auf Deutsch: <a href="https://github.com/tradex-ag/SupportX/blob/main/docs/SETUP.de.md">docs/SETUP.de.md</a></li>
+      </ul>
+    </div>
+    <div class="term" role="img" aria-label="Terminal mit den Befehlen zum Start der Demo">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="c"># Node.js 22 und PostgreSQL 16 vorausgesetzt</span>
+<span class="p">$</span> git clone https://github.com/tradex-ag/SupportX
+<span class="p">$</span> cd SupportX && npm ci
+<span class="p">$</span> npm run demo
+<span class="c">→ http://localhost:3000</span>
+
+<span class="c"># Betrieb auf einem Server</span>
+<span class="p">$</span> docker compose -f deploy/docker-compose.prod.yml \
+    --env-file .env up -d --build</pre>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="editionen">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow">Editionen</span>
+      <h2>Offen im Kern.</h2>
+      <p class="lead">Alles, was ein Händler für den eigenen Support braucht, ist frei unter AGPLv3. Funktionen für Agenturen und große Teams kommen später als Enterprise-Paket dazu.</p>
+    </div>
+    <div class="editions">
+      <div class="ed">
+        <span class="tag">AGPLv3</span>
+        <h3>Community</h3>
+        <div class="price">0 € <small>selbst gehostet</small></div>
+        <ul>
+          <li>Alle Funktionen dieser Seite</li>
+          <li>Alle Kanäle und weclapp</li>
+          <li>Eigene Amazon- und eBay-App nötig (Entwicklerkonto)</li>
+          <li>Eigenes Design und Logo</li>
+          <li>Kommerzielle Nutzung erlaubt</li>
+          <li>Änderungen offenlegen, Namensnennung behalten</li>
+        </ul>
+        <a class="btn btn-line" href="https://github.com/tradex-ag/SupportX">Code holen</a>
+      </div>
+      <div class="ed main">
+        <span class="tag">Von TradeX betrieben</span>
+        <h3>Gehostet</h3>
+        <div class="price">Auf Anfrage</div>
+        <ul>
+          <li>Nutzt unsere Amazon- und eBay-App, keine eigene Registrierung</li>
+          <li>Wir richten Postfach, Marktplätze und weclapp ein</li>
+          <li>Betrieb, Updates und Sicherung</li>
+          <li>Design passend zu Ihrem Shop</li>
+          <li>Ansprechpartner in der Schweiz</li>
+        </ul>
+        <a class="btn btn-primary" href="https://tradexag.ch/termin/">Gespräch buchen</a>
+      </div>
+      <div class="ed">
+        <span class="tag">In Vorbereitung</span>
+        <h3>Enterprise</h3>
+        <div class="price">Später</div>
+        <ul>
+          <li>Kommerzielle Lizenz für <code>packages/ee</code></li>
+          <li>Geplant: SSO, Mandanten für Agenturen</li>
+          <li>Geplant: SLA-Auswertungen, Audit-Export</li>
+          <li>Geplant: White-Label ohne SupportX-Hinweis</li>
+        </ul>
+        <a class="btn btn-line" href="https://tradexag.ch/termin/">Interesse melden</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block paper" id="stand">
+  <div class="wrap">
+    <div class="head">
+      <span class="mono eyebrow">Ehrlicher Stand</span>
+      <h2>Was heute läuft und was noch nicht.</h2>
+      <p class="lead">SupportX ist jung. Wir schreiben dazu, was mit echten Konten läuft und was bisher nur gegen lokale Testdoubles geprüft ist.</p>
+    </div>
+    <div class="tablewrap">
+    <table class="status">
+      <thead><tr><th>Baustein</th><th>Stand</th><th>Anmerkung</th></tr></thead>
+      <tbody>
+        <tr><td>Microsoft-365-Postfach</td><td><span class="chip live">Im Einsatz</span></td><td>Bei einem ersten Händler, nur Entwürfe. Amazon, DocMorris, Shopify und OTTO kommen über das Postfach.</td></tr>
+        <tr><td>weclapp</td><td><span class="chip test">Getestet</span></td><td>Nur lesend; Gutschrift-Entwurf optional. Gegen Testdoubles geprüft.</td></tr>
+        <tr><td>eBay, Kaufland, Mirakl-Marktplätze</td><td><span class="chip test">Getestet</span></td><td>Eigene Schnittstellen gebaut, noch nicht mit Live-Konten.</td></tr>
+        <tr><td>Amazon Angebote und Erstattung, DHL, Telefon</td><td><span class="chip test">Getestet</span></td><td>Gegen Testdoubles; Live-Freischaltungen stehen aus.</td></tr>
+        <tr><td>Automatisches Senden ohne Freigabe</td><td><span class="chip off">Noch nicht</span></td><td>Nur eng begrenzt für „Wo ist mein Paket?“ und Rechnungen, standardmäßig aus.</td></tr>
+        <tr><td>MCP-Server, Temu</td><td><span class="chip off">Noch nicht</span></td><td>Auf der Roadmap.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="muted" style="font-size:15px;margin-top:20px">Details je Kanal: <a href="https://github.com/tradex-ag/SupportX/blob/main/docs/CONNECTORS.md">docs/CONNECTORS.md</a>.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:32px">
+      <span class="mono eyebrow">Fragen</span>
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Darf ich SupportX kommerziell nutzen?</summary><p>Ja. Die AGPLv3 erlaubt Nutzung, Änderung und Betrieb auch im Unternehmen. Wer eine veränderte Fassung für andere über das Netz betreibt, muss deren Quellcode unter derselben Lizenz anbieten. Die Namensnennung in der Oberfläche bleibt stehen.</p></details>
+      <details><summary>Wie weit darf ich das Design ändern?</summary><p>Farben, Schriften, Name, Logo und Radius ändern Sie ohne Code über DESIGN.md oder theme.json. Darüber hinaus dürfen Sie den Quellcode beliebig anpassen. Die Zeile „Basiert auf SupportX“ muss sichtbar bleiben; eine Fassung ganz ohne diesen Hinweis ist für die Enterprise-Lizenz geplant.</p></details>
+      <details><summary>Brauche ich weclapp?</summary><p>Heute ja: weclapp ist die einzige Quelle für Bestelldaten. Die Schnittstelle dahinter ist austauschbar, weitere Warenwirtschaften sind möglich.</p></details>
+      <details><summary>Welche KI steckt drin, und was kostet sie?</summary><p>Claude von Anthropic, mit Ihrem eigenen Schlüssel; Sie zahlen den Anbieter direkt. Ohne Schlüssel schreibt SupportX Entwürfe aus festen Vorlagen. Kundendaten anderer Fälle gehen nie an das Modell.</p></details>
+      <details><summary>Wo liegen die Daten?</summary><p>In Ihrer PostgreSQL-Datenbank auf Ihrem Server. Zugangsdaten zu Postfach und Marktplätzen sind verschlüsselt gespeichert und erreichen nie den Browser.</p></details>
+      <details><summary>Brauche ich eigene Apps bei Amazon und eBay?</summary><p>Beim Selbst-Hosten ja: Für Amazon (Selling Partner API) und eBay registrieren Sie eine eigene Entwickler-App und tragen deren Zugangsdaten in SupportX ein. In der gehosteten Version nutzen Sie unsere Apps, eine eigene Registrierung entfällt.</p></details>
+      <details><summary>Ich will das nicht selbst betreiben.</summary><p>Dann betreibt TradeX SupportX für Sie und richtet die Anbindungen ein. Buchen Sie ein kurzes Gespräch.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="mono eyebrow">Loslegen</span>
+    <h2>Code ansehen oder gehostet starten.</h2>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://github.com/tradex-ag/SupportX">Code auf GitHub</a>
+      <a class="btn btn-line" href="https://tradexag.ch/termin/">Gespräch buchen</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="by">by TradeX International AG</div>
+      <p style="margin-top:8px">SupportX, ein Open-Source-Produkt von ASEIO · TradeX International AG, Lars Orlamünde</p>
+    </div>
+    <nav aria-label="Fußzeile">
+      <a href="https://github.com/tradex-ag/SupportX">GitHub</a>
+      <a href="https://github.com/tradex-ag/SupportX/blob/main/LICENSE">Lizenz</a>
+      <a href="https://tradexag.ch">tradexag.ch</a>
+      <a href="https://tradexag.ch/impressum.html">Impressum</a>
+      <a href="https://tradexag.ch/datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
