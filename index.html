@@ -875,7 +875,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
         <p class="lead" data-en="We are an agency for brands and get your marketplace business on track: healthy accounts, product data that sells and workflows that run on their own. From a team that runs e-commerce itself and builds its own software.">Wir sind eine Agentur für Marken und bringen Ihr Marktplatz-Geschäft auf Kurs: stabile Accounts, Produktdaten, die verkaufen, und Abläufe, die von selbst laufen. Von einem Team, das E-Commerce selbst betreibt und eigene Software entwickelt.</p>
         <div class="btns">
           <a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost cal-link" href="https://cal.com/tradex/erstgespraech?lang=de" target="_blank" rel="noopener"><span data-en="Book a call">Termin buchen</span> <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="/termin/"><span data-en="Book a call">Termin buchen</span> <span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="hero-trust">
                     <span class="mono" data-en="2 minutes · free · no obligation">2 Minuten · kostenlos · unverbindlich</span>
@@ -1368,7 +1368,7 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
     <div class="contact-grid">
       <div class="contact-main contact-alt">
         <p data-en="Prefer to get in touch directly? Write or call us. Or take the check first, then our call is already prepared.">Lieber direkt? Schreiben Sie uns oder rufen Sie an. Oder machen Sie vorher den Check, dann ist unser Gespräch schon vorbereitet.</p>
-        <div class="btns"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost cal-link" href="https://cal.com/tradex/erstgespraech?lang=de" target="_blank" rel="noopener"><span data-en="Book a call">Termin buchen</span> <span class="arr" aria-hidden="true">↗</span></a></div>
+        <div class="btns"><a class="btn btn-primary" href="#check"><span data-en="Start the marketplace check">Marktplatz-Check starten</span> <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="/termin/"><span data-en="Book a call">Termin buchen</span> <span class="arr" aria-hidden="true">→</span></a></div>
       </div>
       <div class="contact-side"><span class="mono contact-side-label" data-en="Direct">Direkt</span>
       <dl class="contact-card">
@@ -1971,11 +1971,5 @@ html[lang="de"] .big-cta{font-size:clamp(28px,5vw,76px)}
   addEventListener('resize', fit);
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') set(false); });
 })();
-</script>
-<script>
-document.addEventListener('click', function(e){
-  var a = e.target.closest && e.target.closest('a.cal-link'); if (!a) return;
-  a.href = a.href.split('?')[0] + '?lang=' + (document.documentElement.lang === 'en' ? 'en' : 'de');
-});
 </script>
 </body></html>
