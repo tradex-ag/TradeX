@@ -88,7 +88,7 @@ section.block{padding:112px 0}
 .row ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:10px;color:var(--graphite);font-size:16px}
 .row li{padding-left:20px;position:relative}
 .row li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--ink)}
-.row .tall{max-width:360px;margin:0 auto}
+.row .tall{max-width:400px;margin:0 auto}
 @media (max-width:900px){.row,.row.flip{grid-template-columns:1fr;gap:32px}.row.flip .text{order:0}}
 
 /* Feature list */
@@ -102,7 +102,8 @@ section.block{padding:112px 0}
 
 /* Design */
 .paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.themes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.themes figure:first-child{grid-column:1 / -1}
 .themes figure{margin:0}
 @media (max-width:900px){.themes{grid-template-columns:1fr}}
 .design-how{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:72px;align-items:start}
@@ -174,6 +175,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
 footer a{text-decoration:none;color:var(--graphite)}
 footer a:hover{color:var(--ink)}
 .by{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+
+/* Lightbox */
+.shot img{cursor:zoom-in}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1800px);max-height:94vh;overflow:visible}
+dialog.lb::backdrop{background:rgb(17 17 17 / .86)}
+dialog.lb img{max-width:min(96vw,1800px);max-height:88vh;width:auto;height:auto;border-radius:var(--r-m);outline:1px solid rgb(255 255 255 / .1);cursor:zoom-out;background:#fff}
+dialog.lb p{color:#d0d3da;font-size:14px;margin-top:10px;max-width:90ch}
+dialog.lb button{position:fixed;top:16px;right:16px;width:44px;height:44px;border:1px solid #2a2a2a;border-radius:var(--r-s);background:#111;color:#fff;font:500 22px var(--sans);cursor:pointer}
+dialog.lb[open]{animation:lbin var(--duration-fast) var(--ease-smooth-out)}
+@keyframes lbin{from{opacity:0;transform:scale(.97)}}
+@media (prefers-reduced-motion:reduce){dialog.lb[open]{animation:none}}
 </style>
 </head>
 <body>
@@ -200,7 +212,7 @@ footer a:hover{color:var(--ink)}
   <div class="wrap">
     <span class="mono eyebrow">Open Source · AGPLv3 · selbst gehostet</span>
     <h1>Ein Posteingang für alle Marktplätze. <span>Mit der Bestellung im Fall.</span></h1>
-    <p class="lead">SupportX sammelt Kundenmails und Marktplatz-Nachrichten an einem Ort, sucht die passende Bestellung in weclapp und schreibt einen Antwortentwurf, der nur belegte Fakten nennt. Ein Mensch prüft und sendet. Läuft auf Ihrem Server, sieht aus wie Ihre Marke, der Code liegt offen.</p>
+    <p class="lead">SupportX sammelt Kundenmails und Marktplatz-Nachrichten an einem Ort, sucht die passende Bestellung in weclapp und schreibt einen Antwortentwurf, der nur belegte Fakten nennt. Ein Mensch prüft und sendet. Erstattungen gehen direkt im Marktplatz raus, die Gutschrift landet im ERP. Läuft auf Ihrem Server, sieht aus wie Ihre Marke, der Code liegt offen.</p>
     <div class="ctas">
       <a class="btn btn-primary" href="https://github.com/tradex-ag/SupportX">Code auf GitHub</a>
       <a class="btn btn-line" href="https://tradexag.ch/termin/">Gehostete Version anfragen</a>
@@ -209,7 +221,7 @@ footer a:hover{color:var(--ink)}
       <span>Kostenlos selbst hosten</span><span>Design frei anpassbar</span><span>Daten bleiben bei Ihnen</span>
     </div>
     <figure class="shot" style="margin-bottom:0">
-      <img src="img/posteingang.webp" width="2400" height="1500" alt="SupportX Posteingang: links die Liste der Anfragen mit Kanal, Anliegen und Frist, rechts ein Amazon-Fall mit Kundennachricht, Verlauf und der zugeordneten Bestellung aus weclapp">
+      <img src="img/posteingang.webp" width="2400" height="1067" alt="SupportX Posteingang: links die Liste der Anfragen mit Kanal, Anliegen und Frist, rechts ein Amazon-Fall mit Kundennachricht, Verlauf und der zugeordneten Bestellung aus weclapp">
     </figure>
     <figcaption>Posteingang mit geöffnetem Amazon-Fall. Echte Oberfläche, Demo-Installation mit erfundenen Kunden und Bestellungen.</figcaption>
   </div>
@@ -244,7 +256,7 @@ footer a:hover{color:var(--ink)}
           <li>Kundenhistorie aus früheren Fällen</li>
         </ul>
       </div>
-      <figure class="shot tall" style="margin:0 auto"><img src="img/bestellung.webp" width="768" height="1640" loading="lazy" alt="Bestellkarte in SupportX mit weclapp-Auftrag, Positionen, zwei Lieferungen, Gewichtsprüfung, Rechnung und DHL-Zustellstatus"></figure>
+      <figure class="shot tall" style="margin:0 auto"><img src="img/bestellung.webp" width="798" height="1702" loading="lazy" alt="Bestellkarte in SupportX mit weclapp-Auftrag, Positionen, zwei Lieferungen, Gewichtsprüfung, Rechnung und DHL-Zustellstatus"></figure>
     </div>
 
     <div class="row flip">
@@ -256,9 +268,10 @@ footer a:hover{color:var(--ink)}
           <li>Senden mit einem Klick, höchstens eine Antwort je Kundennachricht</li>
           <li>Antwort geht über den Weg, auf dem die Frage kam</li>
           <li>Versand bleibt aus, bis er je Kanal geprüft und freigeschaltet ist</li>
+          <li>Kunde hat recht? Erstattung direkt im Marktplatz auslösen, Gutschrift im ERP</li>
         </ul>
       </div>
-      <figure class="shot" style="margin:0"><img src="img/antwort.webp" width="2400" height="1500" loading="lazy" alt="Antwortbereich in SupportX mit Entscheidungsknöpfen, Entwurfstext, Anhang, belegten Fakten und dem gelben Hinweis, warum Senden noch gesperrt ist"></figure>
+      <figure class="shot tall" style="margin:0 auto"><img src="img/antwort.webp" width="1226" height="1744" loading="lazy" alt="Antwortbereich in SupportX mit Entscheidungsknöpfen, Entwurfstext, Anhang, belegten Fakten und dem gelben Hinweis, warum Senden noch gesperrt ist"></figure>
     </div>
 
     <div class="row">
@@ -267,19 +280,19 @@ footer a:hover{color:var(--ink)}
         <h3>Sehen, wo es klemmt.</h3>
         <p>Antwortzeit, eingehaltene Fristen, Anliegen je Kanal und Probleme je Artikel aus weclapp. So fällt auf, welcher Artikel öfter beschädigt ankommt oder falsch geliefert wird.</p>
       </div>
-      <figure class="shot" style="margin:0"><img src="img/auswertung.webp" width="2400" height="1500" loading="lazy" alt="Auswertungsseite mit Antwortzeit, Anliegen, Kanälen und Problemen je Artikel"></figure>
+      <figure class="shot" style="margin:0"><img src="img/auswertung.webp" width="2400" height="1100" loading="lazy" alt="Auswertungsseite mit Antwortzeit, Anliegen, Kanälen und Problemen je Artikel"></figure>
     </div>
 
     <div class="list" style="margin-top:56px">
       <div><h3>Fristen-Ampel</h3><p>Antwortfrist je Marktplatz, Amazon 24 Stunden. Was zuerst abläuft, steht oben.</p></div>
       <div><h3>Textbausteine</h3><p>Platzhalter wie {Bestellnummer} oder {Trackinglink} füllt SupportX aus weclapp, ohne KI-Kosten.</p></div>
       <div><h3>Rechnung senden</h3><p>Holt das Rechnungs-PDF der Bestellung aus weclapp und hängt es an die Antwort.</p></div>
-      <div><h3>Erstattungsliste</h3><p>Jede Erstattung einmal je Bestellung, bis die Gutschrift in weclapp angelegt ist.</p></div>
-      <div><h3>Amazon aus dem Fall</h3><p>Falsches Angebot beenden oder eine Erstattung auslösen, immer mit Bestätigung, nie automatisch.</p></div>
+      <div><h3>Erstatten im Marktplatz</h3><p>Erstattung aus dem Fall direkt bei Amazon auslösen, je Artikel und Versand, nie mehr als bezahlt. Mit Bestätigung, nie automatisch.</p></div>
+      <div><h3>Gutschrift im ERP</h3><p>Nach der Erstattung schlägt SupportX die Gutschrift je Rechnungsposition vor und legt sie in weclapp als Entwurf an. Die Erstattungsliste zeigt, was noch offen ist.</p></div>
       <div><h3>Telefon-Hotline</h3><p>Ein Sprachagent beantwortet Lieferstatus und Rechnung, erst nach Abgleich mit weclapp.</p></div>
+      <div><h3>Falsches Angebot beenden</h3><p>Stimmt das Amazon-Angebot nicht, lässt es sich aus dem Fall heraus beenden, nach einer Bestätigung.</p></div>
       <div><h3>Weiterleiten</h3><p>Mails an Lieferanten oder Spediteure weitergeben, Marktplatz-Relays ohne E-Mail-Adressen.</p></div>
-      <div><h3>Team</h3><p>Rollen Inhaber, Bearbeiter, Leser. Sichtbar, wer einen Fall gerade offen hat.</p></div>
-      <div><h3>Arbeitsbereiche</h3><p>Mehrere Händlerkonten sauber getrennt, Zugangsdaten verschlüsselt auf dem Server.</p></div>
+      <div><h3>Team und Mandanten</h3><p>Rollen Inhaber, Bearbeiter, Leser. Mehrere Händlerkonten sauber getrennt, Zugangsdaten verschlüsselt auf dem Server.</p></div>
     </div>
   </div>
 </section>
@@ -292,9 +305,9 @@ footer a:hover{color:var(--ink)}
       <p class="lead">Name, Logo, Farben, Schriften und Eckenradius stehen in einer Datei, nicht im Code. Ein Update überschreibt sie nicht. Wer mehr will, ändert den Quellcode: Er liegt offen.</p>
     </div>
     <div class="themes">
-      <figure><div class="shot"><img src="img/posteingang.webp" width="2400" height="1500" loading="lazy" alt="SupportX im Standard-Design: Schwarz, Weiß, rotes Signal"></div><figcaption>Standard</figcaption></figure>
-      <figure><div class="shot"><img src="img/theme-gruen.webp" width="2400" height="1500" loading="lazy" alt="Dieselbe Oberfläche als „Kundenservice“ in Grün mit runderen Ecken"></div><figcaption>„Kundenservice“ in Grün, Radius 8</figcaption></figure>
-      <figure><div class="shot"><img src="img/theme-blau.webp" width="2400" height="1500" loading="lazy" alt="Dieselbe Oberfläche als „Apotheken-Service“ in Blau mit stark gerundeten Ecken"></div><figcaption>„Apotheken-Service“ in Blau, Radius 14</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-dunkel.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Help Desk“ im dunklen Design mit gelbem Akzent"></div><figcaption>„Help Desk“: dunkel, Gelb, Radius 6</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-rosa.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Kundenglück“ in Rosa mit stark gerundeten Ecken"></div><figcaption>„Kundenglück“: Rosa, rund, Radius 20</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-mono.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Service-Desk“ in Papierfarben, Monospace-Schrift und eckig"></div><figcaption>„Service-Desk“: Papier, Monospace, eckig</figcaption></figure>
     </div>
     <div class="design-how">
       <div>
@@ -308,16 +321,18 @@ footer a:hover{color:var(--ink)}
       </div>
       <pre class="code" aria-label="Beispiel theme.json"><span class="k">// theme/theme.json</span>
 {
-  "productName": "Kundenservice",
-  "logo": "logo.svg",
+  "productName": "Help Desk",
+  "logo": "logo.png",
   "colors": {
-    "background": "#f4f7f2",
-    "text": "#1f2a1c",
-    "primary": "#2f6b2a",
-    "accent": "#2f6b2a"
+    "background": "#0f1115",
+    "surface": "#171a21",
+    "text": "#f2f3f5",
+    "line": "#2a2f39",
+    "primary": "#f5b301",
+    "primaryText": "#111111",
+    "accent": "#f5b301"
   },
-  "fonts": { "sans": "\"Helvetica Neue\", Arial" },
-  "radius": 8
+  "radius": 6
 }</pre>
     </div>
   </div>
@@ -328,7 +343,7 @@ footer a:hover{color:var(--ink)}
     <div>
       <span class="mono eyebrow">Selbst hosten</span>
       <h2 style="margin:16px 0 20px">Die Demo startet mit einem Befehl.</h2>
-      <p class="lead">Die Demo startet mit erfundenen Daten und lokalen Stellvertretern für weclapp und Microsoft. Für den Betrieb gibt es ein Docker-Compose-Setup für einen Server mit automatischem HTTPS.</p>
+      <p class="lead">Sie läuft mit erfundenen Daten und lokalen Stellvertretern für weclapp und Microsoft. Für den Betrieb gibt es ein Docker-Compose-Setup für einen Server mit automatischem HTTPS.</p>
       <ul class="checks">
         <li>Ihr Microsoft-Tenant, Ihr weclapp, Ihr KI-Schlüssel, Ihr Server</li>
         <li>Für Amazon und eBay eine eigene Entwickler-App (SP-API, eBay Developer Program)</li>
@@ -472,5 +487,14 @@ footer a:hover{color:var(--ink)}
     </nav>
   </div>
 </footer>
+<dialog class="lb" id="lb" aria-label="Screenshot groß"><button type="button" id="lbx" aria-label="Schließen">×</button><img id="lbimg" alt=""><p id="lbcap"></p></dialog>
+<script>
+(function(){var d=document.getElementById('lb'),im=document.getElementById('lbimg'),cap=document.getElementById('lbcap');
+if(!d||!d.showModal)return;
+document.querySelectorAll('.shot img').forEach(function(img){img.tabIndex=0;img.setAttribute('role','button');
+ var open=function(){im.src=img.currentSrc||img.src;im.alt=img.alt;cap.textContent=img.alt;d.showModal();};
+ img.addEventListener('click',open);img.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});});
+d.addEventListener('click',function(e){if(e.target!==cap)d.close();});})();
+</script>
 </body>
 </html>
