@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop · TradeX International AG</title>
+<meta name="description" content="Shop der TradeX International AG, Zugang mit Code.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>@font-face{font-family:'Geist';font-weight:400;font-display:swap;src:url(/assets/fonts/geist-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:500;font-display:swap;src:url(/assets/fonts/geist-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:700;font-display:swap;src:url(/assets/fonts/geist-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+:root{--ink:#111;--muted:#6A6E73;--line:#E8E8E8;--accent:#D52B1E;--gutter:clamp(16px,4vw,48px)}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Geist","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+header,main,footer{max-width:820px;margin-inline:auto;padding-inline:var(--gutter)}
+header{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.06em}
+.logo svg{width:22px;height:22px}
+.switch{display:flex;gap:4px}
+.switch button{font:inherit;background:none;border:1px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+main{padding-top:56px;padding-bottom:72px}
+.label{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:20px}
+.sq{display:inline-block;width:8px;height:8px;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0 0 40px}
+h2{font-size:20px;letter-spacing:-.01em;margin:40px 0 8px}
+p,address{margin:0 0 14px;font-style:normal}
+.todo{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+
+.lead{color:var(--muted);font-size:17px;margin:-24px 0 32px}
+.gate{max-width:420px}.gate label{display:block;color:var(--muted);margin-bottom:8px}
+.gate-row{display:flex;gap:8px}.gate input{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--ink);border-radius:2px}
+.gate button{border:0;background:var(--ink);color:#fff;padding:0 16px;border-radius:2px;cursor:pointer}
+.err{color:var(--accent);margin-top:10px}
+.items{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px 24px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.item div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.item b{font-size:18px;font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}
+.brand,.stock{color:var(--muted)}
+.req{color:var(--ink);border-bottom:1px solid var(--accent);white-space:nowrap}
+@media (max-width:560px){.item{grid-template-columns:1fr auto}.item div{grid-column:1 / -1}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="TradeX International AG, Startseite"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" fill="#111111"/><path d="M6.5 6.5 L15.5 15.5 M15.5 6.5 L6.5 15.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="square"/></svg><span>TRADEX</span></a>
+  <div class="switch mono" role="group" aria-label="Sprache / Language"><button type="button" data-set="de">DE</button><button type="button" data-set="en">EN</button></div>
+</header>
+<main><div id="shop"><div data-l="de"><div class="label mono"><i class="sq"></i>Shop</div><h1>Zugang mit Code</h1><p class="lead">Dieser Bereich ist nur mit Zugangscode erreichbar.</p></div>
+<div data-l="en" hidden><div class="label mono"><i class="sq"></i>Shop</div><h1>Access code required</h1><p class="lead">This area is only available with an access code.</p></div>
+<form id="gate" class="gate" autocomplete="off">
+  <label class="mono" for="code"><span data-l="de">Zugangscode</span><span data-l="en" hidden>Access code</span></label>
+  <div class="gate-row"><input id="code" name="code" type="password" required autocapitalize="off" spellcheck="false"><button type="submit" class="mono"><span data-l="de">Öffnen</span><span data-l="en" hidden>Open</span> →</button></div>
+  <p id="err" class="err mono" hidden><span data-l="de">Code falsch.</span><span data-l="en" hidden>Wrong code.</span></p>
+</form></div></main>
+<footer class="mono">
+  <span>© 2026 TradeX International AG</span>
+  <nav><a href="/">Start</a><a href="/impressum.html"><span data-l="de">Impressum</span><span data-l="en" hidden>Legal notice</span></a><a href="/datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en" hidden>Privacy</span></a></nav>
+</footer>
+<script>
+(function(){
+  function set(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-l]').forEach(function(el){ el.hidden = el.getAttribute('data-l') !== l; });
+    document.querySelectorAll('[data-set]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set') === l); });
+    try { localStorage.setItem('tradex-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  var s = null; try { s = localStorage.getItem('tradex-lang'); } catch(e){}
+  set(s === 'en' ? 'en' : 'de');
+})();
+</script>
+<script>
+(function(){
+  var D = {"s": "+/KyrCMOePr796oYIKMRGQ==", "i": "I9IZOHBdmJ47syXK", "c": "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", "n": 600000};
+  function u8(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+  async function open(code){
+    var k = await crypto.subtle.importKey('raw', new TextEncoder().encode(code), 'PBKDF2', false, ['deriveKey']);
+    var key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:u8(D.s), iterations:D.n, hash:'SHA-256'}, k, {name:'AES-GCM', length:256}, false, ['decrypt']);
+    var pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:u8(D.i)}, key, u8(D.c));
+    document.getElementById('shop').innerHTML = new TextDecoder().decode(pt);
+    var b = document.querySelector('[data-set][aria-pressed="true"]'); if (b) b.click();
+    try { sessionStorage.setItem('tradex-shop', code); } catch(e){}
+  }
+  var f = document.getElementById('gate');
+  f.addEventListener('submit', function(e){
+    e.preventDefault(); document.getElementById('err').hidden = true;
+    open(f.code.value.trim()).catch(function(){ document.getElementById('err').hidden = false; });
+  });
+  var pre = location.hash.slice(1); if (!pre) { try { pre = sessionStorage.getItem('tradex-shop') || ''; } catch(e){} }
+  if (pre) { history.replaceState(null, '', location.pathname); open(decodeURIComponent(pre)).catch(function(){}); }
+})();
+</script>
+</body>
+</html>
