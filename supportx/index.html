@@ -102,8 +102,7 @@ section.block{padding:112px 0}
 
 /* Design */
 .paper{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.themes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.themes figure:first-child{grid-column:1 / -1}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .themes figure{margin:0}
 @media (max-width:900px){.themes{grid-template-columns:1fr}}
 .design-how{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:72px;align-items:start}
@@ -305,9 +304,9 @@ dialog.lb[open]{animation:lbin var(--duration-fast) var(--ease-smooth-out)}
       <p class="lead">Name, Logo, Farben, Schriften und Eckenradius stehen in einer Datei, nicht im Code. Ein Update überschreibt sie nicht. Wer mehr will, ändert den Quellcode: Er liegt offen.</p>
     </div>
     <div class="themes">
-      <figure><div class="shot"><img src="img/theme-dunkel.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Help Desk“ im dunklen Design mit gelbem Akzent"></div><figcaption>„Help Desk“: dunkel, Gelb, Radius 6</figcaption></figure>
-      <figure><div class="shot"><img src="img/theme-rosa.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Kundenglück“ in Rosa mit stark gerundeten Ecken"></div><figcaption>„Kundenglück“: Rosa, rund, Radius 20</figcaption></figure>
-      <figure><div class="shot"><img src="img/theme-mono.webp" width="2400" height="1067" loading="lazy" alt="SupportX als „Service-Desk“ in Papierfarben, Monospace-Schrift und eckig"></div><figcaption>„Service-Desk“: Papier, Monospace, eckig</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-dunkel.webp" width="1414" height="1372" loading="lazy" alt="SupportX als „Help Desk“ im dunklen Design mit gelben Knöpfen und eigenem Logo"></div><figcaption>„Help Desk“: dunkel, gelbe Knöpfe, eigenes Logo</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-rosa.webp" width="1414" height="1372" loading="lazy" alt="SupportX als „Kundenglück“ in Rosa mit runden Pillen-Knöpfen und Herz-Logo"></div><figcaption>„Kundenglück“: Rosa, Pillen-Knöpfe, Radius 24</figcaption></figure>
+      <figure><div class="shot"><img src="img/theme-muehle.webp" width="1414" height="1372" loading="lazy" alt="SupportX als „Mühlenhof“ mit Serifenschrift, dunkelgrünen eckigen Knöpfen und Wappen-Logo"></div><figcaption>„Mühlenhof“: Serifenschrift, Grün, eckig</figcaption></figure>
     </div>
     <div class="design-how">
       <div>
