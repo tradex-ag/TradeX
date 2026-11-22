@@ -75,6 +75,11 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 .prompt-fold summary{cursor:pointer;padding:12px 0;color:var(--muted)}.prompt-fold[open] summary{color:var(--ink)}
 .prompt-fold .code{margin:0 0 14px}
 .top-copy{margin:-8px 0 32px}.top-copy a{color:var(--muted);border:0}
+.support{margin:40px 0 8px;padding:24px 26px;border:1px solid var(--line);border-radius:14px;background:#F8F9FA;box-shadow:inset 4px 0 0 var(--accent)}
+.support .label{margin-bottom:12px}.support p{margin:0 0 18px}.support strong{display:block;font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+.support p a[href^="tel"]{white-space:nowrap}.support-btns{display:flex;flex-wrap:wrap;gap:10px}
+article .sbtn{display:inline-flex;align-items:center;padding:11px 18px;border-radius:999px;border:1px solid #111;font-weight:500;font-size:15px;color:#111;background:#fff}
+article .sbtn-dark{background:#111;color:#fff}article .sbtn:hover{background:#303030;color:#fff;border-color:#303030}
 @media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
 </style>
 </head>
@@ -143,6 +148,7 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 <li class="chk"><label><input type="checkbox" data-k="8"><span>Beim Abschalten: erst DNS löschen, dann das Projekt beim Anbieter.</span></label></li>
 <li class="chk"><label><input type="checkbox" data-k="9"><span>Reste alter Anbieter sind aus Code und DNS entfernt.</span></label></li>
 </ul>
+<aside class="support"><div class="label mono"><i class="sq"></i>Kontakt</div><p><strong>Unterstützung für dein Projekt?</strong> Wenn du beim Umsetzen Hilfe brauchst, ruf uns gerne an: <a href="tel:+41772747579">+41 77 274 75 79</a>. Du kannst auch direkt ein <a href="/termin/">Erstgespräch buchen</a> oder an <a href="mailto:info@tradexag.ch">info@tradexag.ch</a> schreiben. Dein Team der TradeX International AG</p><div class="support-btns"><a class="sbtn sbtn-dark" href="tel:+41772747579">Anrufen</a><a class="sbtn" href="/termin/">Termin buchen →</a></div></aside>
 <hr>
 <p>Stand: November 2026, Praxisbeispiel ASEIO</p><div class="pager"><a class="prev" href="/wissen/sicherheit/01-grundprinzipien/"><span class="mono">← Zurück</span>1. Grundprinzipien</a><a class="next" href="/wissen/sicherheit/03-anmeldung-und-konten/"><span class="mono">Weiter →</span>3. Anmeldung und Konten</a></div><p class="kb-foot">Eine Wissensdatenbank der TradeX International AG.</p></article></main>
 <footer class="mono">
