@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompts für dein Projekt · Sicherheit für Web-Apps · TradeX</title>
+<meta name="description" content="Ein Prompt ist die Anweisung, die man einem KI-Assistenten gibt. Die Prompts auf dieser Seite helfen, das eigene Projekt nach dieser Wissensdatenbank zu pr">
+<link rel="canonical" href="https://tradexag.ch/wissen/sicherheit/prompts/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>@font-face{font-family:'Geist';font-weight:400;font-display:swap;src:url(/assets/fonts/geist-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:500;font-display:swap;src:url(/assets/fonts/geist-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:700;font-display:swap;src:url(/assets/fonts/geist-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+:root{--ink:#111;--muted:#6A6E73;--line:#E8E8E8;--accent:#D52B1E;--gutter:clamp(16px,4vw,48px)}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Geist","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+header,main,footer{max-width:820px;margin-inline:auto;padding-inline:var(--gutter)}
+header{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.06em}
+.logo svg{width:22px;height:22px}
+.switch{display:flex;gap:4px}
+.switch button{font:inherit;background:none;border:1px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+main{padding-top:56px;padding-bottom:72px}
+.label{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:20px}
+.sq{display:inline-block;width:8px;height:8px;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0 0 40px}
+h2{font-size:20px;letter-spacing:-.01em;margin:40px 0 8px}
+p,address{margin:0 0 14px;font-style:normal}
+.todo{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+
+header,footer{max-width:1200px}
+main.kb{max-width:1200px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;align-items:start}
+.kb-nav{position:sticky;top:24px;font-size:14px;line-height:1.4;max-height:calc(100vh - 48px);overflow:auto}
+.kb-nav ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kb-nav li a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted)}
+.kb-nav li a:hover,.kb-nav a[aria-current]{color:var(--ink)}
+.kb-nav a[aria-current]{font-weight:500;box-shadow:inset 2px 0 0 var(--accent);padding-left:10px}
+article{max-width:740px;min-width:0}
+article h1{font-size:clamp(32px,5vw,48px)}
+article h3{font-size:17px;margin:28px 0 6px}
+article ul,article ol{padding-left:22px;margin:0 0 16px}article li{margin:4px 0}
+article a{text-decoration:none;border-bottom:1px solid var(--accent)}
+article code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em;background:#F3F4F5;padding:1px 5px;border-radius:4px}
+article hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+article blockquote{margin:0 0 16px;padding:2px 0 2px 18px;border-left:2px solid var(--accent);color:#303030}
+.code{position:relative;margin:0 0 20px}
+.code pre{margin:0;background:#111;color:#EEEFF0;border-radius:10px;padding:44px 18px 18px;overflow:auto;font-size:13px;line-height:1.55}
+.code pre code{background:none;padding:0;color:inherit;font-size:inherit;white-space:pre}
+.copy{position:absolute;top:10px;right:10px;background:#303030;color:#fff;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:11px}
+.copy:hover{background:#444}
+ul.checklist{list-style:none;padding:0;border-top:1px solid var(--line)}
+ul.checklist li{margin:0;border-bottom:1px solid var(--line)}
+ul.checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;cursor:pointer}
+ul.checklist input{appearance:none;flex:none;width:18px;height:18px;margin:3px 0 0;border:1.5px solid #A4A8AD;border-radius:4px;display:grid;place-content:center;cursor:pointer}
+ul.checklist input:checked{background:#111;border-color:#111}
+ul.checklist input:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:#A4A8AD}
+.chk-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);margin:-4px 0 10px}
+.chk-bar button{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:0;border-bottom:1px solid var(--line)}
+.tbl{overflow:auto;margin:0 0 20px}table{border-collapse:collapse;font-size:15px;width:100%}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px 10px 8px 0;vertical-align:top}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;border-top:1px solid var(--line);padding-top:24px}
+.pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
+.pager .mono{color:var(--muted)}.pager .next{text-align:right}
+.kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+@media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="TradeX International AG, Startseite"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" fill="#111111"/><path d="M6.5 6.5 L15.5 15.5 M15.5 6.5 L6.5 15.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="square"/></svg><span>TRADEX</span></a>
+</header>
+<main class="kb"><nav class="kb-nav" aria-label="Kapitel"><div class="label mono"><i class="sq"></i>Sicherheit für Web-Apps</div><ol><li><a href="/wissen/sicherheit/">Übersicht</a></li><li><a href="/wissen/sicherheit/01-grundprinzipien/">1. Grundprinzipien</a></li><li><a href="/wissen/sicherheit/02-hosting/">2. Hosting: Warum ASEIO von Vercel auf einen eigenen Server bei Hetzner umgezogen ist</a></li><li><a href="/wissen/sicherheit/03-anmeldung-und-konten/">3. Anmeldung und Konten</a></li><li><a href="/wissen/sicherheit/04-mandantentrennung/">4. Mandantentrennung (mehrere Kunden in einer Datenbank)</a></li><li><a href="/wissen/sicherheit/05-daten-schuetzen/">5. Daten schützen</a></li><li><a href="/wissen/sicherheit/06-webserver-und-browser-schutz/">6. Webserver und Browser-Schutz</a></li><li><a href="/wissen/sicherheit/07-server-und-container/">7. Server und Container</a></li><li><a href="/wissen/sicherheit/08-abhaengigkeiten-und-schwachstellen/">8. Abhängigkeiten und Schwachstellen</a></li><li><a href="/wissen/sicherheit/09-sicherungen-und-wiederanlauf/">9. Sicherungen und Wiederanlauf</a></li><li><a href="/wissen/sicherheit/10-protokoll-ueberwachung-vorfaelle/">10. Protokoll, Überwachung, Vorfälle</a></li><li><a href="/wissen/sicherheit/11-ki-schnittstellen-mcp/">11. KI-Schnittstellen (MCP) absichern</a></li><li><a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/">12. Organisation, Richtlinien, Nachweise</a></li><li><a href="/wissen/sicherheit/13-schnellpruefung-20-punkte/">13. Die 20-Punkte-Schnellprüfung</a></li><li><a href="/wissen/sicherheit/prompts/" aria-current="page">Prompts für dein Projekt</a></li><li><a href="/wissen/sicherheit/glossar/">Glossar</a></li></ol></nav><article><h1>Prompts für dein Projekt</h1>
+<p>Ein <strong>Prompt</strong> ist die Anweisung, die man einem KI-Assistenten gibt. Die Prompts auf dieser Seite helfen, das eigene Projekt nach dieser Wissensdatenbank zu prüfen und vorzubereiten. Man kopiert sie in einen KI-Assistenten, der den Code des eigenen Projekts lesen kann (zum Beispiel einen Programmier-Assistenten im Code-Editor).</p>
+<p><strong>Bevor du startest</strong></p>
+<ul>
+<li>Gib der KI <strong>keinen Zugang zur Produktion</strong> und <strong>keine Geheimnisse</strong>. Sie arbeitet nur auf einer Kopie des Codes. Schlüssel gehören nie in den Chat (siehe <a href="/wissen/sicherheit/01-grundprinzipien/">Kapitel 1</a>).</li>
+<li>Lass die KI <strong>erst berichten, dann reparieren</strong>. Jede Reparatur gibst du einzeln frei.</li>
+<li>Lass jede Änderung <strong>von jemand anderem prüfen</strong> als von der KI, die sie gemacht hat.</li>
+<li>Die KI kann sich irren. Ein Bericht ist ein Startpunkt, kein Nachweis.</li>
+</ul>
+<hr>
+<h2>Prompt 1: Bestandsaufnahme</h2>
+<p>Erst verstehen, dann prüfen. Dieser Prompt erstellt eine Übersicht, auf der alle anderen aufbauen.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Du bist Sicherheitsprüfer für eine Web-App. Lies das Projekt in diesem Ordner,
+ändere aber nichts. Erstelle eine Bestandsaufnahme auf Deutsch:
+
+1. Aufbau: Framework, Sprache, Datenbank, Login-Lösung, Hosting, Hintergrundaufgaben.
+2. Eingänge: alle API-Routen, Webhooks, Upload-Wege und KI-Schnittstellen.
+3. Daten: welche personenbezogenen Daten und welche Zugangsdaten von Kunden gespeichert werden.
+4. Mandanten: ob mehrere Kunden in einer Datenbank liegen und wie sie getrennt werden.
+5. Dienstleister: alle externen Dienste, an die Daten gehen.
+
+Nenne keine Geheimnisse, auch wenn du welche findest. Schreibe stattdessen
+&quot;Geheimnis gefunden in &lt;Dateiname&gt;, Zeile &lt;Nummer&gt;&quot; und weiter nichts.
+Markiere alles, was du nicht sicher erkennen kannst, als &quot;unklar&quot;.
+</code></pre></div>
+<h2>Prompt 2: Die 20-Punkte-Schnellprüfung</h2>
+<p>Geht die Liste aus <a href="/wissen/sicherheit/13-schnellpruefung-20-punkte/">Kapitel 13</a> durch.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Prüfe dieses Projekt gegen die folgenden 20 Punkte. Ändere nichts.
+Gib für jeden Punkt an: Status (OK / Fund / unklar / nicht zutreffend),
+Begründung in einem Satz, betroffene Datei und Zeile, und bei einem Fund
+einen Vorschlag zur Behebung.
+
+1. Auth nur in der Middleware statt in jeder API-Route
+2. Ausgeliefertes .git-Verzeichnis
+3. Offene Speicher-Regeln (Datenbank- oder Dateispeicher öffentlich les- oder schreibbar)
+4. Preis oder Menge aus dem Browser übernommen
+5. KI mit zu viel Zugriff
+6. Schwaches oder im Code stehendes Session- oder JWT-Geheimnis
+7. Fehlende E-Mail-Bestätigung bei der Registrierung
+8. Fehlende oder falsch gebundene Login-Limits
+9. Server ruft Nutzer-URLs ab, ohne interne Adressen zu sperren (SSRF)
+10. Reset-Link aus dem Host-Header gebaut
+11. Source Maps in Produktion
+12. Einbetten in fremde Seiten nicht verboten (Framing)
+13. Offene Weiterleitungen
+14. Konten-Erkennung über unterschiedliche Antworten oder Antwortzeiten
+15. Hinweise auf verwaiste DNS-Einträge oder abgeschaltete Dienste
+16. Veraltete oder nicht festgelegte Basis-Images
+17. Analyse-Skripte im eingeloggten Bereich
+18. Zähler, Guthaben oder Bestände ohne atomare Buchung
+19. Bekannte kritische Lücken im Framework oder in Laufzeit-Paketen
+20. Geheimnisse im Code oder in der Versionsgeschichte
+
+Gib keine Geheimnisse wieder. Ende mit einer Liste der Funde, sortiert nach
+Schwere (kritisch, hoch, mittel, niedrig).
+</code></pre></div>
+<h2>Prompt 3: Mandantentrennung prüfen</h2>
+<p>Für Apps mit mehreren Kunden in einer Datenbank, siehe <a href="/wissen/sicherheit/04-mandantentrennung/">Kapitel 4</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Prüfe die Mandantentrennung dieses Projekts. Ändere nichts.
+
+1. Liste jede Datenbankabfrage auf Daten, die einem Mandanten gehören.
+2. Prüfe für jede: Wird die Mandanten-ID aus der geprüften Sitzung im selben
+   Filter wie die Objekt-ID gebunden? Kommt die Mandanten-ID je aus dem Browser?
+3. Prüfe, ob fremde und unbekannte Objekte dieselbe Antwort (404) geben.
+4. Prüfe, ob jede API-Route die Sitzung selbst prüft, unabhängig von Middleware.
+5. Prüfe Hintergrundaufgaben: Bindet jede Abfrage die Mandanten-ID der Aufgabe?
+
+Gib eine Tabelle aus: Datei, Funktion, Status (OK / Fund / unklar), Begründung.
+Schlage danach einen automatischen Test vor, der mit zwei Mandanten versucht,
+an fremde Daten zu kommen.
+</code></pre></div>
+<h2>Prompt 4: Sicherheitsheader und Webserver</h2>
+<p>Siehe <a href="/wissen/sicherheit/06-webserver-und-browser-schutz/">Kapitel 6</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Prüfe die Konfiguration von Webserver und App auf diese Punkte. Ändere nichts.
+- Content-Security-Policy mit Nonce je Anfrage, ohne unsafe-inline für Skripte
+- X-Frame-Options DENY
+- X-Content-Type-Options nosniff
+- Referrer-Policy strict-origin-when-cross-origin
+- Permissions-Policy mit Kamera, Mikrofon, Standort und Zahlung aus
+- HSTS mit langer Laufzeit, nur TLS 1.2 und 1.3
+- Server-Kennung ausgeblendet
+- keine Source Maps in Produktion, kein abrufbares .git
+- keine offenen Weiterleitungen
+- Pfade, die von Seitensperren ausgenommen sind, und wie sie geschützt sind
+
+Gib für jeden Punkt Status, Fundstelle und einen Vorschlag aus.
+</code></pre></div>
+<h2>Prompt 5: Abhängigkeiten und Deploy-Prüflauf</h2>
+<p>Siehe <a href="/wissen/sicherheit/08-abhaengigkeiten-und-schwachstellen/">Kapitel 8</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Prüfe den Umgang mit Abhängigkeiten in diesem Projekt. Ändere nichts.
+1. Gibt es automatische Update-Meldungen (z. B. Dependabot)?
+2. Gibt es im Prüflauf vor dem Deploy einen Audit-Schritt, der bei hohen oder
+   kritischen Lücken in Laufzeit-Paketen fehlschlägt?
+3. Gibt es eine Liste mit Ausnahmen? Hat jede eine konkrete Begründung und ein
+   Ablaufdatum von höchstens 90 Tagen?
+4. Sind Basis-Images per Digest festgelegt, und wann wurden sie zuletzt erneuert?
+5. Gibt es eine statische Code-Analyse?
+
+Schlage für jede Lücke einen konkreten, kleinen Schritt vor.
+</code></pre></div>
+<h2>Prompt 6: CAIQ-Fragebogen vorbereiten (CSA STAR Level 1)</h2>
+<p>Siehe <a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/">Kapitel 12</a>. Den Fragebogen gibt es als Excel-Datei direkt auf der Seite der CSA: <a href="https://cloudsecurityalliance.org/artifacts/star-level-1-security-questionnaire-caiq-v4-1" target="_blank" rel="noopener">STAR Level 1: Security Questionnaire (CAIQ v4.1)</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Du hilfst beim ehrlichen Ausfüllen des CAIQ der Cloud Security Alliance.
+Ich gebe dir die Fragen aus der Excel-Datei und die Bestandsaufnahme meines
+Projekts. Regeln:
+
+1. &quot;Ja&quot; nur, wenn die Maßnahme heute umgesetzt ist und ich einen Beleg nennen
+   kann (Richtlinie, Konfiguration, Test, Bericht). Geplantes ist &quot;Nein&quot;.
+2. Wenn du es nicht sicher weißt, schreibe &quot;offen, bitte prüfen&quot; statt zu raten.
+3. Begründungen bei &quot;Nein&quot; bleiben neutral, denn der Fragebogen ist öffentlich.
+   Beschreibe nie eine konkrete Lücke, keine Systemnamen, keine Hosts, keine
+   Versionen. Beispiele: &quot;Nicht zutreffend für den Geltungsbereich&quot; oder
+   &quot;Geplant, wird bei Umsetzung aktualisiert&quot;.
+4. Schreibe nie &quot;zertifiziert&quot;, außer für Rechenzentren, die tatsächlich ein
+   Zertifikat haben.
+5. Gib für jede Frage aus: Frage-ID, Antwort, Begründung, Beleg (intern, wird
+   nicht veröffentlicht).
+
+Ende mit einer Liste aller &quot;Nein&quot; und &quot;offen&quot;, die ich als Aufgaben übernehmen kann.
+</code></pre></div>
+<h2>Prompt 7: Die sieben Richtlinien entwerfen</h2>
+<p>Siehe <a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/">Kapitel 12</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Entwirf für ein kleines Software-Team sieben kurze Sicherheitsrichtlinien auf
+Deutsch, jeweils höchstens eine Seite, in einfachen Sätzen:
+1. Verantwortung und Risiken
+2. Arbeitsrechner und Zugänge (Passwortmanager, Festplattenverschlüsselung,
+   Bildschirmsperre)
+3. Betrieb und Notfall
+4. Vorfälle (Ablauf, Bewertung, Meldung an die Behörde binnen 72 Stunden)
+5. Lieferanten (Liste, Auftragsverarbeitungsverträge)
+6. Personal (Eintritt, Wechsel, Austritt, Zugänge entziehen)
+7. Kryptographie (welche Verschlüsselung wo, Schlüsselverwaltung)
+
+Schreibe nur Regeln, die ein kleines Team wirklich einhalten kann. Markiere jede
+Stelle, an der ich eine eigene Entscheidung treffen muss, mit [ENTSCHEIDEN].
+Jede Richtlinie endet mit &quot;Nächste Prüfung: &lt;Datum in einem Jahr&gt;&quot;.
+</code></pre></div>
+<h2>Prompt 8: Monatliche Wartung</h2>
+<p>Siehe <a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/">Kapitel 12</a>.</p>
+<div class="code"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Führe die monatliche Sicherheitswartung für dieses Projekt durch. Ändere nichts.
+Prüfe und berichte je Punkt mit grün / rot / unklar:
+1. Abhängigkeiten: offene Meldungen, abgelaufene Ausnahmen
+2. Basis-Images: Alter seit der letzten Erneuerung
+3. Sicherungen: Ergebnis der letzten Wiederherstellungsprobe (aus dem Bericht,
+   den ich dir gebe)
+4. Schlüssel und Zertifikate, die vor der nächsten Wartung ablaufen
+5. Mandantentrennung: neue Abfragen seit dem letzten Monat, Ergebnis der Testreihe
+6. CSA-Eintrag: passt er noch zum Stand?
+
+Schreibe zum Schluss einen kurzen Bericht und eine Liste der roten Punkte als
+Ticket-Entwürfe mit Titel, Beschreibung und Termin.
+</code></pre></div>
+<hr>
+<p>Stand: November 2026, Praxisbeispiel ASEIO</p><div class="pager"><a class="prev" href="/wissen/sicherheit/13-schnellpruefung-20-punkte/"><span class="mono">← Zurück</span>13. Die 20-Punkte-Schnellprüfung</a><a class="next" href="/wissen/sicherheit/glossar/"><span class="mono">Weiter →</span>Glossar</a></div><p class="kb-foot">Eine Wissensdatenbank der TradeX International AG.</p></article></main>
+<footer class="mono">
+  <span>© 2026 TradeX International AG</span>
+  <nav><a href="/">Start</a><a href="/impressum.html"><span data-l="de">Impressum</span><span data-l="en" hidden>Legal notice</span></a><a href="/datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en" hidden>Privacy</span></a></nav>
+</footer>
+<script>
+(function(){
+  function set(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-l]').forEach(function(el){ el.hidden = el.getAttribute('data-l') !== l; });
+    document.querySelectorAll('[data-set]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set') === l); });
+    try { localStorage.setItem('tradex-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  var s = null; try { s = localStorage.getItem('tradex-lang'); } catch(e){}
+  set(s === 'en' ? 'en' : 'de');
+})();
+</script>
+<script>
+(function(){
+  var key='tradex-kb:'+location.pathname;
+  var st={}; try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('ul.checklist input');
+  function save(){try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}}
+  function count(){var d=0;boxes.forEach(function(b){if(b.checked)d++});document.querySelectorAll('.chk-count').forEach(function(c){c.textContent=d+' von '+boxes.length+' erledigt'})}
+  boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){if(b.checked)st[b.dataset.k]=1;else delete st[b.dataset.k];save();count()})});
+  document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
+  count();
+  document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.parentNode.querySelector('code').innerText;
+    function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
+})();
+</script>
+</body>
+</html>

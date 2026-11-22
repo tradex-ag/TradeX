@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1. Grundprinzipien · Sicherheit für Web-Apps · TradeX</title>
+<meta name="description" content="Die meisten Sicherheitslücken entstehen nicht durch fehlendes Wissen, sondern durch Eile. Eine Änderung geht „nur schnell“ live, niemand schaut ein zweites">
+<link rel="canonical" href="https://tradexag.ch/wissen/sicherheit/01-grundprinzipien/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>@font-face{font-family:'Geist';font-weight:400;font-display:swap;src:url(/assets/fonts/geist-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:500;font-display:swap;src:url(/assets/fonts/geist-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:700;font-display:swap;src:url(/assets/fonts/geist-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+:root{--ink:#111;--muted:#6A6E73;--line:#E8E8E8;--accent:#D52B1E;--gutter:clamp(16px,4vw,48px)}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Geist","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+header,main,footer{max-width:820px;margin-inline:auto;padding-inline:var(--gutter)}
+header{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.06em}
+.logo svg{width:22px;height:22px}
+.switch{display:flex;gap:4px}
+.switch button{font:inherit;background:none;border:1px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+main{padding-top:56px;padding-bottom:72px}
+.label{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:20px}
+.sq{display:inline-block;width:8px;height:8px;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0 0 40px}
+h2{font-size:20px;letter-spacing:-.01em;margin:40px 0 8px}
+p,address{margin:0 0 14px;font-style:normal}
+.todo{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+
+header,footer{max-width:1200px}
+main.kb{max-width:1200px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;align-items:start}
+.kb-nav{position:sticky;top:24px;font-size:14px;line-height:1.4;max-height:calc(100vh - 48px);overflow:auto}
+.kb-nav ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kb-nav li a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted)}
+.kb-nav li a:hover,.kb-nav a[aria-current]{color:var(--ink)}
+.kb-nav a[aria-current]{font-weight:500;box-shadow:inset 2px 0 0 var(--accent);padding-left:10px}
+article{max-width:740px;min-width:0}
+article h1{font-size:clamp(32px,5vw,48px)}
+article h3{font-size:17px;margin:28px 0 6px}
+article ul,article ol{padding-left:22px;margin:0 0 16px}article li{margin:4px 0}
+article a{text-decoration:none;border-bottom:1px solid var(--accent)}
+article code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em;background:#F3F4F5;padding:1px 5px;border-radius:4px}
+article hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+article blockquote{margin:0 0 16px;padding:2px 0 2px 18px;border-left:2px solid var(--accent);color:#303030}
+.code{position:relative;margin:0 0 20px}
+.code pre{margin:0;background:#111;color:#EEEFF0;border-radius:10px;padding:44px 18px 18px;overflow:auto;font-size:13px;line-height:1.55}
+.code pre code{background:none;padding:0;color:inherit;font-size:inherit;white-space:pre}
+.copy{position:absolute;top:10px;right:10px;background:#303030;color:#fff;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:11px}
+.copy:hover{background:#444}
+ul.checklist{list-style:none;padding:0;border-top:1px solid var(--line)}
+ul.checklist li{margin:0;border-bottom:1px solid var(--line)}
+ul.checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;cursor:pointer}
+ul.checklist input{appearance:none;flex:none;width:18px;height:18px;margin:3px 0 0;border:1.5px solid #A4A8AD;border-radius:4px;display:grid;place-content:center;cursor:pointer}
+ul.checklist input:checked{background:#111;border-color:#111}
+ul.checklist input:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:#A4A8AD}
+.chk-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);margin:-4px 0 10px}
+.chk-bar button{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:0;border-bottom:1px solid var(--line)}
+.tbl{overflow:auto;margin:0 0 20px}table{border-collapse:collapse;font-size:15px;width:100%}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px 10px 8px 0;vertical-align:top}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;border-top:1px solid var(--line);padding-top:24px}
+.pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
+.pager .mono{color:var(--muted)}.pager .next{text-align:right}
+.kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+@media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="TradeX International AG, Startseite"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" fill="#111111"/><path d="M6.5 6.5 L15.5 15.5 M15.5 6.5 L6.5 15.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="square"/></svg><span>TRADEX</span></a>
+</header>
+<main class="kb"><nav class="kb-nav" aria-label="Kapitel"><div class="label mono"><i class="sq"></i>Sicherheit für Web-Apps</div><ol><li><a href="/wissen/sicherheit/">Übersicht</a></li><li><a href="/wissen/sicherheit/01-grundprinzipien/" aria-current="page">1. Grundprinzipien</a></li><li><a href="/wissen/sicherheit/02-hosting/">2. Hosting: Warum ASEIO von Vercel auf einen eigenen Server bei Hetzner umgezogen ist</a></li><li><a href="/wissen/sicherheit/03-anmeldung-und-konten/">3. Anmeldung und Konten</a></li><li><a href="/wissen/sicherheit/04-mandantentrennung/">4. Mandantentrennung (mehrere Kunden in einer Datenbank)</a></li><li><a href="/wissen/sicherheit/05-daten-schuetzen/">5. Daten schützen</a></li><li><a href="/wissen/sicherheit/06-webserver-und-browser-schutz/">6. Webserver und Browser-Schutz</a></li><li><a href="/wissen/sicherheit/07-server-und-container/">7. Server und Container</a></li><li><a href="/wissen/sicherheit/08-abhaengigkeiten-und-schwachstellen/">8. Abhängigkeiten und Schwachstellen</a></li><li><a href="/wissen/sicherheit/09-sicherungen-und-wiederanlauf/">9. Sicherungen und Wiederanlauf</a></li><li><a href="/wissen/sicherheit/10-protokoll-ueberwachung-vorfaelle/">10. Protokoll, Überwachung, Vorfälle</a></li><li><a href="/wissen/sicherheit/11-ki-schnittstellen-mcp/">11. KI-Schnittstellen (MCP) absichern</a></li><li><a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/">12. Organisation, Richtlinien, Nachweise</a></li><li><a href="/wissen/sicherheit/13-schnellpruefung-20-punkte/">13. Die 20-Punkte-Schnellprüfung</a></li><li><a href="/wissen/sicherheit/prompts/">Prompts für dein Projekt</a></li><li><a href="/wissen/sicherheit/glossar/">Glossar</a></li></ol></nav><article><h1>1. Grundprinzipien</h1>
+<h2>Warum es wichtig ist</h2>
+<p>Die meisten Sicherheitslücken entstehen nicht durch fehlendes Wissen, sondern durch Eile. Eine Änderung geht „nur schnell“ live, niemand schaut ein zweites Mal hin, und ein Fehler bleibt monatelang unbemerkt. Wer Sicherheit als einmaliges Projekt behandelt, ist nach dem nächsten Update wieder unsicher. Sicherheit ist deshalb eine <strong>Routine</strong>: ein fester Ablauf, der bei jeder Änderung gleich läuft.</p>
+<h2>Was man konkret tut</h2>
+<p><strong>Jede Arbeit hat vier Schritte.</strong></p>
+<ol>
+<li><strong>Ticket:</strong> Die Aufgabe bekommt eine Nummer und eine kurze Beschreibung. Ein <strong>Ticket</strong> ist ein Eintrag in einer Aufgabenliste, über den man später nachvollziehen kann, was warum geändert wurde.</li>
+<li><strong>Plan:</strong> Vor dem Programmieren steht fest, was sich ändert, welche Risiken es gibt und woran man den Erfolg erkennt (Akzeptanzkriterien).</li>
+<li><strong>Umsetzung:</strong> Code, Tests und Prüfläufe.</li>
+<li><strong>Unabhängige Prüfung:</strong> Jemand anderes als der Umsetzer prüft die tatsächliche Änderung und gibt sie frei oder schickt sie mit einer Fehlerliste zurück.</li>
+</ol>
+<p><strong>Gewaltenteilung.</strong> <strong>Gewaltenteilung</strong> heißt hier: Wer etwas baut, gibt es nicht selbst frei. Das gilt für Menschen und für KI-Agenten gleichermaßen. Ein <strong>KI-Agent</strong> ist ein KI-Modell, das selbständig Aufgaben ausführt, etwa Code schreibt oder Tests startet.</p>
+<p><strong>Ein Mensch gibt jeden Live-Gang frei.</strong> Der <strong>Live-Gang</strong> (Deploy) ist der Moment, in dem eine Änderung für echte Kunden sichtbar wird. Diese Entscheidung trifft immer ein Mensch.</p>
+<p><strong>KI-Agenten bekommen keinen Zugang zur Produktion und sehen keine Geheimnisse.</strong> <strong>Produktion</strong> ist das System, das Kunden tatsächlich nutzen. <strong>Geheimnisse</strong> sind Passwörter, API-Schlüssel und Zugangsdaten. Sie gehören nie in einen Chat, auch nicht „nur kurz“, denn Chatverläufe werden gespeichert und weitergegeben.</p>
+<h2>So macht es ASEIO</h2>
+<p>Bei ASEIO plant eine KI die Aufgabe, eine zweite KI setzt sie um, eine dritte prüft die Änderung und gibt sie frei. Kein Modell prüft seine eigene Arbeit. Fällt die Prüfung durch, geht eine konkrete Fehlerliste zurück an die Umsetzung, danach wird erneut geprüft. Erst nach bestandener Prüfung wird die Änderung festgeschrieben. Den Live-Gang gibt ein Mensch frei.</p>
+<p>Die KI-Agenten arbeiten auf Kopien des Codes. Sie haben keinen Zugang zum Produktionsserver und bekommen keine Zugangsdaten zu sehen.</p>
+<h2>Woran man erkennt, dass es klappt</h2>
+<ul>
+<li>Zu jeder Änderung im Code gibt es ein Ticket und einen Prüfvermerk.</li>
+<li>Niemand kann sagen, wer eine bestimmte Änderung geprüft hat? Dann fehlt die Routine.</li>
+<li>In Chatverläufen und Tickets stehen keine Passwörter oder Schlüssel.</li>
+<li>Kein Agent und kein Entwicklerrechner kann ohne menschliche Freigabe live gehen.</li>
+</ul>
+<h2>Typische Fehler</h2>
+<ul>
+<li>„Kleine“ Änderungen ohne Ticket und ohne Prüfung live stellen.</li>
+<li>Der Umsetzer prüft selbst und schreibt „sieht gut aus“.</li>
+<li>Einen API-Schlüssel in den Chat mit einer KI kopieren, um „schnell etwas zu testen“.</li>
+<li>Einem KI-Agenten Serverzugang geben, damit er Fehler direkt in der Produktion behebt.</li>
+<li>Eine Regel nur im Kopf oder in einer Notiz zu haben statt fest im Ablauf.</li>
+</ul>
+<h2>Checkliste</h2>
+<ul class="checklist">
+<li class="chk"><label><input type="checkbox" data-k="1"><span>Jede Änderung hat ein Ticket, einen Plan, eine Umsetzung und eine unabhängige Prüfung.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="2"><span>Wer umsetzt, gibt nicht selbst frei.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="3"><span>Ein Mensch gibt jeden Live-Gang frei.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="4"><span>KI-Agenten haben keinen Zugang zur Produktion.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="5"><span>Geheimnisse werden nie in Chats, Tickets oder Code geteilt.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="6"><span>Die Regeln stehen schriftlich im Projekt, nicht nur im Gedächtnis.</span></label></li>
+</ul>
+<hr>
+<p>Stand: November 2026, Praxisbeispiel ASEIO</p><div class="pager"><a class="prev" href="/wissen/sicherheit/"><span class="mono">← Zurück</span>Übersicht</a><a class="next" href="/wissen/sicherheit/02-hosting/"><span class="mono">Weiter →</span>2. Hosting: Warum ASEIO von Vercel auf einen eigenen Server bei Hetzner umgezogen ist</a></div><p class="kb-foot">Eine Wissensdatenbank der TradeX International AG.</p></article></main>
+<footer class="mono">
+  <span>© 2026 TradeX International AG</span>
+  <nav><a href="/">Start</a><a href="/impressum.html"><span data-l="de">Impressum</span><span data-l="en" hidden>Legal notice</span></a><a href="/datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en" hidden>Privacy</span></a></nav>
+</footer>
+<script>
+(function(){
+  function set(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-l]').forEach(function(el){ el.hidden = el.getAttribute('data-l') !== l; });
+    document.querySelectorAll('[data-set]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set') === l); });
+    try { localStorage.setItem('tradex-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  var s = null; try { s = localStorage.getItem('tradex-lang'); } catch(e){}
+  set(s === 'en' ? 'en' : 'de');
+})();
+</script>
+<script>
+(function(){
+  var key='tradex-kb:'+location.pathname;
+  var st={}; try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('ul.checklist input');
+  function save(){try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}}
+  function count(){var d=0;boxes.forEach(function(b){if(b.checked)d++});document.querySelectorAll('.chk-count').forEach(function(c){c.textContent=d+' von '+boxes.length+' erledigt'})}
+  boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){if(b.checked)st[b.dataset.k]=1;else delete st[b.dataset.k];save();count()})});
+  document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
+  count();
+  document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.parentNode.querySelector('code').innerText;
+    function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
+})();
+</script>
+</body>
+</html>

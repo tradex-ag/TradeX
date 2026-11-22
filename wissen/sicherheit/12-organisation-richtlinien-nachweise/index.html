@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12. Organisation, Richtlinien, Nachweise · Sicherheit für Web-Apps · TradeX</title>
+<meta name="description" content="Gute Technik allein überzeugt keinen Kunden, der sie nicht sehen kann. Größere Kunden fragen: Wer ist verantwortlich? Was passiert im Notfall? Welche Diens">
+<link rel="canonical" href="https://tradexag.ch/wissen/sicherheit/12-organisation-richtlinien-nachweise/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>@font-face{font-family:'Geist';font-weight:400;font-display:swap;src:url(/assets/fonts/geist-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:500;font-display:swap;src:url(/assets/fonts/geist-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:700;font-display:swap;src:url(/assets/fonts/geist-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+:root{--ink:#111;--muted:#6A6E73;--line:#E8E8E8;--accent:#D52B1E;--gutter:clamp(16px,4vw,48px)}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Geist","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+header,main,footer{max-width:820px;margin-inline:auto;padding-inline:var(--gutter)}
+header{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.06em}
+.logo svg{width:22px;height:22px}
+.switch{display:flex;gap:4px}
+.switch button{font:inherit;background:none;border:1px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+main{padding-top:56px;padding-bottom:72px}
+.label{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:20px}
+.sq{display:inline-block;width:8px;height:8px;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0 0 40px}
+h2{font-size:20px;letter-spacing:-.01em;margin:40px 0 8px}
+p,address{margin:0 0 14px;font-style:normal}
+.todo{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+
+header,footer{max-width:1200px}
+main.kb{max-width:1200px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;align-items:start}
+.kb-nav{position:sticky;top:24px;font-size:14px;line-height:1.4;max-height:calc(100vh - 48px);overflow:auto}
+.kb-nav ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kb-nav li a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted)}
+.kb-nav li a:hover,.kb-nav a[aria-current]{color:var(--ink)}
+.kb-nav a[aria-current]{font-weight:500;box-shadow:inset 2px 0 0 var(--accent);padding-left:10px}
+article{max-width:740px;min-width:0}
+article h1{font-size:clamp(32px,5vw,48px)}
+article h3{font-size:17px;margin:28px 0 6px}
+article ul,article ol{padding-left:22px;margin:0 0 16px}article li{margin:4px 0}
+article a{text-decoration:none;border-bottom:1px solid var(--accent)}
+article code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em;background:#F3F4F5;padding:1px 5px;border-radius:4px}
+article hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+article blockquote{margin:0 0 16px;padding:2px 0 2px 18px;border-left:2px solid var(--accent);color:#303030}
+.code{position:relative;margin:0 0 20px}
+.code pre{margin:0;background:#111;color:#EEEFF0;border-radius:10px;padding:44px 18px 18px;overflow:auto;font-size:13px;line-height:1.55}
+.code pre code{background:none;padding:0;color:inherit;font-size:inherit;white-space:pre}
+.copy{position:absolute;top:10px;right:10px;background:#303030;color:#fff;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:11px}
+.copy:hover{background:#444}
+ul.checklist{list-style:none;padding:0;border-top:1px solid var(--line)}
+ul.checklist li{margin:0;border-bottom:1px solid var(--line)}
+ul.checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;cursor:pointer}
+ul.checklist input{appearance:none;flex:none;width:18px;height:18px;margin:3px 0 0;border:1.5px solid #A4A8AD;border-radius:4px;display:grid;place-content:center;cursor:pointer}
+ul.checklist input:checked{background:#111;border-color:#111}
+ul.checklist input:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:#A4A8AD}
+.chk-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);margin:-4px 0 10px}
+.chk-bar button{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:0;border-bottom:1px solid var(--line)}
+.tbl{overflow:auto;margin:0 0 20px}table{border-collapse:collapse;font-size:15px;width:100%}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px 10px 8px 0;vertical-align:top}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;border-top:1px solid var(--line);padding-top:24px}
+.pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
+.pager .mono{color:var(--muted)}.pager .next{text-align:right}
+.kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+@media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="TradeX International AG, Startseite"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" fill="#111111"/><path d="M6.5 6.5 L15.5 15.5 M15.5 6.5 L6.5 15.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="square"/></svg><span>TRADEX</span></a>
+</header>
+<main class="kb"><nav class="kb-nav" aria-label="Kapitel"><div class="label mono"><i class="sq"></i>Sicherheit für Web-Apps</div><ol><li><a href="/wissen/sicherheit/">Übersicht</a></li><li><a href="/wissen/sicherheit/01-grundprinzipien/">1. Grundprinzipien</a></li><li><a href="/wissen/sicherheit/02-hosting/">2. Hosting: Warum ASEIO von Vercel auf einen eigenen Server bei Hetzner umgezogen ist</a></li><li><a href="/wissen/sicherheit/03-anmeldung-und-konten/">3. Anmeldung und Konten</a></li><li><a href="/wissen/sicherheit/04-mandantentrennung/">4. Mandantentrennung (mehrere Kunden in einer Datenbank)</a></li><li><a href="/wissen/sicherheit/05-daten-schuetzen/">5. Daten schützen</a></li><li><a href="/wissen/sicherheit/06-webserver-und-browser-schutz/">6. Webserver und Browser-Schutz</a></li><li><a href="/wissen/sicherheit/07-server-und-container/">7. Server und Container</a></li><li><a href="/wissen/sicherheit/08-abhaengigkeiten-und-schwachstellen/">8. Abhängigkeiten und Schwachstellen</a></li><li><a href="/wissen/sicherheit/09-sicherungen-und-wiederanlauf/">9. Sicherungen und Wiederanlauf</a></li><li><a href="/wissen/sicherheit/10-protokoll-ueberwachung-vorfaelle/">10. Protokoll, Überwachung, Vorfälle</a></li><li><a href="/wissen/sicherheit/11-ki-schnittstellen-mcp/">11. KI-Schnittstellen (MCP) absichern</a></li><li><a href="/wissen/sicherheit/12-organisation-richtlinien-nachweise/" aria-current="page">12. Organisation, Richtlinien, Nachweise</a></li><li><a href="/wissen/sicherheit/13-schnellpruefung-20-punkte/">13. Die 20-Punkte-Schnellprüfung</a></li><li><a href="/wissen/sicherheit/prompts/">Prompts für dein Projekt</a></li><li><a href="/wissen/sicherheit/glossar/">Glossar</a></li></ol></nav><article><h1>12. Organisation, Richtlinien, Nachweise</h1>
+<h2>Warum es wichtig ist</h2>
+<p>Gute Technik allein überzeugt keinen Kunden, der sie nicht sehen kann. Größere Kunden fragen: Wer ist verantwortlich? Was passiert im Notfall? Welche Dienstleister sehen unsere Daten? Wer diese Fragen schriftlich und ehrlich beantworten kann, gewinnt Vertrauen. Und schriftliche Regeln sorgen dafür, dass Sicherheit nicht vom Gedächtnis einer einzelnen Person abhängt.</p>
+<h2>Was man konkret tut</h2>
+<h3>Sieben schriftliche Richtlinien</h3>
+<p>Eine <strong>Richtlinie</strong> ist eine kurze, verbindliche Regel für einen Bereich. Sieben reichen für ein kleines Team:</p>
+<ol>
+<li><strong>Verantwortung und Risiken:</strong> Wer ist für Sicherheit zuständig, wie werden Risiken erkannt und bewertet.</li>
+<li><strong>Arbeitsrechner und Zugänge:</strong> Passwortmanager, Festplattenverschlüsselung (auf dem Mac <strong>FileVault</strong>), automatische Bildschirmsperre.</li>
+<li><strong>Betrieb und Notfall:</strong> Wie Deploys, Wartung und Wiederanlauf laufen.</li>
+<li><strong>Vorfälle:</strong> Der Datenpannen-Plan (siehe <a href="/wissen/sicherheit/10-protokoll-ueberwachung-vorfaelle/">Kapitel 10</a>).</li>
+<li><strong>Lieferanten:</strong> Welche Dienstleister genutzt werden und wie sie geprüft werden.</li>
+<li><strong>Personal:</strong> Was beim Eintritt, beim Wechsel und beim Austritt eines Mitarbeiters passiert, etwa das Entziehen von Zugängen.</li>
+<li><strong>Kryptographie:</strong> Welche Verschlüsselung wo eingesetzt wird und wie Schlüssel verwaltet werden.</li>
+</ol>
+<p>Alle Richtlinien werden <strong>jährlich geprüft</strong>.</p>
+<h3>Monatliche Wartung mit Checkliste und Bericht</h3>
+<p>Einmal im Monat läuft eine feste Wartung. Sie prüft: Abhängigkeiten, Server, Sicherungen, ablaufende Schlüssel, Mandantentrennung und den CSA-Eintrag. Das Ergebnis steht in einem kurzen Bericht. <strong>Jeder rote Punkt wird sofort ein Ticket</strong>, und bis zur Lösung gilt ein <strong>Deploy-Stopp</strong>. Restpunkte werden in einer Liste mit Termin verfolgt.</p>
+<h3>Lieferantenliste mit Auftragsverarbeitungsverträgen</h3>
+<p>Eine Tabelle aller Dienstleister, die Daten verarbeiten: wofür, welche Daten, wo, und ob ein <strong>Auftragsverarbeitungsvertrag</strong> (AVV) vorliegt. Kunden fragen oft genau danach.</p>
+<h3>CSA STAR Level 1</h3>
+<p>Die <strong>Cloud Security Alliance</strong> (CSA) ist eine gemeinnützige Organisation, die Standards für Cloud-Sicherheit entwickelt. <strong>CSA STAR</strong> ist ihr öffentliches Register, in dem Cloud-Anbieter ihre Sicherheitsangaben veröffentlichen.</p>
+<p><strong>Level 1</strong> ist eine <strong>Selbstauskunft</strong>. Der Anbieter füllt den <strong>CAIQ</strong> (Consensus Assessments Initiative Questionnaire) aus, einen standardisierten Fragebogen der CSA mit Fragen zu allen Bereichen der Cloud-Sicherheit, und veröffentlicht ihn im Register.</p>
+<p>Was Level 1 <strong>ist:</strong> eine öffentliche, standardisierte und vergleichbare Selbstauskunft. Kunden sparen sich eigene Fragebögen.</p>
+<p>Was Level 1 <strong>nicht ist:</strong> kein Audit und kein Zertifikat. Niemand Externes hat die Angaben geprüft. Wer damit wirbt, muss das genau so sagen.</p>
+<p><strong>Wie man den CAIQ ehrlich ausfüllt:</strong></p>
+<ul>
+<li>Nur „Ja“ ankreuzen, was heute tatsächlich umgesetzt und belegbar ist. Geplantes ist „Nein“.</li>
+<li>Bei „Nein“ eine <strong>neutrale</strong> Begründung schreiben. Der Fragebogen ist öffentlich. Eine Begründung, die eine konkrete Lücke beschreibt, wäre eine Anleitung für Angreifer. Besser ist zum Beispiel: „Nicht zutreffend für den Geltungsbereich“ oder „Geplant, wird bei Umsetzung aktualisiert“.</li>
+<li>Den Eintrag <strong>monatlich nachführen</strong>, damit er zum tatsächlichen Stand passt.</li>
+</ul>
+<p><strong>Quellen direkt bei der CSA</strong> (Download des Fragebogens als Excel-Datei und Eintrag ins Register):</p>
+<ul>
+<li><a href="https://cloudsecurityalliance.org/artifacts/star-level-1-security-questionnaire-caiq-v4-1" target="_blank" rel="noopener">STAR Level 1: Security Questionnaire (CAIQ v4.1)</a> — der Fragebogen zum Herunterladen</li>
+<li><a href="https://cloudsecurityalliance.org/artifacts/cloud-controls-matrix-v4-1" target="_blank" rel="noopener">Cloud Controls Matrix und CAIQ v4.1</a> — der zugrunde liegende Maßnahmenkatalog</li>
+<li><a href="https://cloudsecurityalliance.org/star/submit" target="_blank" rel="noopener">Get Listed or Manage Your Listing</a> — Eintrag ins STAR-Register</li>
+<li><a href="https://support.cloudsecurityalliance.org/hc/en-us/articles/1500002138661-STAR-Submission-Guide-Level-1" target="_blank" rel="noopener">STAR Submission Guide Level 1</a> — Anleitung der CSA zur Einreichung</li>
+<li><a href="https://cloudsecurityalliance.org/star/about-star" target="_blank" rel="noopener">STAR: Cloud Security Assurance Program</a> — Überblick über die Stufen</li>
+</ul>
+<p>Prompts, mit denen ein KI-Assistent beim Ausfüllen hilft, stehen auf der Seite <a href="/wissen/sicherheit/prompts/">Prompts für dein Projekt</a>.</p>
+<h3>Weg zu ISO 27001</h3>
+<p><strong>ISO 27001</strong> ist eine internationale Norm für <strong>Informationssicherheits-Managementsysteme</strong> (ISMS). Ein ISMS ist kein Stück Software, sondern die Art, wie eine Firma Sicherheit plant, umsetzt, prüft und verbessert.</p>
+<p>Der wichtigste Unterschied: <strong>Gute Technik ist noch kein Managementsystem.</strong> Für ISO 27001 braucht man zusätzlich:</p>
+<ul>
+<li>einen <strong>Geltungsbereich</strong>: Was genau ist erfasst (welche Produkte, Standorte, Teams)?</li>
+<li>ein <strong>Inventar</strong>: Liste aller Werte (Systeme, Daten, Geräte, Dienstleister);</li>
+<li>eine <strong>Risikomethode</strong>: Wie Risiken bewertet und behandelt werden;</li>
+<li>eine <strong>Erklärung zur Anwendbarkeit</strong> (Statement of Applicability): Welche der Maßnahmen der Norm gelten, welche nicht, und warum;</li>
+<li><strong>Ziele</strong>, die man messen kann;</li>
+<li>ein <strong>internes Audit</strong>: Eine unabhängige Prüfung des eigenen Systems;</li>
+<li>eine <strong>Managementbewertung</strong>: Die Geschäftsleitung prüft regelmäßig, ob das System wirkt.</li>
+</ul>
+<h2>So macht es ASEIO</h2>
+<p>ASEIO hat die sieben Richtlinien schriftlich und prüft sie jährlich. Die monatliche Wartung läuft mit Checkliste und Bericht. Rote Punkte werden sofort ein Ticket und stoppen den Deploy bis zur Lösung, Restpunkte werden in einer Liste mit Termin verfolgt. Es gibt eine Lieferantenliste mit Auftragsverarbeitungsverträgen.</p>
+<p>ASEIO hat einen Eintrag <strong>CSA STAR Level 1</strong> (Selbstauskunft per CAIQ) im öffentlichen CSA-Register und führt ihn monatlich nach. Das ist eine Selbstauskunft, kein Audit und kein Zertifikat.</p>
+<p>Für ISO 27001 hat ASEIO eine <strong>Lückenanalyse über alle 93 Maßnahmen</strong> der Norm gemacht. Eine <strong>Lückenanalyse</strong> vergleicht den heutigen Stand mit den Anforderungen. Realistisch sind 7 bis 9 Monate bis zum Zertifikat. Der Großteil des Aufwands ist Organisation, nicht Technik. Mit einem ISO-Zertifikat wird später <strong>CSA STAR Level 2</strong> möglich, die Stufe mit externer Prüfung.</p>
+<h2>Woran man erkennt, dass es klappt</h2>
+<ul>
+<li>Jede der sieben Richtlinien existiert schriftlich und hat ein Prüfdatum, das nicht älter als ein Jahr ist.</li>
+<li>Für jeden Monat gibt es einen Wartungsbericht.</li>
+<li>Kein roter Punkt ist ohne Ticket.</li>
+<li>Die Lieferantenliste ist vollständig, zu jedem Eintrag liegt ein AVV vor.</li>
+<li>Der CAIQ-Eintrag passt zum heutigen Stand, nicht zu dem von vor einem Jahr.</li>
+</ul>
+<h2>Typische Fehler</h2>
+<ul>
+<li>Richtlinien aus dem Internet kopieren, die niemand im Team kennt oder lebt.</li>
+<li>Die monatliche Wartung ausfallen lassen, „weil gerade viel los ist“.</li>
+<li>Im CAIQ „Ja“ für Dinge ankreuzen, die erst geplant sind.</li>
+<li>In öffentlichen „Nein“-Begründungen konkrete Lücken beschreiben.</li>
+<li>CSA STAR Level 1 als „Zertifizierung“ bezeichnen.</li>
+<li>ISO 27001 als reines Technikprojekt planen.</li>
+</ul>
+<h2>Checkliste</h2>
+<ul class="checklist">
+<li class="chk"><label><input type="checkbox" data-k="1"><span>Sieben schriftliche Richtlinien, jährlich geprüft.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="2"><span>Monatliche Wartung mit Checkliste und Bericht.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="3"><span>Jeder rote Punkt wird sofort ein Ticket, Deploy-Stopp bis zur Lösung.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="4"><span>Restpunkte in einer Liste mit Termin.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="5"><span>Lieferantenliste mit Auftragsverarbeitungsverträgen.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="6"><span>CAIQ ehrlich ausgefüllt, „Nein“-Begründungen neutral.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="7"><span>CSA-Eintrag monatlich nachgeführt.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="8"><span>CSA STAR Level 1 wird nie als Zertifikat bezeichnet.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="9"><span>Für ISO 27001: Geltungsbereich, Inventar, Risikomethode, Erklärung zur Anwendbarkeit, Ziele, internes Audit, Managementbewertung.</span></label></li>
+</ul>
+<hr>
+<p>Stand: November 2026, Praxisbeispiel ASEIO</p><div class="pager"><a class="prev" href="/wissen/sicherheit/11-ki-schnittstellen-mcp/"><span class="mono">← Zurück</span>11. KI-Schnittstellen (MCP) absichern</a><a class="next" href="/wissen/sicherheit/13-schnellpruefung-20-punkte/"><span class="mono">Weiter →</span>13. Die 20-Punkte-Schnellprüfung</a></div><p class="kb-foot">Eine Wissensdatenbank der TradeX International AG.</p></article></main>
+<footer class="mono">
+  <span>© 2026 TradeX International AG</span>
+  <nav><a href="/">Start</a><a href="/impressum.html"><span data-l="de">Impressum</span><span data-l="en" hidden>Legal notice</span></a><a href="/datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en" hidden>Privacy</span></a></nav>
+</footer>
+<script>
+(function(){
+  function set(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-l]').forEach(function(el){ el.hidden = el.getAttribute('data-l') !== l; });
+    document.querySelectorAll('[data-set]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set') === l); });
+    try { localStorage.setItem('tradex-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  var s = null; try { s = localStorage.getItem('tradex-lang'); } catch(e){}
+  set(s === 'en' ? 'en' : 'de');
+})();
+</script>
+<script>
+(function(){
+  var key='tradex-kb:'+location.pathname;
+  var st={}; try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('ul.checklist input');
+  function save(){try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}}
+  function count(){var d=0;boxes.forEach(function(b){if(b.checked)d++});document.querySelectorAll('.chk-count').forEach(function(c){c.textContent=d+' von '+boxes.length+' erledigt'})}
+  boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){if(b.checked)st[b.dataset.k]=1;else delete st[b.dataset.k];save();count()})});
+  document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
+  count();
+  document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.parentNode.querySelector('code').innerText;
+    function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
+})();
+</script>
+</body>
+</html>
