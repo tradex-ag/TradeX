@@ -69,6 +69,12 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 .pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
 .pager .mono{color:var(--muted)}.pager .next{text-align:right}
 .kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+.copy-all{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;text-align:left;font:inherit;font-weight:500;font-size:18px;background:#111;color:#fff;border:0;border-radius:12px;padding:18px 22px;margin:8px 0 14px;cursor:pointer;box-shadow:inset 4px 0 0 var(--accent)}
+.copy-all:hover{background:#303030}.copy-all .copy-note{color:#A4A8AD;font-weight:400}
+.prompt-fold{margin:0 0 24px;border:1px solid var(--line);border-radius:10px;padding:0 14px}
+.prompt-fold summary{cursor:pointer;padding:12px 0;color:var(--muted)}.prompt-fold[open] summary{color:var(--ink)}
+.prompt-fold .code{margin:0 0 14px}
+.top-copy{margin:-8px 0 32px}.top-copy a{color:var(--muted);border:0}
 @media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
 </style>
 </head>
@@ -163,10 +169,16 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
   document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
   count();
   document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
-    var t=btn.parentNode.querySelector('code').innerText;
+    var t=btn.parentNode.querySelector('code').textContent;
     function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
     function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  document.querySelectorAll('.copy-all').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=document.querySelector(btn.dataset.copy+' code').textContent, lab=btn.querySelector('span');
+    function ok(){lab.textContent='Kopiert. Jetzt in dein Projekt einfügen';setTimeout(function(){lab.textContent='Gesamt-Prompt kopieren'},2200)}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
   })});
   var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
 })();

@@ -69,6 +69,12 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 .pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
 .pager .mono{color:var(--muted)}.pager .next{text-align:right}
 .kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+.copy-all{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;text-align:left;font:inherit;font-weight:500;font-size:18px;background:#111;color:#fff;border:0;border-radius:12px;padding:18px 22px;margin:8px 0 14px;cursor:pointer;box-shadow:inset 4px 0 0 var(--accent)}
+.copy-all:hover{background:#303030}.copy-all .copy-note{color:#A4A8AD;font-weight:400}
+.prompt-fold{margin:0 0 24px;border:1px solid var(--line);border-radius:10px;padding:0 14px}
+.prompt-fold summary{cursor:pointer;padding:12px 0;color:var(--muted)}.prompt-fold[open] summary{color:var(--ink)}
+.prompt-fold .code{margin:0 0 14px}
+.top-copy{margin:-8px 0 32px}.top-copy a{color:var(--muted);border:0}
 @media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
 </style>
 </head>
@@ -85,6 +91,118 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 <li>Lass jede Änderung <strong>von jemand anderem prüfen</strong> als von der KI, die sie gemacht hat.</li>
 <li>Die KI kann sich irren. Ein Bericht ist ein Startpunkt, kein Nachweis.</li>
 </ul>
+<hr>
+<h2 id="gesamt">Gesamt-Prompt: das ganze Projekt in einem Durchgang</h2>
+<p>Ein einziger Prompt für alles. Kopiere ihn komplett in deinen Programmier-Assistenten (zum Beispiel Claude Code) im Ordner deines Projekts. Er macht erst eine Bestandsaufnahme, prüft dann alle 13 Kapitel, schreibt einen Bericht mit Ticket-Entwürfen und bietet erst danach an, Tests, Prüfschritte und Richtlinien anzulegen. Ohne dein Ja ändert er nichts außer dem Bericht. Die Einzel-Prompts weiter unten brauchst du, wenn du nur einen Bereich prüfen willst.</p>
+<button type="button" class="copy-all" data-copy="#gesamt-prompt"><span>Gesamt-Prompt kopieren</span> <span class="mono copy-note">108 Zeilen, in dein Projekt einfügen</span></button><div class="code" id="gesamt-prompt"><button type="button" class="copy mono">Kopieren</button><pre><code class="language-text">Du bist Sicherheitsprüfer für meine Web-App. Prüfe das Projekt in diesem Ordner
+nach der Wissensdatenbank „Sicherheit für Web-Apps“ der TradeX International AG
+(tradexag.ch/wissen/sicherheit/) und bereite es Schritt für Schritt vor.
+Antworte auf Deutsch, in einfachen Sätzen.
+
+FESTE REGELN
+- Du arbeitest nur in diesem Ordner. Kein Zugriff auf Produktionsserver,
+  keine Deploys, keine DNS- oder Hosting-Änderungen, keine Änderungen an
+  Schlüsseln oder Zugängen.
+- Gib nie ein Geheimnis wieder. Findest du eines, schreibe nur
+  &quot;Geheimnis gefunden in &lt;Datei&gt;, Zeile &lt;Nummer&gt;&quot;.
+- Erst berichten, dann reparieren. Du änderst nichts, bevor ich einen Fund
+  ausdrücklich freigebe. Jede Reparatur einzeln, danach den Punkt neu prüfen.
+- Was du nicht sicher erkennen kannst, markierst du als &quot;unklar&quot;. Nicht raten.
+- Was nur am laufenden Server prüfbar ist (Firewall, Ports, Header live,
+  Sicherungen), schreibst du als Prüfauftrag für mich auf, statt es anzunehmen.
+
+SCHRITT 1: BESTANDSAUFNAHME
+Framework, Sprache, Datenbank, Login-Lösung, Hosting, Hintergrundaufgaben;
+alle Eingänge (API-Routen, Webhooks, Uploads, KI-Schnittstellen);
+gespeicherte personenbezogene Daten und Kundenzugänge; ob mehrere Kunden
+(Mandanten) in einer Datenbank liegen; alle externen Dienstleister.
+
+SCHRITT 2: PRÜFUNG NACH KAPITELN
+Gib je Punkt aus: Status (OK / Fund / unklar / nicht zutreffend),
+Begründung in einem Satz, Datei und Zeile, Vorschlag.
+
+1. Grundprinzipien: Gibt es Tickets, Plan, unabhängige Prüfung vor dem Merge,
+   menschliche Freigabe vor dem Deploy? Haben KI-Werkzeuge Produktionszugang?
+2. Hosting: Ist nur ein Eingang von außen vorgesehen, die Datenbank nur intern?
+   Sprechen interne Dienste mit geteiltem Geheimnis? Gibt es einen
+   reproduzierbaren Deploy mit Prüfung davor und Rückweg? Reste alter Anbieter
+   in Code oder Konfiguration?
+3. Anmeldung: 2FA Pflicht für alle Konten; Passwort mindestens 12 Zeichen mit
+   Sonderzeichen; E-Mail-Bestätigung; Login-Limit je E-Mail; Limits für
+   Bestätigungs- und Reset-Mails; Reset-Link nie aus dem Host-Header; gleiche
+   Antwort und ähnliche Antwortzeit, ob ein Konto existiert; Sitzungen in der
+   Datenbank, Cookie HttpOnly und Secure; echte Client-IP hinter dem Proxy;
+   gibt es einen echten Login-Test (Login, Registrierung, Reset, 2FA) im
+   Produktions-Build?
+4. Mandantentrennung: Bindet jede Abfrage auf Mandantendaten die Mandanten-ID
+   aus der geprüften Sitzung im selben Filter? Kommt sie je aus dem Browser?
+   Fremde und unbekannte Objekte gleich 404? Prüft jede API-Route die Sitzung
+   selbst statt nur die Middleware? Binden Hintergrundaufgaben die
+   Mandanten-ID? Gibt es einen Test mit zwei Mandanten?
+5. Daten: Kundenzugänge verschlüsselt (z. B. AES-256-GCM), in der Oberfläche
+   nur maskiert; TLS 1.2/1.3 und HSTS; Nutzer sehen nur allgemeine
+   Fehlermeldung mit Fehlercode, nie Rohfehler; keine geheimen Header oder
+   persönlichen Links in Logs; Preise und Margen nur auf dem Server;
+   Analyse-Skripte nur auf öffentlichen Seiten mit Einwilligung.
+6. Browser-Schutz: Content-Security-Policy mit Nonce je Anfrage,
+   X-Frame-Options DENY, X-Content-Type-Options nosniff,
+   Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy
+   (Kamera, Mikrofon, Ort, Zahlung aus), Server-Kennung aus; keine Source Maps
+   in Produktion; kein ausgeliefertes .git; keine offenen Weiterleitungen;
+   von Seitensperren ausgenommene Pfade (z. B. Bildoptimierer) eigen geschützt.
+7. Server und Container: Container ohne Root, auch für Migrationen; Basis-Images
+   per Digest festgelegt und wann zuletzt erneuert; Grenzen für Logs und
+   gleichzeitige Hintergrundaufgaben; SSH nur mit Schlüssel und Firewall als
+   Prüfauftrag für mich.
+8. Abhängigkeiten: automatische Update-Meldungen (z. B. Dependabot);
+   Audit-Schritt vor dem Deploy, der bei hohen oder kritischen Lücken in
+   Laufzeit-Paketen rot wird; Ausnahmen mit Begründung und höchstens 90 Tagen;
+   statische Code-Analyse (z. B. Semgrep); offene kritische Framework-Lücken.
+9. Sicherungen: tägliche verschlüsselte Sicherung, Kopie an zweitem Standort,
+   Offline-Kopie; asymmetrische Verschlüsselung, Server kann nicht entschlüsseln;
+   wöchentliche Wiederherstellungsprobe mit Alarm; RPO und RTO festgelegt;
+   kein Deploy mit Datenbank-Änderung ohne geprüfte Sicherung.
+10. Protokoll und Vorfälle: Sicherheitsprotokoll je Nutzer und Mandant
+   (Logins, Rechte, Zugänge) mit langer Aufbewahrung; Health-Check mit Alarm;
+   Datenpannen-Plan mit Meldefristen; Kontaktadresse für Sicherheitsmeldungen;
+   bei Ausfall zuerst Rollback.
+11. KI-Schnittstellen (falls vorhanden): OAuth; begrenzte Client-Registrierung,
+   alte Clients laufen ab; Drosselung in der Datenbank; jeder Aufruf
+   protokolliert; schreibende Werkzeuge fail-closed; Fremdtext gekennzeichnet
+   gegen Prompt-Injection.
+12. Organisation: Gibt es die sieben Richtlinien (Verantwortung und Risiken,
+   Arbeitsrechner und Zugänge, Betrieb und Notfall, Vorfälle, Lieferanten,
+   Personal, Kryptographie), eine monatliche Wartung, eine Lieferantenliste
+   mit Auftragsverarbeitungsverträgen?
+13. 20-Punkte-Schnellprüfung: Auth nur in der Middleware, ausgeliefertes .git,
+   offene Speicher-Regeln, Preis aus dem Browser, KI mit zu viel Zugriff,
+   schwaches Session- oder JWT-Geheimnis, fehlende E-Mail-Bestätigung,
+   Login-Limits, SSRF bei Nutzer-URLs, Reset-Link aus dem Host-Header,
+   Source Maps, Framing, offene Weiterleitungen, Konten-Erkennung über
+   Antwortzeiten, verwaiste DNS-Einträge, veraltete Basis-Images,
+   Analyse-Skripte im eingeloggten Bereich, Zähler ohne atomare Buchung,
+   kritische Framework-Lücken, Geheimnisse im Code oder in der Git-Historie.
+
+SCHRITT 3: BERICHT
+Lege die Datei docs/sicherheit/bericht-&lt;heutiges-datum&gt;.md an mit:
+- Kurzfassung in fünf Sätzen
+- Tabelle aller Punkte mit Status
+- Funde sortiert nach Schwere (kritisch, hoch, mittel, niedrig), je Fund ein
+  Ticket-Entwurf mit Titel, Beschreibung, Akzeptanzkriterium und Vorschlag
+- Prüfaufträge für mich (was nur am Server oder beim Anbieter prüfbar ist)
+Das ist die einzige Datei, die du ohne Freigabe anlegen darfst.
+
+SCHRITT 4: VORBEREITEN (nur nach meiner Freigabe, je Punkt einzeln)
+Biete mir danach an, diese Bausteine anzulegen, und warte auf mein Ja:
+- automatische Tests für Mandantentrennung (zwei Mandanten) und Login-Ablauf
+- Audit-Schritt im Prüflauf vor dem Deploy
+- Entwürfe der sieben Richtlinien unter docs/sicherheit/richtlinien/,
+  mit [ENTSCHEIDEN] an jeder Stelle, die ich festlegen muss
+- Checkliste für die monatliche Wartung und einen Datenpannen-Plan als Vorlage
+- eine Liste der Restpunkte mit Termin
+
+Beginne mit Schritt 1 und zeige mir das Ergebnis, bevor du weitermachst.
+</code></pre></div>
 <hr>
 <h2>Prompt 1: Bestandsaufnahme</h2>
 <p>Erst verstehen, dann prüfen. Dieser Prompt erstellt eine Übersicht, auf der alle anderen aufbauen.</p>
@@ -258,10 +376,16 @@ Ticket-Entwürfe mit Titel, Beschreibung und Termin.
   document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
   count();
   document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
-    var t=btn.parentNode.querySelector('code').innerText;
+    var t=btn.parentNode.querySelector('code').textContent;
     function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
     function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  document.querySelectorAll('.copy-all').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=document.querySelector(btn.dataset.copy+' code').textContent, lab=btn.querySelector('span');
+    function ok(){lab.textContent='Kopiert. Jetzt in dein Projekt einfügen';setTimeout(function(){lab.textContent='Gesamt-Prompt kopieren'},2200)}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
   })});
   var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
 })();
