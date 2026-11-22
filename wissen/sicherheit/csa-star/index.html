@@ -75,11 +75,27 @@ ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;
 .prompt-fold summary{cursor:pointer;padding:12px 0;color:var(--muted)}.prompt-fold[open] summary{color:var(--ink)}
 .prompt-fold .code{margin:0 0 14px}
 .top-copy{margin:-8px 0 32px}.top-copy a{color:var(--muted);border:0}
-.support{margin:40px 0 8px;padding:24px 26px;border:1px solid var(--line);border-radius:14px;background:#F8F9FA;box-shadow:inset 4px 0 0 var(--accent)}
-.support .label{margin-bottom:12px}.support p{margin:0 0 18px}.support strong{display:block;font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
-.support p a[href^="tel"]{white-space:nowrap}.support-btns{display:flex;flex-wrap:wrap;gap:10px}
-article .sbtn{display:inline-flex;align-items:center;padding:11px 18px;border-radius:999px;border:1px solid #111;font-weight:500;font-size:15px;color:#111;background:#fff}
-article .sbtn-dark{background:#111;color:#fff}article .sbtn:hover{background:#303030;color:#fff;border-color:#303030}
+.support{margin:48px 0 8px;padding-top:28px;border-top:1px solid var(--line);display:grid;gap:28px}
+.support-intro p{margin:0 0 18px;font-size:18px}.support-intro strong{display:block;font-size:22px;letter-spacing:-.01em;margin-bottom:4px}
+article a.sbtn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:1px solid var(--line);font-weight:500;color:var(--ink);background:#fff;transition:border-color .2s}
+article a.sbtn:hover{border-color:var(--ink)}
+.cc-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.cc-label{color:var(--muted);font-size:11px;letter-spacing:.06em}
+@property --bb{syntax:'<angle>';inherits:false;initial-value:0deg}
+.contact-card{position:relative;margin:0;border:1px solid var(--line);padding:6px 24px;background:#fff;min-width:0}
+.contact-card div{display:grid;grid-template-columns:150px minmax(0,1fr) auto;column-gap:20px;align-items:center;padding-block:14px;border-bottom:1px solid var(--line)}
+.contact-card div:last-child{border-bottom:0}
+.contact-card dt{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.contact-card dd{margin:0;font-size:17px;overflow-wrap:anywhere}
+article .contact-card a{border-bottom:0}article .contact-card a[href^="tel"]{border-bottom:1px solid var(--line)}
+.contact-card .soc{display:inline-flex;align-items:center;gap:6px}.contact-card .ico{flex:none;width:16px;height:16px}
+.cc-copy{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:2px;color:#303030;cursor:pointer;transition:border-color .2s}
+.cc-copy:hover{border-color:var(--ink)}
+.contact-card::after{content:"";position:absolute;inset:-1px;padding:1.5px;border-radius:inherit;pointer-events:none;background:conic-gradient(from var(--bb),transparent 0deg 300deg,rgba(213,43,30,.15) 320deg,var(--accent) 352deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:bb 6s linear infinite}
+.contact-card:hover::after{animation-duration:3s}
+@keyframes bb{to{--bb:360deg}}
+@media (max-width:560px){.contact-card{padding:4px 16px}.contact-card div{grid-template-columns:minmax(0,1fr) auto;row-gap:4px}.contact-card dt{grid-column:1 / -1}}
+@media (prefers-reduced-motion:reduce){.contact-card::after{animation:none;background:none}.contact-card{border-color:var(--ink)}}
 @media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
 </style>
 </head>
@@ -225,7 +241,7 @@ Ausfüllen: neutrale öffentliche Texte, keine Geheimnisse, nie &quot;zertifizie
 <li class="chk"><label><input type="checkbox" data-k="9"><span>Monatlich nachgeführt.</span></label></li>
 <li class="chk"><label><input type="checkbox" data-k="10"><span>In Werbung und Verträgen „Selbstauskunft“, nie „zertifiziert“.</span></label></li>
 </ul>
-<aside class="support"><div class="label mono"><i class="sq"></i>Kontakt</div><p><strong>Unterstützung für dein Projekt?</strong> Wenn du beim Umsetzen Hilfe brauchst, ruf uns gerne an: <a href="tel:+41772747579">+41 77 274 75 79</a>. Du kannst auch direkt ein <a href="/termin/">Erstgespräch buchen</a> oder an <a href="mailto:info@tradexag.ch">info@tradexag.ch</a> schreiben. Dein Team der TradeX International AG</p><div class="support-btns"><a class="sbtn sbtn-dark" href="tel:+41772747579">Anrufen</a><a class="sbtn" href="/termin/">Termin buchen →</a></div></aside>
+<aside class="support"><div class="support-intro"><p><strong>Unterstützung für dein Projekt?</strong> Wenn du beim Umsetzen Hilfe brauchst, ruf uns gerne an.</p><a class="sbtn" href="/termin/">Termin buchen <span aria-hidden="true">→</span></a></div><div class="cc-side"><span class="mono cc-label">Direkt</span><dl class="contact-card"><div><dt>Firma</dt><dd>TradeX International AG</dd><span></span></div><div><dt>Ansprechpartner</dt><dd>Lars Orlamünde, Geschäftsführer</dd><span></span></div><div><dt>E-Mail</dt><dd><a href="mailto:lars@tradexag.ch">lars@tradexag.ch</a></dd><button class="cc-copy" type="button" data-mail="lars@tradexag.ch">Kopieren</button></div><div><dt>Telefon</dt><dd><a href="tel:+41772747579">+41 77 274 75 79</a></dd><span></span></div><div><dt>GitHub</dt><dd><a class="soc" href="https://github.com/tradex-ag" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>github.com/tradex-ag</a></dd><span></span></div><div><dt>LinkedIn</dt><dd><a class="soc" href="https://www.linkedin.com/company/146747581/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 1.15C0 .52.52 0 1.18 0h13.64C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.18 1.15H1.18C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.542v7.22h2.4zm-1.2-8.21c.84 0 1.36-.55 1.36-1.25-.01-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.02zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.24-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.77-3.25-1.28 0-1.84.7-2.16 1.2v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></svg>TradeX International AG</a></dd><span></span></div><div><dt>Standort</dt><dd>Schindellegi, Schweiz</dd><span></span></div></dl></div></aside>
 <hr>
 <p>Stand: November 2026, Praxisbeispiel ASEIO</p><div class="pager"><a class="prev" href="/wissen/sicherheit/13-schnellpruefung-20-punkte/"><span class="mono">← Zurück</span>13. Die 20-Punkte-Schnellprüfung</a><a class="next" href="/wissen/sicherheit/prompts/"><span class="mono">Weiter →</span>Prompts für dein Projekt</a></div><p class="kb-foot">Eine Wissensdatenbank der TradeX International AG.</p></article></main>
 <footer class="mono">
@@ -266,6 +282,11 @@ Ausfüllen: neutrale öffentliche Texte, keine Geheimnisse, nie &quot;zertifizie
     function ok(){lab.textContent='Kopiert. Jetzt in dein Projekt einfügen';setTimeout(function(){lab.textContent='Gesamt-Prompt kopieren'},2200)}
     function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
+  })});
+  document.querySelectorAll('.cc-copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.dataset.mail;function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
   })});
   var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
 })();
