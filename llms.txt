@@ -1,0 +1,60 @@
+# TradeX International AG
+
+> Die TradeX International AG ist eine Agentur für Marken und Händler aus Schindellegi (Schweiz) mit drei Schwerpunkten: Marktplatz-Management, E-Commerce-Strategie und Softwareentwicklung. Das Team betreibt selbst E-Commerce-Geschäfte und entwickelt eigene Software, darunter die Plattform ASEIO für KI-gestützte Produktdatenoptimierung. Die Website ist auf Deutsch und Englisch.
+
+English summary: TradeX International AG is a Swiss agency for brands and online sellers (Schindellegi, Switzerland) covering marketplace operations, e-commerce strategy and software engineering. It runs e-commerce businesses itself and builds its own software, including ASEIO, an AI platform for product data and marketplace listings.
+
+## Leistungen
+
+- Marktplatz-Management: Amazon Seller Central und Vendor Central, Account Health, Produktdaten, Listings und internationale Marktplätze (Amazon, eBay, OTTO, Kaufland, Temu und weitere). Ergebnis: stabile Accounts und Listings, die verkaufen.
+- Strategie und Beratung: Interim Head of E-Commerce, Marktplatzstrategie, Internationalisierung, Prozessoptimierung und operative Unternehmensberatung.
+- Software und Automatisierung: individuelle Softwareentwicklung, API-Integrationen, KI-Assistenten, Datenbanken und automatisierte E-Commerce-Abläufe. Grundsatz: Systeme bereiten vor, Menschen entscheiden und geben frei.
+- Plattformkenntnisse und Anbindungen: Amazon SP-API, Amazon Ads, PlentyOne (plentymarkets), weclapp, JTL-Wawi, Shopify, eBay, OTTO, Kaufland, Temu, Mirakl.
+- Zusammenarbeit: Beratung und Interim auf Projektbasis, laufende Betreuung von Marktplatz-Geschäften oder Entwicklung und Automatisierung als Projekt oder fortlaufend. Ziel ist Wissenstransfer, damit das Team des Kunden die Marktplätze möglichst selbst führt.
+- Einstieg: kostenloser Marktplatz-Check (drei Fragen, etwa zwei Minuten) und ein kostenloses Erstgespräch von 30 Minuten.
+
+## Team
+
+- Lars Orlamünde, CEO und Geschäftsführer: führt das Team und ein Netzwerk aus Virtual Assistants; seit 2018 im E-Commerce; MIT-xPRO-Zertifikat „Designing and Building AI Products and Services“.
+- Rolf Kimmeyer, CMO: mehr als 13 Jahre Führungserfahrung bei Amazon in Deutschland, Europa und Afrika; verantwortet Go-to-Market und internationalen Markenaufbau.
+- Virtual Assistants: übernehmen wiederkehrende Aufgaben in Listings, Produktdaten, Kundennachrichten und Reporting.
+
+## Seiten
+
+- [Startseite](https://tradexag.ch/): Leistungen, Vorgehen, Team, Technologie, Zusammenarbeit, FAQ und Marktplatz-Check
+- [Termin buchen](https://tradexag.ch/termin/): Erstgespräch, 30 Minuten, kostenlos, per Video oder Telefon
+- [SupportX](https://tradexag.ch/supportx/): selbst gehosteter Open-Source-Support-Posteingang für Marktplatz-Händler (Kundenmails und Marktplatz-Nachrichten an einem Ort, Bestellung aus weclapp im Fall, KI-Entwürfe mit Prüfung durch Menschen)
+- [Impressum](https://tradexag.ch/impressum.html)
+- [Datenschutz](https://tradexag.ch/datenschutz.html)
+
+## Wissen: Sicherheit für Web-Apps
+
+Eine Wissensdatenbank für kleine Software-Teams und Gründer, die eine SaaS-App bauen und betreiben, mit ASEIO als durchgängigem Praxisbeispiel.
+
+- [Übersicht](https://tradexag.ch/wissen/sicherheit/)
+- [1. Grundprinzipien](https://tradexag.ch/wissen/sicherheit/01-grundprinzipien/)
+- [2. Hosting: Warum ASEIO von Vercel auf einen eigenen Server bei Hetzner umgezogen ist](https://tradexag.ch/wissen/sicherheit/02-hosting/)
+- [3. Anmeldung und Konten](https://tradexag.ch/wissen/sicherheit/03-anmeldung-und-konten/)
+- [4. Mandantentrennung](https://tradexag.ch/wissen/sicherheit/04-mandantentrennung/): mehrere Kunden in einer Datenbank sicher trennen
+- [5. Daten schützen](https://tradexag.ch/wissen/sicherheit/05-daten-schuetzen/)
+- [6. Webserver und Browser-Schutz](https://tradexag.ch/wissen/sicherheit/06-webserver-und-browser-schutz/)
+- [7. Server und Container](https://tradexag.ch/wissen/sicherheit/07-server-und-container/)
+- [8. Abhängigkeiten und Schwachstellen](https://tradexag.ch/wissen/sicherheit/08-abhaengigkeiten-und-schwachstellen/)
+- [9. Sicherungen und Wiederanlauf](https://tradexag.ch/wissen/sicherheit/09-sicherungen-und-wiederanlauf/)
+- [10. Protokoll, Überwachung, Vorfälle](https://tradexag.ch/wissen/sicherheit/10-protokoll-ueberwachung-vorfaelle/)
+- [11. KI-Schnittstellen (MCP) absichern](https://tradexag.ch/wissen/sicherheit/11-ki-schnittstellen-mcp/)
+- [12. Organisation, Richtlinien, Nachweise](https://tradexag.ch/wissen/sicherheit/12-organisation-richtlinien-nachweise/)
+- [13. Die 20-Punkte-Schnellprüfung](https://tradexag.ch/wissen/sicherheit/13-schnellpruefung-20-punkte/)
+- [CSA STAR Schritt für Schritt](https://tradexag.ch/wissen/sicherheit/csa-star/)
+- [Glossar](https://tradexag.ch/wissen/sicherheit/glossar/)
+- [Prompts für dein Projekt](https://tradexag.ch/wissen/sicherheit/prompts/)
+
+## Eigene Software
+
+- [ASEIO](https://aseio.app/): Plattform für KI-gestützte Produktdatenoptimierung und Marktplatz-Prozesse; eigene llms.txt unter https://aseio.app/llms.txt
+- [GitHub tradex-ag](https://github.com/tradex-ag): öffentliche Repositories, darunter der Quellcode dieser Website und SupportX
+
+## Optional
+
+- [LinkedIn](https://www.linkedin.com/company/146747581/)
+- Kontakt: TradeX International AG, Schindellegi, Schweiz; E-Mail lars@tradexag.ch
