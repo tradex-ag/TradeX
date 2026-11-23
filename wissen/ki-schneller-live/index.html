@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schneller programmieren heisst nicht schneller live · KI im E-Commerce · TradeX</title>
+<meta name="description" content="KI schreibt Code und Produkttexte in Minuten. Live geht es trotzdem nicht schneller, weil die Wartezeit bleibt. Wo es im E-Commerce hakt und was hilft.">
+<link rel="canonical" href="https://tradexag.ch/wissen/ki-schneller-live/">
+<meta property="og:title" content="Schneller programmieren heisst nicht schneller live">
+<meta property="og:description" content="KI schreibt Code und Produkttexte in Minuten. Live geht es trotzdem nicht schneller, weil die Wartezeit bleibt. Wo es im E-Commerce hakt und was hilft.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tradexag.ch/wissen/ki-schneller-live/">
+<meta property="og:image" content="https://tradexag.ch/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Schneller programmieren heisst nicht schneller live", "description": "KI schreibt Code und Produkttexte in Minuten. Live geht es trotzdem nicht schneller, weil die Wartezeit bleibt. Wo es im E-Commerce hakt und was hilft.", "inLanguage": "de", "datePublished": "2026-11-23", "author": {"@type": "Person", "name": "Lars Orlamünde"}, "publisher": {"@type": "Organization", "name": "TradeX International AG", "url": "https://tradexag.ch/"}, "mainEntityOfPage": "https://tradexag.ch/wissen/ki-schneller-live/"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Bringt KI im E-Commerce dann gar nichts?", "acceptedAnswer": {"@type": "Answer", "text": "Doch. Sie spart viel Bearbeitungszeit bei Texten, Code und Auswertungen. Der Gewinn kommt aber erst an, wenn auch Freigaben, Daten und Prüfungen mitziehen. Sonst wartet das Ergebnis nur schneller."}}, {"@type": "Question", "name": "Womit fange ich am besten an?", "acceptedAnswer": {"@type": "Answer", "text": "Mit einer Messung. Nimm eine Aufgabe, die oft vorkommt, etwa ein neues Listing, und schreib zwei Wochen lang auf, wann sie wo liegt. Die längste Wartezeit ist dein erster Hebel."}}, {"@type": "Question", "name": "Kann man Freigaben nicht einfach weglassen?", "acceptedAnswer": {"@type": "Answer", "text": "Nicht überall. Preise, Markenauftritt und alles, was einen Account gefährden kann, sollte ein Mensch freigeben. Was sich lohnt: Regeln festlegen, innerhalb derer keine Einzelfreigabe nötig ist, und den Rest gebündelt und gut vorbereitet vorlegen."}}, {"@type": "Question", "name": "Warum der Deckungsbeitrag 3 als Massstab?", "acceptedAnswer": {"@type": "Answer", "text": "Weil er zeigt, was ein Produkt nach Marktplatzgebühren, Werbung und weiteren Kosten wirklich verdient. Mehr Listings oder mehr Code sind nur dann ein Fortschritt, wenn sie dort ankommen."}}]}]}</script>
+<style>@font-face{font-family:'Geist';font-weight:400;font-display:swap;src:url(/assets/fonts/geist-sans-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:500;font-display:swap;src:url(/assets/fonts/geist-sans-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Geist';font-weight:700;font-display:swap;src:url(/assets/fonts/geist-sans-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'JetBrains Mono';font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+:root{--ink:#111;--muted:#6A6E73;--line:#E8E8E8;--accent:#D52B1E;--gutter:clamp(16px,4vw,48px)}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Geist","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+header,main,footer{max-width:820px;margin-inline:auto;padding-inline:var(--gutter)}
+header{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.06em}
+.logo svg{width:22px;height:22px}
+.switch{display:flex;gap:4px}
+.switch button{font:inherit;background:none;border:1px solid var(--line);padding:6px 10px;cursor:pointer;color:var(--muted)}
+.switch button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+main{padding-top:56px;padding-bottom:72px}
+.label{display:flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:20px}
+.sq{display:inline-block;width:8px;height:8px;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em;margin:0 0 40px}
+h2{font-size:20px;letter-spacing:-.01em;margin:40px 0 8px}
+p,address{margin:0 0 14px;font-style:normal}
+.todo{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding-block:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer nav{display:flex;gap:20px}
+footer a{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+
+header,footer{max-width:1200px}
+main.kb{max-width:1200px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:64px;align-items:start}
+.kb-nav{position:sticky;top:24px;font-size:14px;line-height:1.4;max-height:calc(100vh - 48px);overflow:auto}
+.kb-nav ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kb-nav li a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--muted)}
+.kb-nav li a:hover,.kb-nav a[aria-current]{color:var(--ink)}
+.kb-nav a[aria-current]{font-weight:500;box-shadow:inset 2px 0 0 var(--accent);padding-left:10px}
+article{max-width:740px;min-width:0}
+article h1{font-size:clamp(32px,5vw,48px)}
+article h3{font-size:17px;margin:28px 0 6px}
+article ul,article ol{padding-left:22px;margin:0 0 16px}article li{margin:4px 0}
+article a{text-decoration:none;border-bottom:1px solid var(--accent)}
+article code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em;background:#F3F4F5;padding:1px 5px;border-radius:4px}
+article hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+article blockquote{margin:0 0 16px;padding:2px 0 2px 18px;border-left:2px solid var(--accent);color:#303030}
+.code{position:relative;margin:0 0 20px}
+.code pre{margin:0;background:#111;color:#EEEFF0;border-radius:10px;padding:44px 18px 18px;overflow:auto;font-size:13px;line-height:1.55}
+.code pre code{background:none;padding:0;color:inherit;font-size:inherit;white-space:pre}
+.copy{position:absolute;top:10px;right:10px;background:#303030;color:#fff;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:11px}
+.copy:hover{background:#444}
+ul.checklist{list-style:none;padding:0;border-top:1px solid var(--line)}
+ul.checklist li{margin:0;border-bottom:1px solid var(--line)}
+ul.checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;cursor:pointer}
+ul.checklist input{appearance:none;flex:none;width:18px;height:18px;margin:3px 0 0;border:1.5px solid #A4A8AD;border-radius:4px;display:grid;place-content:center;cursor:pointer}
+ul.checklist input:checked{background:#111;border-color:#111}
+ul.checklist input:checked::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+ul.checklist input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:#A4A8AD}
+.chk-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);margin:-4px 0 10px}
+.chk-bar button{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:0;border-bottom:1px solid var(--line)}
+.tbl{overflow:auto;margin:0 0 20px}table{border-collapse:collapse;font-size:15px;width:100%}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px 10px 8px 0;vertical-align:top}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px;border-top:1px solid var(--line);padding-top:24px}
+.pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;border:0;font-weight:500}
+.pager .mono{color:var(--muted)}.pager .next{text-align:right}
+.kb-foot{margin-top:32px;color:var(--muted);font-size:14px}
+.copy-all{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;text-align:left;font:inherit;font-weight:500;font-size:18px;background:#111;color:#fff;border:0;border-radius:12px;padding:18px 22px;margin:8px 0 14px;cursor:pointer;box-shadow:inset 4px 0 0 var(--accent)}
+.copy-all:hover{background:#303030}.copy-all .copy-note{color:#A4A8AD;font-weight:400}
+.prompt-fold{margin:0 0 24px;border:1px solid var(--line);border-radius:10px;padding:0 14px}
+.prompt-fold summary{cursor:pointer;padding:12px 0;color:var(--muted)}.prompt-fold[open] summary{color:var(--ink)}
+.prompt-fold .code{margin:0 0 14px}
+.top-copy{margin:-8px 0 32px}.top-copy a{color:var(--muted);border:0}
+.support{margin:48px 0 8px;padding-top:28px;border-top:1px solid var(--line);display:grid;gap:28px}
+.support-intro p{margin:0;font-size:18px}.support-intro strong{display:block;font-size:22px;letter-spacing:-.01em;margin-bottom:4px}
+article a.sbtn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:1px solid var(--line);font-weight:500;color:var(--ink);background:#fff;transition:border-color .2s}
+article a.sbtn:hover{border-color:var(--ink)}
+.cc-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.cc-label{color:var(--muted);font-size:11px;letter-spacing:.06em}
+@property --bb{syntax:'<angle>';inherits:false;initial-value:0deg}
+.contact-card{position:relative;margin:0;border:1px solid var(--line);padding:6px 24px;background:#fff;min-width:0}
+.contact-card div{display:grid;grid-template-columns:150px minmax(0,1fr) auto;column-gap:20px;align-items:center;padding-block:14px;border-bottom:1px solid var(--line)}
+.contact-card div:last-child{border-bottom:0}
+.contact-card dt{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.contact-card dd{margin:0;font-size:17px;overflow-wrap:anywhere}
+article .contact-card a{border-bottom:0}article .contact-card a.cc-termin{font-weight:500;border-bottom:1px solid var(--accent)}article .contact-card a[href^="tel"]{border-bottom:1px solid var(--line)}
+.contact-card .soc{display:inline-flex;align-items:center;gap:6px}.contact-card .ico{flex:none;width:16px;height:16px}
+.cc-copy{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);background:#fff;padding:6px 10px;border-radius:2px;color:#303030;cursor:pointer;transition:border-color .2s}
+.cc-copy:hover{border-color:var(--ink)}
+.contact-card::after{content:"";position:absolute;inset:-1px;padding:1.5px;border-radius:inherit;pointer-events:none;background:conic-gradient(from var(--bb),transparent 0deg 300deg,rgba(213,43,30,.15) 320deg,var(--accent) 352deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:bb 6s linear infinite}
+.contact-card:hover::after{animation-duration:3s}
+@keyframes bb{to{--bb:360deg}}
+@media (max-width:560px){.contact-card{padding:4px 16px}.contact-card div{grid-template-columns:minmax(0,1fr) auto;row-gap:4px}.contact-card dt{grid-column:1 / -1}}
+@media (prefers-reduced-motion:reduce){.contact-card::after{animation:none;background:none}.contact-card{border-color:var(--ink)}}
+@media (max-width:900px){main.kb{grid-template-columns:1fr;gap:32px}.kb-nav{position:static;max-height:none}.kb-nav ol{display:none}.kb-nav.open ol{display:block}.kb-nav .label{cursor:pointer;margin:0;padding:12px 0;border-bottom:1px solid var(--line)}.kb-nav .label::after{content:"Kapitel ▾";margin-left:auto}}
+main.single{max-width:820px}
+.lead{font-size:19px}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="TradeX International AG, Startseite"><svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" fill="#111111"/><path d="M6.5 6.5 L15.5 15.5 M15.5 6.5 L6.5 15.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="square"/></svg><span>TRADEX</span></a>
+</header>
+<main class="single"><article><div class="label mono"><i class="sq"></i>KI im E-Commerce</div>
+<h1>Schneller programmieren heisst nicht schneller live</h1>
+<p class="lead"><strong>Kurz gesagt:</strong> KI schreibt Code, Produkttexte und Auswertungen in Minuten. Trotzdem gehen Änderungen oft nicht schneller live als vorher. Der Grund: Die eigentliche Arbeit ist nur ein kleiner Teil der Durchlaufzeit. Der Rest ist Warten, auf Freigaben, auf Daten, auf andere. Wer mit KI wirklich schneller werden will, muss diese Wartezeit angehen, nicht nur das Tippen.</p>
+
+<h2>Woher die Idee kommt</h2>
+<p>In der iX (Ausgabe 1/2027, online bei <a href="https://www.heise.de/hintergrund/Die-KI-Produktivitaetsluege-Warum-schnellerer-Code-nichts-bringt-11511612.html" target="_blank" rel="noopener">heise</a>) beschreibt Kai Spichale von SAP eine Beobachtung aus vielen Gesprächen mit Entwicklungsteams: Einzelne Entwickler sind mit KI deutlich produktiver. Bis eine Änderung im Betrieb ankommt, dauert es aber nicht im gleichen Mass kürzer. KI verkürzt die aktive Bearbeitungszeit. Die Wartezeit zwischen den Schritten bleibt.</p>
+<p>Das deckt sich mit dem, was wir im E-Commerce sehen. Nur heisst es dort nicht „Deployment“, sondern „das neue Listing ist online“ oder „die Schnittstelle zum Marktplatz läuft“.</p>
+
+<h2>Bearbeitungszeit und Wartezeit</h2>
+<p>Zwei Begriffe helfen beim Hinschauen:</p>
+<ul>
+<li><strong>Bearbeitungszeit</strong> ist die Zeit, in der wirklich jemand an der Sache arbeitet: Text schreiben, Code schreiben, Daten prüfen.</li>
+<li><strong>Wartezeit</strong> ist die Zeit, in der die Sache liegt: in einem Postfach, in einer Freigabeschleife, in der Warteschlange eines Dienstleisters.</li>
+</ul>
+<p>Ein Beispiel, wie ein neues Produkt auf einen zweiten Marktplatz kommt. Die Zeiten sind ausgedacht und dienen nur zur Veranschaulichung, keine Messung:</p>
+<div class="tbl"><table>
+<thead><tr><th>Schritt</th><th>Bearbeitung</th><th>Warten</th></tr></thead>
+<tbody>
+<tr><td>Stammdaten aus der Warenwirtschaft holen</td><td>15 Min.</td><td>2 Tage, bis der Export da ist</td></tr>
+<tr><td>Titel, Bullet Points, Attribute schreiben</td><td>1 Std., mit KI 10 Min.</td><td>–</td></tr>
+<tr><td>Freigabe durch Marke oder Geschäftsführung</td><td>10 Min.</td><td>4 Tage</td></tr>
+<tr><td>Preis festlegen, Gebühren einrechnen</td><td>20 Min.</td><td>1 Tag Rückfrage zum Einkaufspreis</td></tr>
+<tr><td>Hochladen, Fehler des Marktplatzes beheben</td><td>30 Min.</td><td>1 Tag</td></tr>
+</tbody></table></div>
+<p>KI spart hier rund 50 Minuten. Das Produkt ist trotzdem erst nach gut einer Woche online. Selbst wenn die Texte in null Sekunden entstehen würden, ändert sich am Ergebnis fast nichts.</p>
+
+<h2>Wo es im E-Commerce wirklich hakt</h2>
+<h3>1. Freigaben</h3>
+<p>Ein Text ist in Minuten geschrieben, die Freigabe liegt tagelang. Mit KI kommen mehr Entwürfe pro Woche, also wird die Freigabe noch schneller zum Engpass.</p>
+<h3>2. Daten aus mehreren Quellen</h3>
+<p>Warenwirtschaft, Shop, Marktplätze, Excel. Solange niemand festlegt, welche Quelle gilt, endet jede Änderung mit einer Rückfrage. KI löst das nicht, sie schreibt im Zweifel nur schneller mit falschen Daten.</p>
+<h3>3. Abhängigkeiten zu Dritten</h3>
+<p>Der ERP-Dienstleister, die Agentur, die IT der Marke. Jede Übergabe ist eine Warteschlange. Eine Schnittstelle, die in zwei Tagen programmiert ist, wartet schnell zwei Wochen auf einen API-Zugang.</p>
+<h3>4. Prüfen von Hand</h3>
+<p>Wer jede Änderung von Hand nachprüft, verschiebt die gesparte Zeit nur in die Prüfung. Je mehr KI erzeugt, desto mehr muss geprüft werden.</p>
+<h3>5. Regeln, die nur im Kopf stehen</h3>
+<p>Welcher Preis gilt auf welchem Kanal? Welche Artikel gehören auf welchen Marktplatz? Stehen solche Regeln nirgends, fragt jeder Prozess nach. Bei Mensch und Maschine.</p>
+
+<h2>Was wirklich schneller macht</h2>
+<ol>
+<li><strong>Durchlaufzeit messen, nicht Tippzeit.</strong> Miss für zwei, drei typische Aufgaben die Zeit vom Auftrag bis „ist live“. Schreib dazu, wo die Sache wie lange lag.</li>
+<li><strong>Freigaben planbar machen.</strong> Feste Freigabezeiten, klare Zuständigkeit und eine Vertretung. Oder Regeln festlegen, innerhalb derer keine Einzelfreigabe nötig ist.</li>
+<li><strong>Eine Datenquelle festlegen.</strong> Alle Kanäle lesen aus derselben Quelle, gepflegt wird nur dort.</li>
+<li><strong>Regeln als Einstellung statt als Rückfrage.</strong> Preisquelle, Kanalzuordnung, Pflichtfelder: einmal festlegen, dann greift die Automatisierung ohne Nachfragen.</li>
+<li><strong>Prüfung automatisieren.</strong> Automatische Tests und Plausibilitätsprüfungen vor jedem Schritt fangen die meisten Fehler ab. Der Mensch prüft dann das, was eine Maschine nicht beurteilen kann.</li>
+<li><strong>Klein schneiden.</strong> Kleine Änderungen sind schneller geprüft und schneller freigegeben als ein grosses Paket. Und ein Fehler trifft weniger.</li>
+<li><strong>Am Ergebnis messen.</strong> Die Frage ist nicht, wie viel KI erzeugt, sondern was davon im Deckungsbeitrag 3 ankommt: Umsatz nach Marktplatzgebühren, Werbung, Retouren und den übrigen Kosten je Produkt.</li>
+</ol>
+
+<h2>So arbeiten wir bei TradeX</h2>
+<p>Wir entwickeln unsere eigene Software selbst mit KI, unter anderem unsere Marktplatz-Software ASEIO. Dabei haben wir gelernt: Schnell geschriebener Code bringt nur etwas, wenn Prüfung und Zusammenführen mithalten. Daraus sind ein paar feste Regeln entstanden:</p>
+<ul>
+<li><strong>Getrennte Rollen.</strong> Ein KI-Modell plant, ein anderes setzt um, ein drittes prüft. Kein Modell prüft seine eigene Arbeit.</li>
+<li><strong>Prüfung vor jedem Commit.</strong> Typprüfung, Lint und die Tests der betroffenen Bereiche laufen automatisch, bevor etwas in den Hauptstand kommt. Die volle Testsuite läuft einmal täglich und vor jeder Auslieferung.</li>
+<li><strong>Jede Arbeit hat eine Nummer.</strong> So ist jederzeit sichtbar, was läuft, was wartet und worauf.</li>
+<li><strong>Die Freigabe bleibt beim Menschen.</strong> Was live geht, entscheidet bei uns weiterhin ein Mensch. Das ist bewusst der langsamste Schritt. Deshalb bereiten wir ihn so vor, dass er schnell geht: geprüft, klein und mit klarer Empfehlung.</li>
+</ul>
+<p>Für Händler und Marken bauen wir nach demselben Muster Automatisierungen: Schnittstellen zu Warenwirtschaft und Marktplätzen, KI-Assistenten und Auswertungen bis zum Deckungsbeitrag 3. Dabei schauen wir zuerst auf die Wartezeit im Ablauf und erst danach darauf, was sich automatisieren lässt.</p>
+
+<h2>Checkliste</h2>
+<ul class="checklist">
+<li class="chk"><label><input type="checkbox" data-k="1"><span>Für zwei, drei typische Aufgaben ist die Zeit vom Auftrag bis „live“ gemessen.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="2"><span>Es ist bekannt, wo die Arbeit am längsten liegt.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="3"><span>Jede Freigabe hat eine zuständige Person und eine Vertretung.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="4"><span>Es gibt eine einzige Quelle für Produktdaten, Preise und Bestände.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="5"><span>Regeln für Preise und Kanäle stehen als Einstellung fest, nicht nur im Kopf.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="6"><span>Wiederkehrende Prüfungen laufen automatisch.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="7"><span>Änderungen gehen in kleinen Schritten live.</span></label></li>
+<li class="chk"><label><input type="checkbox" data-k="8"><span>Der Erfolg einer Automatisierung wird am Deckungsbeitrag 3 gemessen.</span></label></li>
+</ul>
+
+<h2>Häufige Fragen</h2>
+<h3>Bringt KI im E-Commerce dann gar nichts?</h3>
+<p>Doch. Sie spart viel Bearbeitungszeit bei Texten, Code und Auswertungen. Der Gewinn kommt aber erst an, wenn auch Freigaben, Daten und Prüfungen mitziehen. Sonst wartet das Ergebnis nur schneller.</p>
+<h3>Womit fange ich am besten an?</h3>
+<p>Mit einer Messung. Nimm eine Aufgabe, die oft vorkommt, etwa ein neues Listing, und schreib zwei Wochen lang auf, wann sie wo liegt. Die längste Wartezeit ist dein erster Hebel.</p>
+<h3>Kann man Freigaben nicht einfach weglassen?</h3>
+<p>Nicht überall. Preise, Markenauftritt und alles, was einen Account gefährden kann, sollte ein Mensch freigeben. Was sich lohnt: Regeln festlegen, innerhalb derer keine Einzelfreigabe nötig ist, und den Rest gebündelt und gut vorbereitet vorlegen.</p>
+<h3>Warum der Deckungsbeitrag 3 als Massstab?</h3>
+<p>Weil er zeigt, was ein Produkt nach Marktplatzgebühren, Werbung und weiteren Kosten wirklich verdient. Mehr Listings oder mehr Code sind nur dann ein Fortschritt, wenn sie dort ankommen.</p>
+<aside class="support"><div class="support-intro"><p><strong>Unterstützung für dein Projekt?</strong> Wenn du beim Umsetzen Hilfe brauchst, buch dir gerne ein kostenloses Erstgespräch.</p></div><div class="cc-side"><span class="mono cc-label">Direkt</span><dl class="contact-card"><div><dt>Termin</dt><dd><a class="cc-termin" href="/termin/">Erstgespräch buchen <span aria-hidden="true">→</span></a></dd><span></span></div><div><dt>GitHub</dt><dd><a class="soc" href="https://github.com/tradex-ag" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>github.com/tradex-ag</a></dd><span></span></div><div><dt>LinkedIn</dt><dd><a class="soc" href="https://www.linkedin.com/company/146747581/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 1.15C0 .52.52 0 1.18 0h13.64C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.18 1.15H1.18C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.542v7.22h2.4zm-1.2-8.21c.84 0 1.36-.55 1.36-1.25-.01-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.02zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.24-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.77-3.25-1.28 0-1.84.7-2.16 1.2v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></svg>TradeX International AG</a></dd><span></span></div></dl></div></aside>
+<hr>
+<p>Stand: November 2026 · Lars Orlamünde, TradeX International AG</p><p class="kb-foot">Aus der Wissensdatenbank der TradeX International AG.</p></article>
+</main>
+<footer class="mono">
+  <span>© 2026 TradeX International AG</span>
+  <nav><a href="/">Start</a><a href="/impressum.html"><span data-l="de">Impressum</span><span data-l="en" hidden>Legal notice</span></a><a href="/datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en" hidden>Privacy</span></a></nav>
+</footer>
+<script>
+(function(){
+  function set(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-l]').forEach(function(el){ el.hidden = el.getAttribute('data-l') !== l; });
+    document.querySelectorAll('[data-set]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set') === l); });
+    try { localStorage.setItem('tradex-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-set')); }); });
+  var s = null; try { s = localStorage.getItem('tradex-lang'); } catch(e){}
+  set(s === 'en' ? 'en' : 'de');
+})();
+</script>
+<script>
+(function(){
+  var key='tradex-kb:'+location.pathname;
+  var st={}; try{st=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('ul.checklist input');
+  function save(){try{localStorage.setItem(key,JSON.stringify(st))}catch(e){}}
+  function count(){var d=0;boxes.forEach(function(b){if(b.checked)d++});document.querySelectorAll('.chk-count').forEach(function(c){c.textContent=d+' von '+boxes.length+' erledigt'})}
+  boxes.forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){if(b.checked)st[b.dataset.k]=1;else delete st[b.dataset.k];save();count()})});
+  document.querySelectorAll('ul.checklist').forEach(function(ul){var bar=document.createElement('div');bar.className='chk-bar mono';bar.innerHTML='<span class="chk-count"></span><button type="button">Zurücksetzen</button>';ul.parentNode.insertBefore(bar,ul);bar.querySelector('button').addEventListener('click',function(){st={};save();boxes.forEach(function(b){b.checked=false});count()})});
+  count();
+  document.querySelectorAll('.copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.parentNode.querySelector('code').textContent;
+    function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fallback()})}else fallback();
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+  })});
+  document.querySelectorAll('.copy-all').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=document.querySelector(btn.dataset.copy+' code').textContent, lab=btn.querySelector('span');
+    function ok(){lab.textContent='Kopiert. Jetzt in dein Projekt einfügen';setTimeout(function(){lab.textContent='Gesamt-Prompt kopieren'},2200)}
+    function fallback(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fallback)}else fallback();
+  })});
+  document.querySelectorAll('.cc-copy').forEach(function(btn){btn.addEventListener('click',function(){
+    var t=btn.dataset.mail;function ok(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Kopieren'},1600)}
+    function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fb)}else fb();
+  })});
+  var n=document.querySelector('.kb-nav');if(n){n.querySelector('.label').addEventListener('click',function(){n.classList.toggle('open')})}
+})();
+</script>
+</body>
+</html>
