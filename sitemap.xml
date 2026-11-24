@@ -4,7 +4,6 @@
   <url><loc>https://tradexag.ch/impressum.html</loc></url>
   <url><loc>https://tradexag.ch/datenschutz.html</loc></url>
   <url><loc>https://tradexag.ch/supportx/</loc></url>
-  <url><loc>https://tradexag.ch/wissen/ki-schneller-live/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/01-grundprinzipien/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/02-hosting/</loc></url>
@@ -22,4 +21,8 @@
   <url><loc>https://tradexag.ch/wissen/sicherheit/csa-star/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/glossar/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/prompts/</loc></url>
+  <!-- blog:start (von tools/blog/bauen.py erzeugt) -->
+  <url><loc>https://tradexag.ch/blog/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://tradexag.ch/blog/ki-produktivitaet-schneller-code/</loc><lastmod>2026-11-24</lastmod></url>
+  <!-- blog:end -->
 </urlset>
