@@ -22,7 +22,8 @@
   <url><loc>https://tradexag.ch/wissen/sicherheit/glossar/</loc></url>
   <url><loc>https://tradexag.ch/wissen/sicherheit/prompts/</loc></url>
   <!-- blog:start (von tools/blog/bauen.py erzeugt) -->
-  <url><loc>https://tradexag.ch/blog/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://tradexag.ch/blog/</loc><lastmod>2026-11-25</lastmod></url>
+  <url><loc>https://tradexag.ch/blog/e-commerce-trends-2026/</loc><lastmod>2026-11-25</lastmod></url>
   <url><loc>https://tradexag.ch/blog/ki-produktivitaet-schneller-code/</loc><lastmod>2026-11-24</lastmod></url>
   <!-- blog:end -->
 </urlset>
